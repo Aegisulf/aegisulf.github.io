@@ -53,19 +53,64 @@ body {
 }
 
 /* ===================================================
-   Full Screen Fixed Background (修復背景不顯示與行動端 Bug)
+   Full Screen Fixed Background (已優化進光量與對比度)
    =================================================== */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  /* 疊加深色遮罩 (80% 不透明)，確保文字清晰 */
+  /* 
+     採用微量暗化 (中央 25%、周圍 55%)，角色細節完全浮現；
+     底部稍微拉深 (70%) 確保按鈕內容讀取穩定。
+  */
   background: 
-    linear-gradient(rgba(5, 4, 8, 0.82), rgba(5, 4, 8, 0.88)),
-    url('assets/hero.webp') center center / cover no-repeat;
+    radial-gradient(circle at 50% 30%, rgba(5, 4, 8, 0.25) 0%, rgba(5, 4, 8, 0.55) 75%),
+    linear-gradient(to bottom, transparent 0%, rgba(5, 4, 8, 0.7) 100%),
+    url('assets/hero.webp') center 20% / cover no-repeat;
   pointer-events: none;
 }
+
+/* ===================================================
+   AEGISULF SVG Logo (紅色邊框 + 黑色字 + 血紅光暈)
+   =================================================== */
+.logo-wrapper {
+  width: 100%;
+  max-width: 380px; /* 桌機適當寬度 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.profile-logo {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  /* 紅色外發光特效 */
+  filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.65)) drop-shadow(0 2px 5px rgba(0, 0, 0, 0.9));
+}
+
+.logo-paths path {
+  fill: #06050a; /* 實心黑字 */
+  stroke: #e63946; /* 血紅邊框 */
+  stroke-width: 4.5px; /* 邊框粗細 (基於 900px viewBox) */
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* RWD 調整 */
+@media (max-width: 480px) {
+  .logo-wrapper {
+    max-width: 280px; /* 手機螢幕自動等比縮小 */
+  }
+  
+  .logo-paths path {
+    stroke-width: 3.5px;
+  }
+}
+
 
 /* ===================================================
    Header & Profile Card
