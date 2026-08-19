@@ -1,0 +1,336 @@
+/* ===================================================
+   AEGISULF Hub - Global Configuration & CSS Variables
+   =================================================== */
+:root {
+  /* 背景與漸層 */
+  --bg-gradient: radial-gradient(circle at 50% 0%, #1a162b 0%, #0c0a14 60%, #050408 100%);
+  --body-bg-color: #050408;
+
+  /* 品牌重點色 (硬派紅/深紫電光風格) */
+  --primary-accent: #e63946;
+  --primary-accent-glow: rgba(230, 57, 70, 0.35);
+  --secondary-accent: #7b2cbf;
+
+  /* 卡片與玻璃質感 */
+  --card-bg: rgba(22, 20, 32, 0.7);
+  --card-bg-hover: rgba(35, 30, 52, 0.9);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-border-hover: rgba(230, 57, 70, 0.5);
+
+  /* 文字色彩 */
+  --text-main: #f0f0f5;
+  --text-sub: #9a98a6;
+  --text-highlight: #ffffff;
+
+  /* 尺寸 */
+  --max-content-width: 640px;
+  --hero-height: 280px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-full: 9999px;
+
+  /* 動畫 */
+  --trans-speed: 0.25s;
+  --trans-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ===================================================
+   Reset & Base Styles
+   =================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--body-bg-color);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===================================================
+   Hero Section
+   =================================================== */
+.hero-section {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-image-container {
+  width: 100%;
+  height: var(--hero-height);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(5, 4, 8, 0.2) 0%, rgba(5, 4, 8, 0.95) 100%);
+  pointer-events: none;
+}
+
+/* ===================================================
+   Profile Card
+   =================================================== */
+.profile-card {
+  position: relative;
+  margin-top: -65px; /* 使頭像往上重疊在 Hero 圖邊緣 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1.5rem;
+  z-index: 2;
+  max-width: var(--max-content-width);
+  width: 100%;
+}
+
+.avatar-wrapper {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-full);
+  padding: 3px;
+  background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+  box-shadow: 0 8px 24px var(--primary-accent-glow);
+  margin-bottom: 1rem;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+  display: block;
+  background-color: #121018;
+}
+
+.profile-name {
+  font-family: 'Cinzel', serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-highlight);
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+}
+
+.profile-bio {
+  font-size: 0.92rem;
+  color: var(--text-sub);
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+/* ===================================================
+   Main Content Layout
+   =================================================== */
+.main-container {
+  width: 100%;
+  max-width: var(--max-content-width);
+  padding: 1.5rem 1.25rem 3rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  z-index: 1;
+}
+
+/* ===================================================
+   Responsive Video Embed
+   =================================================== */
+.media-section {
+  width: 100%;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 比例 */
+  height: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ===================================================
+   Links Section & Cards
+   =================================================== */
+.links-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  width: 100%;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.15rem;
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--trans-speed) var(--trans-ease);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.link-card:hover {
+  transform: translateY(-2px);
+  background: var(--card-bg-hover);
+  border-color: var(--card-border-hover);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--primary-accent-glow);
+}
+
+.link-card:active {
+  transform: translateY(0);
+}
+
+/* 縮圖外框 */
+.thumb-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #1e1b29;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 文字區塊 */
+.link-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.link-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-highlight);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-sub {
+  font-size: 0.78rem;
+  color: var(--text-sub);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-arrow {
+  font-size: 1.1rem;
+  color: var(--text-sub);
+  transition: transform var(--trans-speed) var(--trans-ease), color var(--trans-speed) var(--trans-ease);
+  flex-shrink: 0;
+}
+
+.link-card:hover .link-arrow {
+  color: var(--primary-accent);
+  transform: translate(2px, -2px);
+}
+
+/* Ko-fi 特殊醒目卡片樣式 */
+.highlight-card {
+  border-color: rgba(230, 57, 70, 0.35);
+  background: linear-gradient(90deg, rgba(230, 57, 70, 0.12) 0%, rgba(22, 20, 32, 0.8) 100%);
+}
+
+/* ===================================================
+   Footer
+   =================================================== */
+.footer {
+  margin-top: auto;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: #636170;
+  letter-spacing: 0.05em;
+}
+
+/* ===================================================
+   Responsive Optimization (RWD)
+   =================================================== */
+@media (max-width: 480px) {
+  :root {
+    --hero-height: 200px;
+  }
+  
+  .profile-card {
+    margin-top: -50px;
+  }
+  
+  .avatar-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .profile-name {
+    font-size: 1.55rem;
+  }
+
+  .thumb-box {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .link-title {
+    font-size: 0.92rem;
+  }
+}
+
+@media (min-width: 768px) {
+  :root {
+    --hero-height: 320px;
+  }
+}

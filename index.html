@@ -1,17 +1,159 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aegisulf</title>
-    <meta http-equiv="refresh" content="0; url=https://linktr.ee/aegisulf">
-    <link rel="canonical" href="https://linktr.ee/aegisulf">
-    <meta name="robots" content="noindex, follow">
-    <script>
-        window.location.replace("https://linktr.ee/aegisulf");
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEGISULF | Official Links</title>
+  <meta name="description" content="Aegisulf, crafting electronic music. Official hub for music releases, social media, and support.">
+  <meta name="theme-color" content="#0d0d11">
+
+  <!-- Open Graph / Discord / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aegisulf.github.io/">
+  <meta property="og:title" content="AEGISULF | Official Links">
+  <meta property="og:description" content="Aegisulf, crafting electronic music. Official hub for music releases, social media, and support.">
+  <meta property="og:image" content="https://aegisulf.github.io/assets/og-cover.jpg">
+
+  <!-- X (Twitter) Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@aegisulf">
+  <meta name="twitter:creator" content="@aegisulf">
+  <meta name="twitter:title" content="AEGISULF | Official Links">
+  <meta name="twitter:description" content="Aegisulf, crafting electronic music. Official hub for music releases, social media, and support.">
+  <meta name="twitter:image" content="https://aegisulf.github.io/assets/og-cover.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: #0d0d0d; color: #ffffff; font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0;">
-    <p>Redirecting to territory... <a href="https://linktr.ee/aegisulf" style="color: #00f0ff; text-decoration: none;">Click here if not redirected automatically.</a></p>
+<body>
+
+  <!-- 頂部 Hero 視覺大圖 -->
+  <header class="hero-section">
+    <div class="hero-image-container">
+      <img src="assets/hero.webp" alt="AEGISULF Hero Banner" class="hero-img" loading="eager">
+      <div class="hero-overlay"></div>
+    </div>
+
+    <!-- 個人資訊區塊 (疊加大圖下方) -->
+    <div class="profile-card">
+      <div class="avatar-wrapper">
+        <img src="assets/avatar.webp" alt="AEGISULF Avatar" class="avatar-img" loading="eager">
+      </div>
+      <h1 class="profile-name">AEGISULF</h1>
+      <p class="profile-bio">Aegisulf, crafting electronic music. Connect with me for updates and support my journey.</p>
+    </div>
+  </header>
+
+  <!-- 主要內容區 -->
+  <main class="main-container">
+
+    <!-- 內嵌 YouTube 最新影片 / 主打曲播放器 -->
+    <section class="media-section">
+      <div class="video-container">
+        <!-- 將 YOUR_VIDEO_ID 換成你的 YouTube 影片 ID -->
+        <iframe 
+          src="https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID" 
+          title="AEGISULF Latest Release" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen 
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- 連結按鈕列表 -->
+    <section class="links-section">
+
+      <!-- Bandcamp -->
+      <a href="https://aegisulf.bandcamp.com" class="link-card" target="_blank" rel="noopener noreferrer">
+        <div class="thumb-box">
+          <img src="assets/thumbs/bandcamp.webp" alt="Bandcamp" loading="lazy">
+        </div>
+        <div class="link-info">
+          <span class="link-title">Bandcamp</span>
+          <span class="link-sub">Discography & High Quality Audio</span>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@aegisulf?sub_confirmation=1" class="link-card" target="_blank" rel="noopener noreferrer">
+        <div class="thumb-box">
+          <img src="assets/thumbs/youtube.webp" alt="YouTube" loading="lazy">
+        </div>
+        <div class="link-info">
+          <span class="link-title">YouTube</span>
+          <span class="link-sub">Official Releases & Visualizers</span>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+
+      <!-- X (Twitter) -->
+      <a href="https://x.com/aegisulf" class="link-card" target="_blank" rel="noopener noreferrer">
+        <div class="thumb-box">
+          <img src="assets/thumbs/x.webp" alt="X" loading="lazy">
+        </div>
+        <div class="link-info">
+          <span class="link-title">X (Twitter)</span>
+          <span class="link-sub">Updates & Status</span>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+
+      <!-- Ko-fi -->
+      <a href="https://ko-fi.com/aegisulf_music" class="link-card highlight-card" target="_blank" rel="noopener noreferrer">
+        <div class="thumb-box">
+          <img src="assets/thumbs/kofi.webp" alt="Ko-fi" loading="lazy">
+        </div>
+        <div class="link-info">
+          <span class="link-title">Support on Ko-fi</span>
+          <span class="link-sub">Fuel the Beats & Music Production</span>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+
+      <!-- ============================================== -->
+      <!-- 擴充模板：若未來有新連結，取消以下註解即可使用 -->
+      <!-- ============================================== -->
+      <!--
+      <a href="https://soundcloud.com/YOUR_ID" class="link-card" target="_blank" rel="noopener noreferrer">
+        <div class="thumb-box">
+          <img src="assets/thumbs/soundcloud.webp" alt="SoundCloud" loading="lazy">
+        </div>
+        <div class="link-info">
+          <span class="link-title">SoundCloud</span>
+          <span class="link-sub">WIPs, Previews & Bootlegs</span>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      -->
+
+      <!--
+      <a href="https://open.spotify.com/artist/YOUR_ID" class="link-card" target="_blank" rel="noopener noreferrer">
+        <div class="thumb-box">
+          <img src="assets/thumbs/spotify.webp" alt="Spotify" loading="lazy">
+        </div>
+        <div class="link-info">
+          <span class="link-title">Spotify</span>
+          <span class="link-sub">Stream on Spotify</span>
+        </div>
+        <span class="link-arrow">↗</span>
+      </a>
+      -->
+
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© AEGISULF. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
