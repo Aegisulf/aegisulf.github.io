@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- 血紅高光與熔岩漸層 -->
+    <linearGradient id="redMagma" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff3b30"/>
+      <stop offset="100%" stop-color="#c41212"/>
+    </linearGradient>
+
+    <!-- 眼睛白熱核心光暈 -->
+    <filter id="eyeGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 全圖外框加厚深色描邊底層 (確保在任何淺色/深色背景皆能清晰脫穎) -->
+  <g stroke="#101216" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+
+    <!-- 1. 後方深色鬃毛外層 (Dark Mane Silhouette) -->
+    <path d="M236,25 L292,82 L332,60 L336,110 L408,82 L394,142 L474,136 L438,206 L496,232 L442,298 L488,348 L418,404 L440,460 L356,478 L374,438 L320,462 L172,448 C160,420 180,360 208,340 L192,284 L236,25 Z" fill="#1e2126" />
+
+    <!-- 鬃毛層次高光塊 (Midtone Mane Spikes) -->
+    <path d="M280,72 L320,122 L368,102 L364,152 L430,148 L404,204 L458,228 L416,280 L448,324 L396,368 L412,416 L356,432 L340,388 L308,416 L276,336 L248,272 L274,166 L238,136 Z" fill="#2d323a" />
+    <path d="M336,182 L372,216 L348,272 L388,300 L352,352 L312,308 Z" fill="#3a404a" />
+
+    <!-- 2. 後頸右下側熔岩裂紋 (Neck Magma Cracks) -->
+    <path d="M434,248 Q448,300 456,336 L440,352 Q448,390 416,420" fill="none" stroke="url(#redMagma)" stroke-width="8" />
+    <path d="M446,312 L424,324 M436,368 L402,380" fill="none" stroke="url(#redMagma)" stroke-width="6" />
+
+    <!-- 3. 左側巨大熔岩外角 (Left Magma Horn / Armor Crest) -->
+    <path d="M126,424 C72,400 36,350 36,288 C36,220 72,160 88,142 C82,188 94,244 116,288 C132,320 156,346 172,364 L126,424 Z" fill="#1a1d22" />
+    <!-- 巨角內部層次與熔岩裂紋 -->
+    <path d="M88,142 C92,182 108,230 128,272 L112,316 L126,424 C90,396 58,348 52,292 C48,244 72,184 88,142 Z" fill="#292e36" />
+    <path d="M68,260 Q62,310 74,352 L88,388" fill="none" stroke="url(#redMagma)" stroke-width="7" />
+    <path d="M72,298 L56,312 M78,336 L64,354 M84,366 L74,380" fill="none" stroke="url(#redMagma)" stroke-width="5" />
+
+    <!-- 4. 雙耳 (Ears) -->
+    <!-- 後耳 (Left Ear) -->
+    <path d="M142,54 L132,136 L178,114 Z" fill="#1a1d22" />
+    <path d="M140,74 L138,124 L164,110 Z" fill="url(#redMagma)" />
+
+    <!-- 前耳 (Right Ear - 醒目紅內耳) -->
+    <path d="M228,20 L198,140 L288,140 Z" fill="#1e2126" />
+    <path d="M232,38 L212,126 L272,126 Z" fill="url(#redMagma)" />
+
+    <!-- 5. 狼頭主面部毛皮 (Face & Snout Base) -->
+    <path d="M178,114 L204,172 L182,194 L224,196 L168,260 L248,222 L198,284 L276,262 L234,342 L188,328 L170,358 L144,340 L152,314 L88,294 L114,236 L174,188 L148,154 Z" fill="#58616d" />
+
+    <!-- 額頭與臉頰深色切面 (Face Shadows) -->
+    <path d="M178,114 L154,150 L174,186 L114,236 L138,238 L88,294 L114,296 L152,314 L170,300 L198,284 L244,270 L204,172 Z" fill="#434a54" />
+
+    <!-- 吻部與鼻樑 (Muzzle) -->
+    <path d="M114,236 L84,286 L112,308 L152,284 L138,238 Z" fill="#353b43" />
+    <!-- 鼻頭 -->
+    <path d="M84,286 L74,302 C74,312 84,324 96,318 L112,308 Z" fill="#14171a" />
+    <!-- 鬍鬚孔 (Whisker Dots) -->
+    <circle cx="116" cy="308" r="3" fill="#14171a" />
+    <circle cx="126" cy="304" r="3" fill="#14171a" />
+    <circle cx="122" cy="316" r="3" fill="#14171a" />
+
+    <!-- 6. 咆哮嘴部與尖牙 (Snarl & Fangs) -->
+    <!-- 口腔深色底色 -->
+    <path d="M120,318 L178,288 L220,326 L178,354 L146,336 Z" fill="#420d11" stroke="#101216" stroke-width="4" />
+
+    <!-- 上排獠牙 (Upper Fangs) -->
+    <polygon points="124,316 132,330 136,312" fill="#ffffff" stroke="#101216" stroke-width="2" />
+    <polygon points="138,310 148,334 154,304" fill="#ffffff" stroke="#101216" stroke-width="2" />
+    <polygon points="156,302 168,336 176,296" fill="#ffffff" stroke="#101216" stroke-width="2.5" />
+    <polygon points="178,296 188,324 198,294" fill="#ffffff" stroke="#101216" stroke-width="2" />
+    <polygon points="200,296 208,318 214,304" fill="#ffffff" stroke="#101216" stroke-width="2" />
+
+    <!-- 下排獠牙與巨型下犬齒 (Lower Fangs) -->
+    <polygon points="150,344 158,320 166,346" fill="#ffffff" stroke="#101216" stroke-width="2" />
+    <polygon points="144,334 172,360 178,338" fill="#ffffff" stroke="#101216" stroke-width="3" />
+    <polygon points="172,348 182,324 190,346" fill="#ffffff" stroke="#101216" stroke-width="2" />
+
+    <!-- 下顎 (Lower Jaw) -->
+    <path d="M144,336 L138,348 L152,366 L174,358 L196,380 L188,336 Z" fill="#434a54" />
+
+    <!-- 7. 標誌性：怒目、血痕眼疤與額頭裂紋 (Eye & Scar) -->
+    <!-- 貫穿左眼的魔紋裂痕 -->
+    <path d="M142,168 L148,206 M170,174 L180,224 L168,266 M180,224 L204,212 M180,224 L216,236 M164,236 L196,252" fill="none" stroke="url(#redMagma)" stroke-width="6" stroke-linecap="round" />
+
+    <!-- 眼窩深處與發光眼眸 -->
+    <polygon points="160,238 186,220 170,248" fill="#14171a" />
+    <polygon points="164,236 184,222 174,244" fill="url(#redMagma)" />
+    <!-- 白熱瞳孔核心 -->
+    <polygon points="168,234 180,226 174,240" fill="#ffffff" filter="url(#eyeGlow)" />
+
+    <!-- 8. 胸頸前方閃電狀熔岩塊 (Chest Magma Flash) -->
+    <polygon points="274,324 316,336 292,374 340,364 250,446 270,392 236,396" fill="url(#redMagma)" stroke="#101216" stroke-width="3" />
+  </g>
+</svg>
