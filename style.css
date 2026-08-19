@@ -1,29 +1,25 @@
 /* ===================================================
-   AEGISULF Hub - Global Configuration & CSS Variables
+   AEGISULF Hub - Global Configuration
    =================================================== */
 :root {
-  /* 全版背景 */
-  --body-bg-gradient: linear-gradient(rgba(5, 4, 8, 0.85), rgba(5, 4, 8, 0.85)), url('assets/hero.webp') center / cover no-repeat fixed;
-  --body-bg-color: #050408; /* 備用背景色 */
-
-  /* 重點色 (硬派紅/深紫電光風格) */
+  /* 品牌色彩 */
   --primary-accent: #e63946;
-  --primary-accent-glow: rgba(230, 57, 70, 0.35);
+  --primary-accent-glow: rgba(230, 57, 70, 0.4);
   --secondary-accent: #7b2cbf;
 
-  /* 卡片與玻璃質感 */
-  --card-bg: rgba(22, 20, 32, 0.7);
-  --card-bg-hover: rgba(35, 30, 52, 0.9);
+  /* 毛玻璃卡片 */
+  --card-bg: rgba(18, 16, 26, 0.72);
+  --card-bg-hover: rgba(30, 26, 44, 0.9);
   --card-border: rgba(255, 255, 255, 0.08);
-  --card-border-hover: rgba(230, 57, 70, 0.5);
+  --card-border-hover: rgba(230, 57, 70, 0.6);
 
-  /* 文字色彩 */
+  /* 文字 */
   --text-main: #f0f0f5;
   --text-sub: #9a98a6;
   --text-highlight: #ffffff;
 
   /* 尺寸 */
-  --max-content-width: 640px;
+  --max-content-width: 600px;
   --radius-lg: 16px;
   --radius-md: 12px;
   --radius-full: 9999px;
@@ -44,13 +40,7 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background-color: var(--body-bg-color);
-  /* 全版背景 */
-  background-image: var(--body-bg-gradient);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-color: #050408;
   color: var(--text-main);
   min-height: 100vh;
   display: flex;
@@ -59,40 +49,48 @@ body {
   overflow-x: hidden;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
 
 /* ===================================================
-   Header Section
+   Full Screen Fixed Background (修復背景不顯示與行動端 Bug)
+   =================================================== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* 疊加深色遮罩 (80% 不透明)，確保文字清晰 */
+  background: 
+    linear-gradient(rgba(5, 4, 8, 0.82), rgba(5, 4, 8, 0.88)),
+    url('assets/hero.webp') center center / cover no-repeat;
+  pointer-events: none;
+}
+
+/* ===================================================
+   Header & Profile Card
    =================================================== */
 .hero-section {
   width: 100%;
-  position: relative;
+  padding-top: 3.5rem;
+  padding-bottom: 1.5rem;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 4rem;
-  padding-bottom: 2rem;
+  justify-content: center;
 }
 
-/* ===================================================
-   Profile Card
-   =================================================== */
 .profile-card {
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   padding: 0 1.5rem;
-  z-index: 2;
   max-width: var(--max-content-width);
   width: 100%;
 }
 
-/*.avatar-wrapper, .avatar-img, .profile-name, .profile-bio*/
 .avatar-wrapper {
-  width: 120px;
-  height: 120px;
+  width: 110px;
+  height: 110px;
   border-radius: var(--radius-full);
   padding: 3px;
   background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
@@ -117,7 +115,7 @@ body {
   color: var(--text-highlight);
   text-transform: uppercase;
   margin-bottom: 0.4rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
 }
 
 .profile-bio {
@@ -127,29 +125,35 @@ body {
   line-height: 1.6;
 }
 
-/* 主要內容區保持不變 */
+/* ===================================================
+   Main Content Layout
+   =================================================== */
 .main-container {
   width: 100%;
   max-width: var(--max-content-width);
-  padding: 1.5rem 1.25rem 3rem 1.25rem;
+  padding: 0.5rem 1.25rem 3rem 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
-  z-index: 1;
 }
 
-/* YouTube, Links, Highlight Card, Footer 樣式均保持不變 */
-/* ... (舊代碼，省略以節省空間) ... */
+/* ===================================================
+   YouTube Video Container
+   =================================================== */
+.media-section {
+  width: 100%;
+}
+
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%;
+  padding-bottom: 56.25%; /* 16:9 */
   height: 0;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: #000;
   border: 1px solid var(--card-border);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
 }
 
 .video-container iframe {
@@ -161,6 +165,9 @@ body {
   border: 0;
 }
 
+/* ===================================================
+   Links Section & Cards
+   =================================================== */
 .links-section {
   display: flex;
   flex-direction: column;
@@ -174,47 +181,72 @@ body {
   gap: 1rem;
   padding: 0.85rem 1.15rem;
   background: var(--card-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
   text-decoration: none;
   color: inherit;
   transition: all var(--trans-speed) var(--trans-ease);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 .link-card:hover {
   transform: translateY(-2px);
   background: var(--card-bg-hover);
   border-color: var(--card-border-hover);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--primary-accent-glow);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--primary-accent-glow);
 }
 
 .link-card:active {
   transform: translateY(0);
 }
 
+/* 圖示容器 */
 .thumb-box {
-  width: 46px;
-  height: 46px;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #1e1b29;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.04);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background var(--trans-speed) var(--trans-ease);
 }
 
-.thumb-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+/* 官方 SVG 圖標樣式 */
+.brand-icon {
+  width: 22px;
+  height: 22px;
+  transition: transform var(--trans-speed) var(--trans-ease), color var(--trans-speed) var(--trans-ease);
 }
 
+/* 各平台專屬品牌顏色與 Hover 反饋 */
+.icon-bandcamp .brand-icon { color: #629aa9; }
+.icon-bandcamp:hover .thumb-box { background: rgba(98, 154, 169, 0.15); border-color: rgba(98, 154, 169, 0.4); }
+
+.icon-youtube .brand-icon { color: #ff0000; }
+.icon-youtube:hover .thumb-box { background: rgba(255, 0, 0, 0.15); border-color: rgba(255, 0, 0, 0.4); }
+
+.icon-x .brand-icon { color: #ffffff; }
+.icon-x:hover .thumb-box { background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.4); }
+
+.icon-kofi .brand-icon { color: #ff5e5b; }
+.icon-kofi:hover .thumb-box { background: rgba(255, 94, 91, 0.15); border-color: rgba(255, 94, 91, 0.4); }
+
+.icon-soundcloud .brand-icon { color: #ff5500; }
+.icon-soundcloud:hover .thumb-box { background: rgba(255, 85, 0, 0.15); border-color: rgba(255, 85, 0, 0.4); }
+
+.icon-spotify .brand-icon { color: #1db954; }
+.icon-spotify:hover .thumb-box { background: rgba(29, 185, 84, 0.15); border-color: rgba(29, 185, 84, 0.4); }
+
+.link-card:hover .brand-icon {
+  transform: scale(1.1);
+}
+
+/* 文字區塊 */
 .link-info {
   display: flex;
   flex-direction: column;
@@ -251,11 +283,15 @@ body {
   transform: translate(2px, -2px);
 }
 
+/* Ko-fi 特殊醒目卡片 */
 .highlight-card {
   border-color: rgba(230, 57, 70, 0.35);
-  background: linear-gradient(90deg, rgba(230, 57, 70, 0.12) 0%, rgba(22, 20, 32, 0.8) 100%);
+  background: linear-gradient(90deg, rgba(230, 57, 70, 0.12) 0%, rgba(18, 16, 26, 0.8) 100%);
 }
 
+/* ===================================================
+   Footer
+   =================================================== */
 .footer {
   margin-top: auto;
   padding: 2rem 1rem;
@@ -266,17 +302,16 @@ body {
 }
 
 /* ===================================================
-   Responsive Optimization (RWD)
+   RWD
    =================================================== */
 @media (max-width: 480px) {
-
   .hero-section {
-    padding-top: 3rem; /* 手機上縮小頂部間距 */
+    padding-top: 2.5rem;
   }
-
+  
   .avatar-wrapper {
-    width: 100px;
-    height: 100px;
+    width: 96px;
+    height: 96px;
   }
   
   .profile-name {
@@ -288,6 +323,11 @@ body {
     height: 40px;
   }
   
+  .brand-icon {
+    width: 19px;
+    height: 19px;
+  }
+
   .link-title {
     font-size: 0.92rem;
   }
