@@ -56,9 +56,9 @@
     <!-- 內嵌 YouTube 最新影片 / 主打曲播放器 -->
     <section class="media-section">
       <div class="video-container">
-        <!-- 將 YOUR_VIDEO_ID 換成你的 YouTube 影片 ID -->
         <iframe 
-          src="https://www.youtube-nocookie.com/embed/YOUR_VIDEO_ID" 
+          id="latest-yt-iframe"
+          src="" 
           title="AEGISULF Latest Release" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -66,6 +66,28 @@
           loading="lazy">
         </iframe>
       </div>
+      <script>
+        (async function loadLatestVideo() {
+          const CHANNEL_ID = 'UCyIiIjMcHIeOn0ea7bLNAPQ';
+          const rssUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`);
+          const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
+
+          try {
+            const res = await fetch(apiUrl);
+            const data = await res.json();
+            if (data.items && data.items.length > 0) {
+              // RSS feed link
+              const latestLink = data.items[0].link;
+              const videoId = latestLink.split('v=')[1];
+              document.getElementById('latest-yt-iframe').src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+            }
+          } catch (err) {
+            console.error('Failed to fetch latest video:', err);
+            // 抓取失敗時的備用預設影片
+            //document.getElementById('latest-yt-iframe').src = 'https://www.youtube-nocookie.com/embed/預設影片ID';
+          }
+        })();
+</script>
     </section>
 
     <!-- 連結按鈕列表 -->
