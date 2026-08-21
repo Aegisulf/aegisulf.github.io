@@ -72,8 +72,7 @@
     <section class="media-section">
       <div class="video-container">
         <iframe 
-          id="latest-yt-iframe"
-          src="" 
+          src="https://www.youtube-nocookie.com/embed/videoseries?list=UUyIiIjMcHIeOn0ea7bLNAPQ" 
           title="AEGISULF Latest Release" 
           frameborder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -81,25 +80,6 @@
           loading="lazy">
         </iframe>
       </div>
-      <script>
-        (async function loadLatestVideo() {
-          const CHANNEL_ID = 'UCyIiIjMcHIeOn0ea7bLNAPQ';
-          const rssUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`);
-          const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${rssUrl}`;
-
-          try {
-            const res = await fetch(apiUrl);
-            const data = await res.json();
-            if (data.items && data.items.length > 0) {
-              const latestLink = data.items[0].link;
-              const videoId = latestLink.split('v=')[1];
-              document.getElementById('latest-yt-iframe').src = `https://www.youtube-nocookie.com/embed/${videoId}`;
-            }
-          } catch (err) {
-            console.error('Failed to fetch latest video:', err);
-          }
-        })();
-      </script>
     </section>
 
     <!-- Links -->
