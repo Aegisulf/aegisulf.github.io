@@ -6,7 +6,7 @@
   <title>AEGISULF | Official Links</title>
   <meta name="description" content="Aegisulf, crafting electronic music. Official hub for music releases, social media, and support.">
   <meta name="theme-color" content="#0d0d11">
-  <!-- using weird wolf svg icon -->
+  <!-- using wolf svg icon -->
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
   <!-- OG preview -->
   <meta property="og:type" content="website">
@@ -30,7 +30,7 @@
 </head>
 <body>
 
-<!-- Name Area -->
+  <!-- Name Area -->
   <header class="hero-section">
     <div class="profile-card">
       <div class="avatar-wrapper">
@@ -86,7 +86,7 @@
     <section class="links-section">
 
       <!-- SoundCloud -->
-      <a href="https://soundcloud.com/aegisulf" class="link-card icon-soundcloud" target="_blank" rel="noopener noreferrer">
+      <button type="button" class="link-card icon-soundcloud" id="sc-modal-trigger">
         <div class="thumb-box">
           <svg viewBox="0 0 24 24" class="brand-icon"><path fill="currentColor" d="M1.175 12.225c-.051 0-.094.044-.102.1l-.398 4.237.398 4.195c.008.058.051.1.102.1.059 0 .102-.042.11-.1l.525-4.195-.525-4.237c-.008-.056-.051-.1-.11-.1zm1.594-.969c-.068 0-.12.053-.128.12l-.39 5.186.39 5.093c.008.067.06.12.128.12s.119-.053.127-.12l.508-5.093-.508-5.186c-.008-.067-.059-.12-.127-.12zm1.661-.635c-.085 0-.144.068-.153.153l-.339 5.805.339 5.678c.009.085.068.153.153.153s.144-.068.144-.153l.449-5.678-.449-5.805c0-.085-.059-.153-.144-.153zm1.686-.33c-.093 0-.17.076-.178.17l-.28 6.127.28 6.009c.008.093.085.169.178.169s.169-.076.169-.17l.381-6.008-.381-6.127c0-.094-.076-.17-.169-.17zm1.695-.314c-.11 0-.195.085-.203.195l-.22 6.432.22 6.297c.008.11.093.195.203.195s.195-.085.203-.195l.305-6.297-.305-6.432c-.008-.11-.093-.195-.203-.195zm1.703-.313c-.119 0-.212.093-.22.212l-.161 6.746.161 6.576c.008.119.101.212.22.212s.212-.093.22-.212l.229-6.576-.229-6.746c-.008-.119-.101-.212-.22-.212zm1.712-.127c-.127 0-.229.102-.237.229l-.102 6.864.102 6.695c.008.127.11.229.237.229.136 0 .237-.102.246-.229l.161-6.695-.161-6.864c-.009-.127-.11-.229-.246-.229zm1.712-.009c-.136 0-.246.11-.254.246l-.042 6.873.042 6.695c.008.136.118.246.254.246.144 0 .254-.11.254-.246l.093-6.695-.093-6.873c0-.136-.11-.246-.254-.246zm1.72-.059c-.144 0-.263.119-.263.263l.008 6.924-.008 6.644c0 .144.119.263.263.263.153 0 .271-.119.271-.263l.034-6.644-.034-6.924c0-.144-.118-.263-.271-.263zm4.618 2.051c-.347 0-.678.068-.975.203-.237-2.618-2.449-4.669-5.144-4.669-.475 0-.932.068-1.364.186-.119.034-.195.144-.186.263l.008 11.229c0 .144.119.263.263.263h7.398c2.161 0 3.915-1.754 3.915-3.915s-1.754-3.56-3.915-3.56z"/></svg>
         </div>
@@ -94,22 +94,8 @@
           <span class="link-title">SoundCloud</span>
           <span class="link-sub">Releases, Previews, WIPs</span>
         </div>
-        <span class="link-arrow">↗</span>
-      </a>
-
-      <!-- Spotify -->
-      <!--
-      <a href="https://open.spotify.com/artist/ID" class="link-card icon-spotify" target="_blank" rel="noopener noreferrer">
-        <div class="thumb-box">
-          <svg viewBox="0 0 24 24" class="brand-icon"><path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.485 17.31c-.216.354-.675.467-1.028.252-2.817-1.72-6.363-2.109-10.539-1.155-.403.092-.807-.16-.899-.562-.092-.403.16-.807.562-.899 4.568-1.044 8.487-.604 11.652 1.336.353.215.466.674.252 1.028zm1.464-3.255c-.272.444-.853.585-1.296.313-3.224-1.982-8.14-2.556-11.954-1.398-.5.152-1.03-.135-1.182-.635-.152-.5.135-1.03.635-1.182 4.364-1.325 9.789-.688 13.484 1.583.444.272.585.853.313 1.296zm.126-3.39c-3.864-2.295-10.245-2.507-13.931-1.388-.593.18-1.22-.164-1.4-.757-.18-.593.164-1.22.757-1.4 4.238-1.286 11.288-1.038 15.733 1.602.533.317.706 1.008.389 1.541-.318.533-1.008.706-1.541.389z"/></svg>
-        </div>
-        <div class="link-info">
-          <span class="link-title">Spotify</span>
-          <span class="link-sub">Stream on Spotify</span>
-        </div>
-        <span class="link-arrow">↗</span>
-      </a>
-      -->
+        <span class="link-arrow">▶</span>
+      </button>
 
       <!-- X (Twitter) -->
       <a href="https://x.com/aegisulf" class="link-card icon-x" target="_blank" rel="noopener noreferrer">
@@ -146,6 +132,7 @@
         </div>
         <span class="link-arrow">↗</span>
       </a>
+
       <!-- Ko-fi -->
       <a href="https://ko-fi.com/aegisulf_music" class="link-card icon-kofi highlight-card" target="_blank" rel="noopener noreferrer">
         <div class="thumb-box">
@@ -164,6 +151,66 @@
   <footer class="footer">
     <p>© AEGISULF. All rights reserved.</p>
   </footer>
+
+  <!-- SoundCloud Lightbox Modal -->
+  <div id="sc-modal" class="sc-modal-overlay" aria-hidden="true">
+    <div class="sc-modal-card">
+      <div class="sc-modal-header">
+        <h3 class="sc-modal-title">SoundCloud</h3>
+        <button type="button" class="sc-modal-close" id="sc-modal-close" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="sc-modal-body">
+        <iframe 
+          id="sc-iframe"
+          data-src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/aegisulf&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+          width="100%" 
+          height="450" 
+          scrolling="no" 
+          frameborder="no" 
+          allow="autoplay">
+        </iframe>
+      </div>
+
+      <div class="sc-modal-footer">
+        <a href="https://soundcloud.com/aegisulf" target="_blank" rel="noopener noreferrer" class="sc-external-btn">
+          <svg viewBox="0 0 24 24" class="sc-btn-icon"><path fill="currentColor" d="M1.175 12.225c-.051 0-.094.044-.102.1l-.398 4.237.398 4.195c.008.058.051.1.102.1.059 0 .102-.042.11-.1l.525-4.195-.525-4.237c-.008-.056-.051-.1-.11-.1zm1.594-.969c-.068 0-.12.053-.128.12l-.39 5.186.39 5.093c.008.067.06.12.128.12s.119-.053.127-.12l.508-5.093-.508-5.186c-.008-.067-.059-.12-.127-.12zm1.661-.635c-.085 0-.144.068-.153.153l-.339 5.805.339 5.678c.009.085.068.153.153.153s.144-.068.144-.153l.449-5.678-.449-5.805c0-.085-.059-.153-.144-.153zm1.686-.33c-.093 0-.17.076-.178.17l-.28 6.127.28 6.009c.008.093.085.169.178.169s.169-.076.169-.17l.381-6.008-.381-6.127c0-.094-.076-.17-.169-.17zm1.695-.314c-.11 0-.195.085-.203.195l-.22 6.432.22 6.297c.008.11.093.195.203.195s.195-.085.203-.195l.305-6.297-.305-6.432c-.008-.11-.093-.195-.203-.195zm1.703-.313c-.119 0-.212.093-.22.212l-.161 6.746.161 6.576c.008.119.101.212.22.212s.212-.093.22-.212l.229-6.576-.229-6.746c-.008-.119-.101-.212-.22-.212zm1.712-.127c-.127 0-.229.102-.237.229l-.102 6.864.102 6.695c.008.127.11.229.237.229.136 0 .237-.102.246-.229l.161-6.695-.161-6.864c-.009-.127-.11-.229-.246-.229zm1.712-.009c-.136 0-.246.11-.254.246l-.042 6.873.042 6.695c.008.136.118.246.254.246.144 0 .254-.11.254-.246l.093-6.695-.093-6.873c0-.136-.11-.246-.254-.246zm1.72-.059c-.144 0-.263.119-.263.263l.008 6.924-.008 6.644c0 .144.119.263.263.263.153 0 .271-.119.271-.263l.034-6.644-.034-6.924c0-.144-.118-.263-.271-.263zm4.618 2.051c-.347 0-.678.068-.975.203-.237-2.618-2.449-4.669-5.144-4.669-.475 0-.932.068-1.364.186-.119.034-.195.144-.186.263l.008 11.229c0 .144.119.263.263.263h7.398c2.161 0 3.915-1.754 3.915-3.915s-1.754-3.56-3.915-3.56z"/></svg>
+          <span>Open in SoundCloud</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById('sc-modal');
+    const trigger = document.getElementById('sc-modal-trigger');
+    const closeBtn = document.getElementById('sc-modal-close');
+    const iframe = document.getElementById('sc-iframe');
+
+    function openModal() {
+      if (!iframe.src && iframe.dataset.src) {
+        iframe.src = iframe.dataset.src;
+      }
+      modal.classList.add('active');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    trigger.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+    });
+  </script>
 
 </body>
 </html>

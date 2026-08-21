@@ -60,10 +60,6 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -1;
-  /* 
-     採用微量暗化 (中央 25%、周圍 55%)，角色細節完全浮現；
-     底部稍微拉深 (70%) 確保按鈕內容讀取穩定。
-  */
   background: 
     radial-gradient(circle at 50% 30%, rgba(5, 4, 8, 0.25) 0%, rgba(5, 4, 8, 0.55) 75%),
     linear-gradient(to bottom, transparent 0%, rgba(5, 4, 8, 0.7) 100%),
@@ -76,7 +72,7 @@ body::before {
    =================================================== */
 .logo-wrapper {
   width: 100%;
-  max-width: 380px; /* 桌機適當寬度 */
+  max-width: 380px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,30 +83,27 @@ body::before {
   width: 100%;
   height: auto;
   overflow: visible;
-  /* 紅色外發光特效 */
   filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.65)) drop-shadow(0 2px 5px rgba(0, 0, 0, 0.9));
 }
 
 .logo-paths path {
-  fill: #06050a; /* 實心黑字 */
-  stroke: #e63946; /* 血紅邊框 */
-  stroke-width: 4.5px; /* 邊框粗細 (基於 900px viewBox) */
+  fill: #06050a;
+  stroke: #e63946;
+  stroke-width: 4.5px;
   stroke-linejoin: round;
   stroke-linecap: round;
   vector-effect: non-scaling-stroke;
 }
 
-/* RWD 調整 */
 @media (max-width: 480px) {
   .logo-wrapper {
-    max-width: 280px; /* 手機螢幕自動等比縮小 */
+    max-width: 280px;
   }
   
   .logo-paths path {
     stroke-width: 3.5px;
   }
 }
-
 
 /* ===================================================
    Header & Profile Card
@@ -152,17 +145,6 @@ body::before {
   background-color: #121018;
 }
 
-.profile-name {
-  font-family: 'Cinzel', serif;
-  font-size: 1.85rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--text-highlight);
-  text-transform: uppercase;
-  margin-bottom: 0.4rem;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
-}
-
 .profile-bio {
   font-size: 0.92rem;
   color: var(--text-sub);
@@ -192,7 +174,7 @@ body::before {
 .video-container {
   position: relative;
   width: 100%;
-  padding-bottom: 56.25%; /* 16:9 */
+  padding-bottom: 56.25%;
   height: 0;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -234,6 +216,15 @@ body::before {
   color: inherit;
   transition: all var(--trans-speed) var(--trans-ease);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* 讓 button 標籤完美繼承卡片外觀 */
+button.link-card {
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  text-align: left;
+  cursor: pointer;
 }
 
 .link-card:hover {
@@ -335,6 +326,141 @@ body::before {
 }
 
 /* ===================================================
+   SoundCloud Lightbox Modal (Dark / Crimson Aesthetic)
+   =================================================== */
+.sc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+}
+
+.sc-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sc-modal-card {
+  background: rgba(14, 12, 20, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(230, 57, 70, 0.35);
+  width: 100%;
+  max-width: 480px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 25px rgba(230, 57, 70, 0.25);
+  transform: translateY(20px) scale(0.96);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.sc-modal-overlay.active .sc-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.sc-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1.25rem;
+  background: rgba(8, 7, 12, 0.85);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.sc-modal-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--text-highlight);
+  text-align: center;
+  width: 100%;
+  margin-left: 32px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.sc-modal-close {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: var(--text-sub);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.sc-modal-close:hover {
+  background: rgba(230, 57, 70, 0.25);
+  border-color: var(--primary-accent);
+  color: #ffffff;
+}
+
+.sc-modal-body {
+  width: 100%;
+  line-height: 0;
+  background: #08070c;
+}
+
+.sc-modal-body iframe {
+  border: 0;
+  display: block;
+}
+
+.sc-modal-footer {
+  padding: 1rem 1.25rem;
+  background: rgba(8, 7, 12, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  justify-content: center;
+}
+
+.sc-external-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #ff5500, #cc4400);
+  color: #ffffff;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+  box-shadow: 0 4px 15px rgba(255, 85, 0, 0.35);
+  transition: all 0.2s;
+}
+
+.sc-external-btn:hover {
+  background: linear-gradient(135deg, #ff6a1a, #e64d00);
+  box-shadow: 0 6px 20px rgba(255, 85, 0, 0.5);
+  transform: translateY(-1px);
+}
+
+.sc-btn-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* ===================================================
    Footer
    =================================================== */
 .footer {
@@ -357,10 +483,6 @@ body::before {
   .avatar-wrapper {
     width: 96px;
     height: 96px;
-  }
-  
-  .profile-name {
-    font-size: 1.55rem;
   }
 
   .thumb-box {
