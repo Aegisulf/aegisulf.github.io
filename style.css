@@ -57,7 +57,7 @@ body {
    =================================================== */
 body::before {
   content: "";
-  position: absolute; /* 從 fixed 改為 absolute：背景會隨頁面自然滾動 */
+  position: fixed; /* 從 fixed 改為 absolute：背景會隨頁面自然滾動 */
   inset: 0;
   z-index: -1;
   min-height: 100%;
