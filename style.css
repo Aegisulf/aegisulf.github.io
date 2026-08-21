@@ -53,17 +53,23 @@ body {
 }
 
 /* ===================================================
-   Full Screen Fixed Background (已優化進光量與對比度)
+   Full Page Scrollable Background (頂部對齊 + 滾動延伸)
    =================================================== */
 body::before {
   content: "";
-  position: fixed;
+  position: absolute; /* 從 fixed 改為 absolute：背景會隨頁面自然滾動 */
   inset: 0;
   z-index: -1;
+  min-height: 100%;
+  
+  /* 
+     1. center top: 錨點定在正上方，確保頭部/耳朵永遠從 0px 開始完整呈現
+     2. radial-gradient 光暈移至頂部 (50% 15%)，凸顯面部並讓下方連結區自然暗化
+  */
   background: 
-    radial-gradient(circle at 50% 30%, rgba(5, 4, 8, 0.25) 0%, rgba(5, 4, 8, 0.55) 75%),
-    linear-gradient(to bottom, transparent 0%, rgba(5, 4, 8, 0.7) 100%),
-    url('assets/hero.webp') center 20% / cover no-repeat;
+    radial-gradient(circle at 50% 15%, rgba(5, 4, 8, 0.2) 0%, rgba(5, 4, 8, 0.6) 75%),
+    linear-gradient(to bottom, transparent 0%, rgba(5, 4, 8, 0.85) 100%),
+    url('assets/hero.webp') center top / cover no-repeat;
   pointer-events: none;
 }
 
