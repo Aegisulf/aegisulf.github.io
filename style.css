@@ -284,6 +284,16 @@ button.link-card {
 .icon-spotify .brand-icon { color: #1db954; }
 .icon-spotify:hover .thumb-box { background: rgba(29, 185, 84, 0.15); border-color: rgba(29, 185, 84, 0.4); }
 
+/* Spotify*/
+.icon-spotify .brand-icon {  color: #1db954; }
+.icon-spotify:hover .thumb-box { background: rgba(29, 185, 84, 0.15); border-color: rgba(29, 185, 84, 0.45); }
+.icon-spotify:hover { border-color: rgba(29, 185, 84, 0.4); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(29, 185, 84, 0.3);}
+
+/* Apple Music*/
+.icon-applemusic .brand-icon { color: #fa243c; }
+.icon-applemusic:hover .thumb-box { background: rgba(250, 36, 60, 0.15); border-color: rgba(250, 36, 60, 0.45); }
+.icon-applemusic:hover {border-color: rgba(250, 36, 60, 0.4);box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(250, 36, 60, 0.3);}
+
 .link-card:hover .brand-icon {
   transform: scale(1.1);
 }
