@@ -7,15 +7,15 @@
   --primary-accent-glow: rgba(230, 57, 70, 0.4);
   --secondary-accent: #7b2cbf;
 
-  /* 毛玻璃卡片 */
-  --card-bg: rgba(18, 16, 26, 0.72);
-  --card-bg-hover: rgba(30, 26, 44, 0.9);
+  /* 透光毛玻璃卡片 (45% 不透明，強化背景角色穿透感) */
+  --card-bg: rgba(14, 12, 22, 0.45);
+  --card-bg-hover: rgba(26, 22, 40, 0.75);
   --card-border: rgba(255, 255, 255, 0.08);
   --card-border-hover: rgba(230, 57, 70, 0.6);
 
   /* 文字 */
   --text-main: #f0f0f5;
-  --text-sub: #9a98a6;
+  --text-sub: #a5a3b2;
   --text-highlight: #ffffff;
 
   /* 尺寸 */
@@ -53,62 +53,19 @@ body {
 }
 
 /* ===================================================
-   Full Page Scrollable Background (頂部對齊 + 滾動延伸)
+   Full Page Scrollable Background (永不切頭 + 跟隨滾動)
    =================================================== */
 body::before {
   content: "";
-  position: fixed; /* 從 fixed 改為 absolute：背景會隨頁面自然滾動 */
+  position: absolute; /* 正確跟隨頁面滾動 */
   inset: 0;
   z-index: -1;
   min-height: 100%;
-  
-  /* 
-     1. center top: 錨點定在正上方，確保頭部/耳朵永遠從 0px 開始完整呈現
-     2. radial-gradient 光暈移至頂部 (50% 15%)，凸顯面部並讓下方連結區自然暗化
-  */
   background: 
-    radial-gradient(circle at 50% 15%, rgba(5, 4, 8, 0.2) 0%, rgba(5, 4, 8, 0.6) 75%),
-    linear-gradient(to bottom, transparent 0%, rgba(5, 4, 8, 0.85) 100%),
+    radial-gradient(circle at 50% 12%, rgba(5, 4, 8, 0.15) 0%, rgba(5, 4, 8, 0.65) 75%),
+    linear-gradient(to bottom, transparent 0%, rgba(5, 4, 8, 0.88) 100%),
     url('assets/hero.webp') center top / cover no-repeat;
   pointer-events: none;
-}
-
-/* ===================================================
-   AEGISULF SVG Logo (紅色邊框 + 黑色字 + 血紅光暈)
-   =================================================== */
-.logo-wrapper {
-  width: 100%;
-  max-width: 380px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 0.6rem;
-}
-
-.profile-logo {
-  width: 100%;
-  height: auto;
-  overflow: visible;
-  filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.65)) drop-shadow(0 2px 5px rgba(0, 0, 0, 0.9));
-}
-
-.logo-paths path {
-  fill: #06050a;
-  stroke: #e63946;
-  stroke-width: 4.5px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
-}
-
-@media (max-width: 480px) {
-  .logo-wrapper {
-    max-width: 280px;
-  }
-  
-  .logo-paths path {
-    stroke-width: 3.5px;
-  }
 }
 
 /* ===================================================
@@ -116,7 +73,7 @@ body::before {
    =================================================== */
 .hero-section {
   width: 100%;
-  padding-top: 3.5rem;
+  padding-top: 4.5rem;
   padding-bottom: 1.5rem;
   display: flex;
   justify-content: center;
@@ -132,30 +89,41 @@ body::before {
   width: 100%;
 }
 
-.avatar-wrapper {
-  width: 110px;
-  height: 110px;
-  border-radius: var(--radius-full);
-  padding: 3px;
-  background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
-  box-shadow: 0 8px 24px var(--primary-accent-glow);
-  margin-bottom: 1rem;
+/* Logo 背面聚光暗暈 (防止與背景熔岩裂紋干擾) */
+.logo-wrapper {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.6rem;
+  background: radial-gradient(ellipse at center, rgba(5, 4, 8, 0.75) 0%, transparent 75%);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
 }
 
-.avatar-img {
+.profile-logo {
   width: 100%;
-  height: 100%;
-  border-radius: var(--radius-full);
-  object-fit: cover;
-  display: block;
-  background-color: #121018;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.7)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.9));
+}
+
+.logo-paths path {
+  fill: #06050a;
+  stroke: #e63946;
+  stroke-width: 4.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
 }
 
 .profile-bio {
-  font-size: 0.92rem;
+  font-size: 0.94rem;
   color: var(--text-sub);
-  max-width: 480px;
+  max-width: 460px;
   line-height: 1.6;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
 }
 
 /* ===================================================
@@ -164,42 +132,14 @@ body::before {
 .main-container {
   width: 100%;
   max-width: var(--max-content-width);
-  padding: 0.5rem 1.25rem 3rem 1.25rem;
+  padding: 0.5rem 1.25rem 3.5rem 1.25rem;
   display: flex;
   flex-direction: column;
   gap: 1.75rem;
 }
 
 /* ===================================================
-   YouTube Video Container
-   =================================================== */
-.media-section {
-  width: 100%;
-}
-
-.video-container {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  height: 0;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: #000;
-  border: 1px solid var(--card-border);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* ===================================================
-   Links Section & Cards
+   Links Section & Cards (透光毛玻璃)
    =================================================== */
 .links-section {
   display: flex;
@@ -212,19 +152,19 @@ body::before {
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.85rem 1.15rem;
+  padding: 0.9rem 1.2rem;
   background: var(--card-bg);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
   text-decoration: none;
   color: inherit;
   transition: all var(--trans-speed) var(--trans-ease);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
 
-/* 讓 button 標籤完美繼承卡片外觀 */
+/* Button 標籤完全繼承卡片外觀 */
 button.link-card {
   width: 100%;
   font-family: inherit;
@@ -244,7 +184,7 @@ button.link-card {
   transform: translateY(0);
 }
 
-/* 圖示容器 */
+/* 圖示方塊 */
 .thumb-box {
   width: 44px;
   height: 44px;
@@ -254,51 +194,45 @@ button.link-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: background var(--trans-speed) var(--trans-ease);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: background var(--trans-speed) var(--trans-ease), border-color var(--trans-speed) var(--trans-ease);
 }
 
-/* 官方 SVG 圖標樣式 */
 .brand-icon {
   width: 22px;
   height: 22px;
-  transition: transform var(--trans-speed) var(--trans-ease), color var(--trans-speed) var(--trans-ease);
+  transition: transform var(--trans-speed) var(--trans-ease);
 }
 
-/* 各平台專屬品牌顏色與 Hover 反饋 */
+/* 品牌配色與專屬 Hover 特效 */
+.icon-spotify .brand-icon { color: #1db954; }
+.icon-spotify:hover .thumb-box { background: rgba(29, 185, 84, 0.18); border-color: rgba(29, 185, 84, 0.5); }
+.icon-spotify:hover { border-color: rgba(29, 185, 84, 0.45); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(29, 185, 84, 0.3); }
+
+.icon-applemusic .brand-icon { color: #fa243c; }
+.icon-applemusic:hover .thumb-box { background: rgba(250, 36, 60, 0.18); border-color: rgba(250, 36, 60, 0.5); }
+.icon-applemusic:hover { border-color: rgba(250, 36, 60, 0.45); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(250, 36, 60, 0.3); }
+
 .icon-bandcamp .brand-icon { color: #629aa9; }
-.icon-bandcamp:hover .thumb-box { background: rgba(98, 154, 169, 0.15); border-color: rgba(98, 154, 169, 0.4); }
+.icon-bandcamp:hover .thumb-box { background: rgba(98, 154, 169, 0.18); border-color: rgba(98, 154, 169, 0.5); }
 
 .icon-youtube .brand-icon { color: #ff0000; }
-.icon-youtube:hover .thumb-box { background: rgba(255, 0, 0, 0.15); border-color: rgba(255, 0, 0, 0.4); }
-
-.icon-x .brand-icon { color: #ffffff; }
-.icon-x:hover .thumb-box { background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 255, 255, 0.4); }
-
-.icon-kofi .brand-icon { color: #ff5e5b; }
-.icon-kofi:hover .thumb-box { background: rgba(255, 94, 91, 0.15); border-color: rgba(255, 94, 91, 0.4); }
+.icon-youtube:hover .thumb-box { background: rgba(255, 0, 0, 0.18); border-color: rgba(255, 0, 0, 0.5); }
 
 .icon-soundcloud .brand-icon { color: #ff5500; }
-.icon-soundcloud:hover .thumb-box { background: rgba(255, 85, 0, 0.15); border-color: rgba(255, 85, 0, 0.4); }
+.icon-soundcloud:hover .thumb-box { background: rgba(255, 85, 0, 0.18); border-color: rgba(255, 85, 0, 0.5); }
 
-.icon-spotify .brand-icon { color: #1db954; }
-.icon-spotify:hover .thumb-box { background: rgba(29, 185, 84, 0.15); border-color: rgba(29, 185, 84, 0.4); }
+.icon-x .brand-icon { color: #ffffff; }
+.icon-x:hover .thumb-box { background: rgba(255, 255, 255, 0.18); border-color: rgba(255, 255, 255, 0.5); }
 
-/* Spotify*/
-.icon-spotify .brand-icon {  color: #1db954; }
-.icon-spotify:hover .thumb-box { background: rgba(29, 185, 84, 0.15); border-color: rgba(29, 185, 84, 0.45); }
-.icon-spotify:hover { border-color: rgba(29, 185, 84, 0.4); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(29, 185, 84, 0.3);}
-
-/* Apple Music*/
-.icon-applemusic .brand-icon { color: #fa243c; }
-.icon-applemusic:hover .thumb-box { background: rgba(250, 36, 60, 0.15); border-color: rgba(250, 36, 60, 0.45); }
-.icon-applemusic:hover {border-color: rgba(250, 36, 60, 0.4);box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(250, 36, 60, 0.3);}
+.icon-kofi .brand-icon { color: #ff5e5b; }
+.icon-kofi:hover .thumb-box { background: rgba(255, 94, 91, 0.18); border-color: rgba(255, 94, 91, 0.5); }
 
 .link-card:hover .brand-icon {
   transform: scale(1.1);
 }
 
-/* 文字區塊 */
+/* 文字區域 */
 .link-info {
   display: flex;
   flex-direction: column;
@@ -335,14 +269,14 @@ button.link-card {
   transform: translate(2px, -2px);
 }
 
-/* Ko-fi 特殊醒目卡片 */
+/* Ko-fi 醒目卡片 */
 .highlight-card {
   border-color: rgba(230, 57, 70, 0.35);
-  background: linear-gradient(90deg, rgba(230, 57, 70, 0.12) 0%, rgba(18, 16, 26, 0.8) 100%);
+  background: linear-gradient(90deg, rgba(230, 57, 70, 0.15) 0%, rgba(14, 12, 22, 0.6) 100%);
 }
 
 /* ===================================================
-   SoundCloud Lightbox Modal (Dark / Crimson Aesthetic)
+   Modals (SoundCloud & YouTube Lightbox)
    =================================================== */
 .sc-modal-overlay {
   position: fixed;
@@ -476,16 +410,46 @@ button.link-card {
   height: 20px;
 }
 
+/* YouTube Video 內嵌容器 (16:9) */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 /* ===================================================
    Footer
    =================================================== */
 .footer {
   margin-top: auto;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem 2rem 1rem;
   text-align: center;
-  font-size: 0.75rem;
-  color: #636170;
-  letter-spacing: 0.05em;
+  font-size: 0.78rem;
+  color: #727080;
+  letter-spacing: 0.04em;
+}
+
+.footer-mail {
+  color: #8c8a9c;
+  text-decoration: none;
+  transition: color var(--trans-speed) var(--trans-ease);
+}
+
+.footer-mail:hover {
+  color: var(--primary-accent);
+  text-decoration: underline;
 }
 
 /* ===================================================
@@ -493,12 +457,15 @@ button.link-card {
    =================================================== */
 @media (max-width: 480px) {
   .hero-section {
-    padding-top: 2.5rem;
+    padding-top: 3.5rem;
   }
   
-  .avatar-wrapper {
-    width: 96px;
-    height: 96px;
+  .logo-wrapper {
+    max-width: 280px;
+  }
+  
+  .logo-paths path {
+    stroke-width: 3.5px;
   }
 
   .thumb-box {
