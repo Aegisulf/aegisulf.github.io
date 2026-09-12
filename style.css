@@ -70,14 +70,11 @@ body::before {
 }
 
 /* ===================================================
-   方案 A：首屏大圖舞台 (Min-height 50vh 留出上半身視覺空間)
+   Header & Profile Card (精準淨空頂部狼頭五官)
    =================================================== */
 .hero-section {
   width: 100%;
-  /* 
-     直接在頂部淨空 26vh (約 210~240px)，
-     完整讓出狼耳、血瞳、鼻樑與全部白獠牙，絕不遮擋任何面部細節
-  */
+  /* 頂部徹底淨空 26vh，完整露出狼耳、發光怒目、鼻樑與全部白獠牙 */
   padding-top: max(26vh, 210px);
   padding-bottom: 1rem;
   display: flex;
@@ -91,11 +88,11 @@ body::before {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0.5rem 1.25rem;
+  padding: 0.6rem 1.25rem;
   max-width: var(--max-content-width);
   width: 100%;
-  /* 落在下顎與胸口交界處，加上柔和暗底保護 Logo 辨識度 */
-  background: radial-gradient(ellipse at 50% 50%, rgba(5, 4, 8, 0.8) 0%, rgba(5, 4, 8, 0.4) 65%, transparent 90%);
+  /* 座落在下顎與胸口交界處，加上柔和暗底保護文字識別 */
+  background: radial-gradient(ellipse at 50% 50%, rgba(5, 4, 8, 0.8) 0%, rgba(5, 4, 8, 0.35) 65%, transparent 90%);
   border-radius: 20px;
 }
 
@@ -106,6 +103,7 @@ body::before {
   justify-content: center;
   align-items: center;
   margin-bottom: 0.4rem;
+  padding: 0.25rem 0.75rem;
 }
 
 .profile-logo {
@@ -113,6 +111,15 @@ body::before {
   height: auto;
   overflow: visible;
   filter: drop-shadow(0 0 12px rgba(230, 57, 70, 0.75)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.9));
+}
+
+.logo-paths path {
+  fill: #06050a;
+  stroke: #e63946;
+  stroke-width: 4.5px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
 }
 
 .profile-bio {
@@ -123,7 +130,7 @@ body::before {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 
-/* 移除不再需要的箭頭，保持介面俐落 */
+/* 隱藏微光箭頭以避免佔用垂直空間 */
 .scroll-indicator {
   display: none;
 }
@@ -141,11 +148,11 @@ body::before {
 }
 
 /* ===================================================
-   方案 B & C：雙欄緊湊網格 + 方案 C 超透光玻璃
+   雙欄緊湊網格 + 超透光玻璃
    =================================================== */
 .links-section {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 雙欄排版 */
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.75rem;
   width: 100%;
 }
@@ -156,7 +163,7 @@ body::before {
   gap: 0.65rem;
   padding: 0.75rem 0.9rem;
   background: var(--card-bg);
-  backdrop-filter: blur(6px); /* 降低模糊度，使背後角色線條清晰透出 */
+  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
@@ -238,7 +245,7 @@ button.link-card {
   transform: scale(1.08);
 }
 
-/* 文字區域 (隱藏一般卡片的副標，高度徹底壓扁) */
+/* 文字區域 (隱藏副標題以維持超緊湊佈局) */
 .link-info {
   display: flex;
   flex-direction: column;
@@ -256,7 +263,7 @@ button.link-card {
 }
 
 .link-sub {
-  display: none; /* 雙欄下關閉副標以維持超緊湊佈局 */
+  display: none;
 }
 
 .link-arrow {
@@ -276,7 +283,7 @@ button.link-card .link-arrow {
   transform: translate(2px, -2px);
 }
 
-/* Ko-fi：橫跨雙欄全寬壓軸 (保留副標題完整呈現) */
+/* Ko-fi：橫跨雙欄全寬壓軸 (保留副標題) */
 .highlight-card {
   grid-column: span 2;
   border-color: rgba(230, 57, 70, 0.35);
@@ -478,7 +485,7 @@ button.link-card .link-arrow {
    =================================================== */
 @media (max-width: 480px) {
   .hero-section {
-    /* 針對手機窄螢幕，狼頭比例放大時，下移 28vh 最完美 */
+    /* 手機窄螢幕狼頭比例偏大，下移 28vh (約 220px) 確保五官徹底露頭 */
     padding-top: max(28vh, 220px);
   }
   
@@ -486,11 +493,12 @@ button.link-card .link-arrow {
     max-width: 270px;
   }
   
-  .profile-bio {
-    font-size: 0.82rem;
-  }
   .logo-paths path {
     stroke-width: 3.5px;
+  }
+
+  .profile-bio {
+    font-size: 0.82rem;
   }
 
   .links-section {
