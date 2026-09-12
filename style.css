@@ -74,13 +74,15 @@ body::before {
    =================================================== */
 .hero-section {
   width: 100%;
-  min-height: 50vh;
+  /* 
+     直接在頂部淨空 26vh (約 210~240px)，
+     完整讓出狼耳、血瞳、鼻樑與全部白獠牙，絕不遮擋任何面部細節
+  */
+  padding-top: max(26vh, 210px);
+  padding-bottom: 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
-  padding-top: max(3rem, env(safe-area-inset-top) + 1.2rem);
-  padding-bottom: 1.5rem;
   box-sizing: border-box;
 }
 
@@ -89,21 +91,21 @@ body::before {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0.85rem 1.25rem;
+  padding: 0.5rem 1.25rem;
   max-width: var(--max-content-width);
   width: 100%;
-  background: radial-gradient(ellipse at 50% 30%, rgba(5, 4, 8, 0.75) 0%, rgba(5, 4, 8, 0.3) 65%, transparent 90%);
+  /* 落在下顎與胸口交界處，加上柔和暗底保護 Logo 辨識度 */
+  background: radial-gradient(ellipse at 50% 50%, rgba(5, 4, 8, 0.8) 0%, rgba(5, 4, 8, 0.4) 65%, transparent 90%);
   border-radius: 20px;
 }
 
 .logo-wrapper {
   width: 100%;
-  max-width: 380px;
+  max-width: 360px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.5rem;
-  padding: 0.25rem 0.75rem;
+  margin-bottom: 0.4rem;
 }
 
 .profile-logo {
@@ -111,15 +113,6 @@ body::before {
   height: auto;
   overflow: visible;
   filter: drop-shadow(0 0 12px rgba(230, 57, 70, 0.75)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.9));
-}
-
-.logo-paths path {
-  fill: #06050a;
-  stroke: #e63946;
-  stroke-width: 4.5px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-  vector-effect: non-scaling-stroke;
 }
 
 .profile-bio {
@@ -130,17 +123,9 @@ body::before {
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
 }
 
-/* 舞台底部向下提示微光箭頭 */
+/* 移除不再需要的箭頭，保持介面俐落 */
 .scroll-indicator {
-  font-size: 1.2rem;
-  color: rgba(230, 57, 70, 0.6);
-  animation: floatDown 2s infinite ease-in-out;
-  user-select: none;
-}
-
-@keyframes floatDown {
-  0%, 100% { transform: translateY(0); opacity: 0.4; }
-  50% { transform: translateY(6px); opacity: 0.9; }
+  display: none;
 }
 
 /* ===================================================
@@ -493,13 +478,17 @@ button.link-card .link-arrow {
    =================================================== */
 @media (max-width: 480px) {
   .hero-section {
-    min-height: 48vh; /* 手機端保證近半螢幕展示角色胸像 */
+    /* 針對手機窄螢幕，狼頭比例放大時，下移 28vh 最完美 */
+    padding-top: max(28vh, 220px);
   }
   
   .logo-wrapper {
-    max-width: 280px;
+    max-width: 270px;
   }
   
+  .profile-bio {
+    font-size: 0.82rem;
+  }
   .logo-paths path {
     stroke-width: 3.5px;
   }
