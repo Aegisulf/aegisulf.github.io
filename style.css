@@ -4,14 +4,14 @@
 :root {
   /* 品牌色彩 */
   --primary-accent: #e63946;
-  --primary-accent-glow: rgba(230, 57, 70, 0.4);
+  --primary-accent-glow: rgba(230, 57, 70, 0.45);
   --secondary-accent: #7b2cbf;
 
-  /* 透光毛玻璃卡片 (45% 不透明，強化背景角色穿透感) */
-  --card-bg: rgba(14, 12, 22, 0.45);
-  --card-bg-hover: rgba(26, 22, 40, 0.75);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --card-border-hover: rgba(230, 57, 70, 0.6);
+  /* 方案 C：極致透光卡片 (22% 不透明度 + 微弱毛玻璃，不遮蔽背後狼人細節) */
+  --card-bg: rgba(8, 7, 14, 0.22);
+  --card-bg-hover: rgba(230, 57, 70, 0.2);
+  --card-border: rgba(255, 255, 255, 0.12);
+  --card-border-hover: rgba(230, 57, 70, 0.65);
 
   /* 文字 */
   --text-main: #f0f0f5;
@@ -19,13 +19,13 @@
   --text-highlight: #ffffff;
 
   /* 尺寸 */
-  --max-content-width: 600px;
+  --max-content-width: 580px;
   --radius-lg: 16px;
   --radius-md: 12px;
   --radius-full: 9999px;
 
   /* 動畫 */
-  --trans-speed: 0.25s;
+  --trans-speed: 0.22s;
   --trans-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -36,6 +36,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -53,64 +54,63 @@ body {
 }
 
 /* ===================================================
-   Full Page Scrollable Background (永不切頭 + 跟隨滾動)
+   Full Page Scrollable Background (頂部錨定 + 跟隨頁面自然滾動)
    =================================================== */
 body::before {
   content: "";
-  position: absolute; /* 正確跟隨頁面滾動 */
+  position: absolute;
   inset: 0;
   z-index: -1;
   min-height: 100%;
   background: 
-    radial-gradient(circle at 50% 12%, rgba(5, 4, 8, 0.15) 0%, rgba(5, 4, 8, 0.65) 75%),
-    linear-gradient(to bottom, transparent 0%, rgba(5, 4, 8, 0.88) 100%),
+    radial-gradient(circle at 50% 15%, rgba(5, 4, 8, 0.1) 0%, rgba(5, 4, 8, 0.5) 75%),
+    linear-gradient(to bottom, transparent 0%, rgba(5, 4, 8, 0.75) 100%),
     url('assets/hero.webp') center top / cover no-repeat;
   pointer-events: none;
 }
 
 /* ===================================================
-   Header & Profile Card
+   方案 A：首屏大圖舞台 (Min-height 50vh 留出上半身視覺空間)
    =================================================== */
 .hero-section {
   width: 100%;
-  padding-top: 4.5rem;
-  padding-bottom: 1.5rem;
+  min-height: 50vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: max(3rem, env(safe-area-inset-top) + 1.2rem);
+  padding-bottom: 1.5rem;
+  box-sizing: border-box;
 }
 
-/* --- 1. Profile 區塊 --- */
 .profile-card {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 1.25rem 1.5rem;
+  padding: 0.85rem 1.25rem;
   max-width: var(--max-content-width);
   width: 100%;
-  /* 柔和暗面：保護文字不被狼牙高光吃掉，同時透出周圍輪廓 */
-  background: radial-gradient(ellipse at 50% 40%, rgba(5, 4, 8, 0.75) 0%, rgba(5, 4, 8, 0.4) 60%, transparent 85%);
+  background: radial-gradient(ellipse at 50% 30%, rgba(5, 4, 8, 0.75) 0%, rgba(5, 4, 8, 0.3) 65%, transparent 90%);
   border-radius: 20px;
 }
 
-/* Logo 背面聚光暗暈 (防止與背景熔岩裂紋干擾) */
 .logo-wrapper {
   width: 100%;
   max-width: 380px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.6rem;
-  background: radial-gradient(ellipse at center, rgba(5, 4, 8, 0.75) 0%, transparent 75%);
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-md);
+  margin-bottom: 0.5rem;
+  padding: 0.25rem 0.75rem;
 }
 
 .profile-logo {
   width: 100%;
   height: auto;
   overflow: visible;
-  filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.7)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.9));
+  filter: drop-shadow(0 0 12px rgba(230, 57, 70, 0.75)) drop-shadow(0 3px 6px rgba(0, 0, 0, 0.9));
 }
 
 .logo-paths path {
@@ -123,11 +123,24 @@ body::before {
 }
 
 .profile-bio {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--text-sub);
   max-width: 420px;
-  line-height: 1.6;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95); /* 強化文字背後投影 */
+  line-height: 1.55;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
+}
+
+/* 舞台底部向下提示微光箭頭 */
+.scroll-indicator {
+  font-size: 1.2rem;
+  color: rgba(230, 57, 70, 0.6);
+  animation: floatDown 2s infinite ease-in-out;
+  user-select: none;
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(6px); opacity: 0.9; }
 }
 
 /* ===================================================
@@ -136,45 +149,38 @@ body::before {
 .main-container {
   width: 100%;
   max-width: var(--max-content-width);
-  padding: 0.5rem 1.25rem 3.5rem 1.25rem;
+  padding: 0.5rem 1.2rem 3rem 1.2rem;
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 1.5rem;
 }
 
 /* ===================================================
-   Links Section & Cards (透光毛玻璃)
+   方案 B & C：雙欄緊湊網格 + 方案 C 超透光玻璃
    =================================================== */
 .links-section {
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 雙欄排版 */
+  gap: 0.75rem;
   width: 100%;
 }
 
 .link-card {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 1.2rem;
+  gap: 0.65rem;
+  padding: 0.75rem 0.9rem;
   background: var(--card-bg);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(6px); /* 降低模糊度，使背後角色線條清晰透出 */
+  -webkit-backdrop-filter: blur(6px);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
   text-decoration: none;
   color: inherit;
   transition: all var(--trans-speed) var(--trans-ease);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 
-/* 讓實心播放鍵稍微縮小，對齊細箭頭的量感 */
-button.link-card .link-arrow {
-  font-size: 0.85rem;
-  opacity: 0.85;
-}
-
-/* Button 標籤完全繼承卡片外觀 */
 button.link-card {
   width: 100%;
   font-family: inherit;
@@ -187,62 +193,67 @@ button.link-card {
   transform: translateY(-2px);
   background: var(--card-bg-hover);
   border-color: var(--card-border-hover);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px var(--primary-accent-glow);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 15px var(--primary-accent-glow);
 }
 
 .link-card:active {
   transform: translateY(0);
 }
 
-/* 圖示方塊 */
+/* 縮圖方塊 */
 .thumb-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.04);
+  width: 38px;
+  height: 38px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.05);
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: background var(--trans-speed) var(--trans-ease), border-color var(--trans-speed) var(--trans-ease);
 }
 
 .brand-icon {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   transition: transform var(--trans-speed) var(--trans-ease);
 }
 
-/* 品牌配色與專屬 Hover 特效 */
+/* 品牌配色 */
 .icon-spotify .brand-icon { color: #1db954; }
-.icon-spotify:hover .thumb-box { background: rgba(29, 185, 84, 0.18); border-color: rgba(29, 185, 84, 0.5); }
-.icon-spotify:hover { border-color: rgba(29, 185, 84, 0.45); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(29, 185, 84, 0.3); }
+.icon-spotify:hover .thumb-box { background: rgba(29, 185, 84, 0.2); border-color: rgba(29, 185, 84, 0.5); }
+.icon-spotify:hover { border-color: rgba(29, 185, 84, 0.5); }
 
 .icon-applemusic .brand-icon { color: #fa243c; }
-.icon-applemusic:hover .thumb-box { background: rgba(250, 36, 60, 0.18); border-color: rgba(250, 36, 60, 0.5); }
-.icon-applemusic:hover { border-color: rgba(250, 36, 60, 0.45); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 15px rgba(250, 36, 60, 0.3); }
+.icon-applemusic:hover .thumb-box { background: rgba(250, 36, 60, 0.2); border-color: rgba(250, 36, 60, 0.5); }
+.icon-applemusic:hover { border-color: rgba(250, 36, 60, 0.5); }
 
 .icon-bandcamp .brand-icon { color: #629aa9; }
-.icon-bandcamp:hover .thumb-box { background: rgba(98, 154, 169, 0.18); border-color: rgba(98, 154, 169, 0.5); }
+.icon-bandcamp:hover .thumb-box { background: rgba(98, 154, 169, 0.2); border-color: rgba(98, 154, 169, 0.5); }
+.icon-bandcamp:hover { border-color: rgba(98, 154, 169, 0.5); }
 
 .icon-youtube .brand-icon { color: #ff0000; }
-.icon-youtube:hover .thumb-box { background: rgba(255, 0, 0, 0.18); border-color: rgba(255, 0, 0, 0.5); }
+.icon-youtube:hover .thumb-box { background: rgba(255, 0, 0, 0.2); border-color: rgba(255, 0, 0, 0.5); }
+.icon-youtube:hover { border-color: rgba(255, 0, 0, 0.5); }
 
 .icon-soundcloud .brand-icon { color: #ff5500; }
-.icon-soundcloud:hover .thumb-box { background: rgba(255, 85, 0, 0.18); border-color: rgba(255, 85, 0, 0.5); }
+.icon-soundcloud:hover .thumb-box { background: rgba(255, 85, 0, 0.2); border-color: rgba(255, 85, 0, 0.5); }
+.icon-soundcloud:hover { border-color: rgba(255, 85, 0, 0.5); }
 
 .icon-x .brand-icon { color: #ffffff; }
-.icon-x:hover .thumb-box { background: rgba(255, 255, 255, 0.18); border-color: rgba(255, 255, 255, 0.5); }
+.icon-x:hover .thumb-box { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.5); }
+.icon-x:hover { border-color: rgba(255, 255, 255, 0.5); }
 
 .icon-kofi .brand-icon { color: #ff5e5b; }
-.icon-kofi:hover .thumb-box { background: rgba(255, 94, 91, 0.18); border-color: rgba(255, 94, 91, 0.5); }
+.icon-kofi:hover .thumb-box { background: rgba(255, 94, 91, 0.2); border-color: rgba(255, 94, 91, 0.5); }
+.icon-kofi:hover { border-color: rgba(255, 94, 91, 0.5); }
 
 .link-card:hover .brand-icon {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
-/* 文字區域 */
+/* 文字區域 (隱藏一般卡片的副標，高度徹底壓扁) */
 .link-info {
   display: flex;
   flex-direction: column;
@@ -251,7 +262,7 @@ button.link-card {
 }
 
 .link-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text-highlight);
   white-space: nowrap;
@@ -260,19 +271,19 @@ button.link-card {
 }
 
 .link-sub {
-  font-size: 0.78rem;
-  color: var(--text-sub);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  display: none; /* 雙欄下關閉副標以維持超緊湊佈局 */
 }
 
-/* --- 2. 修復按鈕右側箭頭與播放鍵的視覺平衡 --- */
 .link-arrow {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: #8c8a9c;
   transition: transform var(--trans-speed) var(--trans-ease), color var(--trans-speed) var(--trans-ease);
   flex-shrink: 0;
+}
+
+button.link-card .link-arrow {
+  font-size: 0.78rem;
+  opacity: 0.85;
 }
 
 .link-card:hover .link-arrow {
@@ -280,10 +291,21 @@ button.link-card {
   transform: translate(2px, -2px);
 }
 
-/* Ko-fi 醒目卡片 */
+/* Ko-fi：橫跨雙欄全寬壓軸 (保留副標題完整呈現) */
 .highlight-card {
+  grid-column: span 2;
   border-color: rgba(230, 57, 70, 0.35);
-  background: linear-gradient(90deg, rgba(230, 57, 70, 0.15) 0%, rgba(14, 12, 22, 0.6) 100%);
+  background: linear-gradient(90deg, rgba(230, 57, 70, 0.15) 0%, rgba(8, 7, 14, 0.3) 100%);
+  padding: 0.85rem 1.1rem;
+}
+
+.highlight-card .link-sub {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--text-sub);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ===================================================
@@ -445,7 +467,7 @@ button.link-card {
    =================================================== */
 .footer {
   margin-top: auto;
-  padding: 2.5rem 1rem max(1.5rem, env(safe-area-inset-bottom)); /* 支援手機底欄 Safe Area */
+  padding: 2.5rem 1rem max(1.5rem, env(safe-area-inset-bottom));
   text-align: center;
   font-size: 0.76rem;
   color: #636170;
@@ -471,7 +493,7 @@ button.link-card {
    =================================================== */
 @media (max-width: 480px) {
   .hero-section {
-    padding-top: 3.5rem;
+    min-height: 48vh; /* 手機端保證近半螢幕展示角色胸像 */
   }
   
   .logo-wrapper {
@@ -482,17 +504,27 @@ button.link-card {
     stroke-width: 3.5px;
   }
 
+  .links-section {
+    gap: 0.6rem;
+  }
+
+  .link-card {
+    padding: 0.7rem 0.75rem;
+    gap: 0.5rem;
+  }
+
   .thumb-box {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
   }
   
   .brand-icon {
-    width: 19px;
-    height: 19px;
+    width: 17px;
+    height: 17px;
   }
 
   .link-title {
-    font-size: 0.92rem;
+    font-size: 0.82rem;
   }
 }
