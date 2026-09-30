@@ -39,12 +39,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Umami Cloud analytics (cookie-free) -->
+  <script defer src="https://cloud.umami.is/script.js"
+    data-website-id="d2d8d493-f332-4e29-8505-ff7b6c6f12ea"
+    data-domains="aegisulf.github.io"
+    data-do-not-track="true"></script>
 </head>
 
 <body>
 
   <!-- Share -->
-  <button type="button" class="share-btn" id="share-btn" aria-label="Share this page">
+  <button type="button" class="share-btn" id="share-btn" data-umami-event="click-share" aria-label="Share this page">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg>
   </button>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
@@ -87,7 +93,7 @@
     <section class="links-section">
 
       <!-- 1. Spotify -->
-      <a href="https://open.spotify.com/artist/7qatwbY2RmZGrM398fgFIr" class="link-card icon-spotify" target="_blank" rel="noopener noreferrer">
+      <a href="https://open.spotify.com/artist/7qatwbY2RmZGrM398fgFIr" data-umami-event="click-spotify" class="link-card icon-spotify" target="_blank" rel="noopener noreferrer">
         <div class="thumb-box">
           <svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true"><path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.485 17.31c-.216.354-.675.467-1.028.252-2.817-1.72-6.363-2.109-10.539-1.155-.403.092-.807-.16-.899-.562-.092-.403.16-.807.562-.899 4.568-1.044 8.487-.604 11.652 1.336.353.215.466.674.252 1.028zm1.464-3.255c-.272.444-.853.585-1.296.313-3.224-1.982-8.14-2.556-11.954-1.398-.5.152-1.03-.135-1.182-.635-.152-.5.135-1.03.635-1.182 4.364-1.325 9.789-.688 13.484 1.583.444.272.585.853.313 1.296zm.126-3.39c-3.864-2.295-10.245-2.507-13.931-1.388-.593.18-1.22-.164-1.4-.757-.18-.593.164-1.22.757-1.4 4.238-1.286 11.288-1.038 15.733 1.602.533.317.706 1.008.389 1.541-.318.533-1.008.706-1.541.389z"/></svg>
         </div>
@@ -98,7 +104,7 @@
       </a>
 
       <!-- 2. Apple Music -->
-      <a href="https://music.apple.com/artist/aegisulf/6804000118" class="link-card icon-applemusic" target="_blank" rel="noopener noreferrer">
+      <a href="https://music.apple.com/artist/aegisulf/6804000118" data-umami-event="click-apple-music" class="link-card icon-applemusic" target="_blank" rel="noopener noreferrer">
         <div class="thumb-box">
           <svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true"><path fill="currentColor" d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.61-.75 1.04-1.8 1.01-2.87-.96.04-2.13.64-2.79 1.41-.58.68-1.1 1.74-.96 2.79 1.07.09 2.13-.58 2.74-1.33z"/></svg>
         </div>
@@ -109,7 +115,7 @@
       </a>
 
       <!-- 3. Bandcamp -->
-      <a href="https://aegisulf.bandcamp.com" class="link-card icon-bandcamp" target="_blank" rel="noopener noreferrer">
+      <a href="https://aegisulf.bandcamp.com" data-umami-event="click-bandcamp" class="link-card icon-bandcamp" target="_blank" rel="noopener noreferrer">
         <div class="thumb-box">
           <svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true">
             <path fill="currentColor" d="M0 18.75l7.437-13.5h16.563l-7.438 13.5z" />
@@ -122,7 +128,7 @@
       </a>
 
       <!-- 4. YouTube (彈窗試聽) -->
-      <a href="https://www.youtube.com/@aegisulf" class="link-card icon-youtube" id="yt-modal-trigger" target="_blank" rel="noopener noreferrer" aria-haspopup="dialog">
+      <a href="https://www.youtube.com/@aegisulf" data-umami-event="open-youtube-modal" class="link-card icon-youtube" id="yt-modal-trigger" target="_blank" rel="noopener noreferrer" aria-haspopup="dialog">
         <div class="thumb-box">
           <svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true">
             <path fill="currentColor"
@@ -136,7 +142,7 @@
       </a>
 
       <!-- 5. SoundCloud (彈窗試聽) -->
-      <a href="https://soundcloud.com/aegisulf" class="link-card icon-soundcloud" id="sc-modal-trigger" target="_blank" rel="noopener noreferrer" aria-haspopup="dialog">
+      <a href="https://soundcloud.com/aegisulf" data-umami-event="open-soundcloud-modal" class="link-card icon-soundcloud" id="sc-modal-trigger" target="_blank" rel="noopener noreferrer" aria-haspopup="dialog">
         <div class="thumb-box">
           <svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true">
             <path fill="currentColor"
@@ -150,7 +156,7 @@
       </a>
 
       <!-- 6. X (Twitter) -->
-      <a href="https://x.com/aegisulf" class="link-card icon-x" target="_blank" rel="noopener noreferrer">
+      <a href="https://x.com/aegisulf" data-umami-event="click-x" class="link-card icon-x" target="_blank" rel="noopener noreferrer">
         <div class="thumb-box">
           <svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true">
             <path fill="currentColor"
@@ -164,7 +170,7 @@
       </a>
 
       <!-- 7. Ko-fi (全寬壓軸，保留副標) -->
-      <a href="https://ko-fi.com/aegisulf_music" class="link-card icon-kofi highlight-card" target="_blank" rel="noopener noreferrer">
+      <a href="https://ko-fi.com/aegisulf_music" data-umami-event="click-kofi" class="link-card icon-kofi highlight-card" target="_blank" rel="noopener noreferrer">
         <div class="thumb-box">
           <svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true">
             <path fill="currentColor"
@@ -183,7 +189,7 @@
 
   <!-- 頁尾 -->
   <footer class="footer">
-    <p>© AEGISULF. All rights reserved. · <a href="mailto:Aegisulf@outlook.com" class="footer-mail">Aegisulf@outlook.com</a></p>
+    <p>© AEGISULF. All rights reserved. · <a class="footer-mail" id="footer-mail" data-user="Aegisulf" data-domain="outlook.com" data-umami-event="click-email">Aegisulf [at] outlook.com</a></p>
   </footer>
 
   <!-- SoundCloud Lightbox Modal -->
@@ -200,7 +206,7 @@
         </iframe>
       </div>
       <div class="sc-modal-footer">
-        <a href="https://soundcloud.com/aegisulf" target="_blank" rel="noopener noreferrer" class="sc-external-btn">
+        <a href="https://soundcloud.com/aegisulf" target="_blank" rel="noopener noreferrer" class="sc-external-btn" data-umami-event="click-soundcloud">
           <svg viewBox="0 0 24 24" class="sc-btn-icon" aria-hidden="true">
             <path fill="currentColor" d="M1.175 12.225c-.051 0-.094.044-.102.1l-.398 4.237.398 4.195c.008.058.051.1.102.1.059 0 .102-.042.11-.1l.525-4.195-.525-4.237c-.008-.056-.051-.1-.11-.1zm1.594-.969c-.068 0-.12.053-.128.12l-.39 5.186.39 5.093c.008.067.06.12.128.12s.119-.053.127-.12l.508-5.093-.508-5.186c-.008-.067-.059-.12-.127-.12zm1.661-.635c-.085 0-.144.068-.153.153l-.339 5.805.339 5.678c.009.085.068.153.153.153s.144-.068.144-.153l.449-5.678-.449-5.805c0-.085-.059-.153-.144-.153zm1.686-.33c-.093 0-.17.076-.178.17l-.28 6.127.28 6.009c.008.093.085.169.178.169s.169-.076.169-.17l.381-6.008-.381-6.127c0-.094-.076-.17-.169-.17zm1.695-.314c-.11 0-.195.085-.203.195l-.22 6.432.22 6.297c.008.11.093.195.203.195s.195-.085.203-.195l.305-6.297-.305-6.432c-.008-.11-.093-.195-.203-.195zm1.703-.313c-.119 0-.212.093-.22.212l-.161 6.746.161 6.576c.008.119.101.212.22.212s.212-.093.22-.212l.229-6.576-.229-6.746c-.008-.119-.101-.212-.22-.212zm1.712-.127c-.127 0-.229.102-.237.229l-.102 6.864.102 6.695c.008.127.11.229.237.229.136 0 .237-.102.246-.229l.161-6.695-.161-6.864c-.009-.127-.11-.229-.246-.229zm1.712-.009c-.136 0-.246.11-.254.246l-.042 6.873.042 6.695c.008.136.118.246.254.246.144 0 .254-.11.254-.246l.093-6.695-.093-6.873c0-.136-.11-.246-.254-.246zm1.72-.059c-.144 0-.263.119-.263.263l.008 6.924-.008 6.644c0 .144.119.263.263.263.153 0 .271-.119.271-.263l.034-6.644-.034-6.924c0-.144-.118-.263-.271-.263zm4.618 2.051c-.347 0-.678.068-.975.203-.237-2.618-2.449-4.669-5.144-4.669-.475 0-.932.068-1.364.186-.119.034-.195.144-.186.263l.008 11.229c0 .144.119.263.263.263h7.398c2.161 0 3.915-1.754 3.915-3.915s-1.754-3.56-3.915-3.56z" />
           </svg>
@@ -229,7 +235,7 @@
       </div>
       <div class="sc-modal-footer">
         <a href="https://www.youtube.com/@aegisulf?sub_confirmation=1" target="_blank" rel="noopener noreferrer"
-          class="sc-external-btn sc-external-btn--yt">
+          class="sc-external-btn sc-external-btn--yt" data-umami-event="click-youtube-subscribe">
           <svg viewBox="0 0 24 24" class="sc-btn-icon" aria-hidden="true">
             <path fill="currentColor"
               d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
@@ -286,6 +292,14 @@
 
     setupModal('sc-modal-trigger', 'sc-modal', 'sc-modal-close', 'sc-iframe');
     setupModal('yt-modal-trigger', 'yt-modal', 'yt-modal-close', 'yt-iframe');
+
+    // Contact email: assembled at runtime so the address is not in the static HTML
+    (function () {
+      const a = document.getElementById('footer-mail');
+      const addr = a.dataset.user + '@' + a.dataset.domain;
+      a.href = 'mailto:' + addr;
+      a.textContent = addr;
+    })();
 
     // Share
     const toast = document.getElementById('toast');
