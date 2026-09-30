@@ -5,9 +5,8 @@
   /* 品牌色彩 */
   --primary-accent: #e63946;
   --primary-accent-glow: rgba(230, 57, 70, 0.45);
-  --secondary-accent: #7b2cbf;
 
-  /* 方案 C：極致透光卡片 (22% 不透明度 + 微弱毛玻璃，不遮蔽背後狼人細節) */
+  /* Translucent cards: keep the artwork visible behind them */
   --card-bg: rgba(8, 7, 14, 0.22);
   --card-bg-hover: rgba(230, 57, 70, 0.2);
   --card-border: rgba(255, 255, 255, 0.12);
@@ -15,7 +14,7 @@
 
   /* 文字 */
   --text-main: #f0f0f5;
-  --text-sub: #a5a3b2;
+  --text-sub: #c8c6d4;
   --text-highlight: #ffffff;
 
   /* 尺寸 */
@@ -127,12 +126,7 @@ body::before {
   color: var(--text-sub);
   max-width: 420px;
   line-height: 1.55;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
-}
-
-/* 隱藏微光箭頭以避免佔用垂直空間 */
-.scroll-indicator {
-  display: none;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 10px rgba(0, 0, 0, 0.95);
 }
 
 /* ===================================================
@@ -169,23 +163,8 @@ body::before {
   border-radius: var(--radius-md);
   text-decoration: none;
   color: inherit;
-  transition: all var(--trans-speed) var(--trans-ease);
+  transition: transform var(--trans-speed) var(--trans-ease), background var(--trans-speed) var(--trans-ease), border-color var(--trans-speed) var(--trans-ease), box-shadow var(--trans-speed) var(--trans-ease);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-}
-
-button.link-card {
-  width: 100%;
-  font-family: inherit;
-  font-size: inherit;
-  text-align: left;
-  cursor: pointer;
-}
-
-.link-card:hover {
-  transform: translateY(-2px);
-  background: var(--card-bg-hover);
-  border-color: var(--card-border-hover);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 15px var(--primary-accent-glow);
 }
 
 .link-card:active {
@@ -214,36 +193,18 @@ button.link-card {
 
 /* 品牌配色 */
 .icon-spotify .brand-icon { color: #1db954; }
-.icon-spotify:hover .thumb-box { background: rgba(29, 185, 84, 0.2); border-color: rgba(29, 185, 84, 0.5); }
-.icon-spotify:hover { border-color: rgba(29, 185, 84, 0.5); }
 
 .icon-applemusic .brand-icon { color: #fa243c; }
-.icon-applemusic:hover .thumb-box { background: rgba(250, 36, 60, 0.2); border-color: rgba(250, 36, 60, 0.5); }
-.icon-applemusic:hover { border-color: rgba(250, 36, 60, 0.5); }
 
 .icon-bandcamp .brand-icon { color: #629aa9; }
-.icon-bandcamp:hover .thumb-box { background: rgba(98, 154, 169, 0.2); border-color: rgba(98, 154, 169, 0.5); }
-.icon-bandcamp:hover { border-color: rgba(98, 154, 169, 0.5); }
 
 .icon-youtube .brand-icon { color: #ff0000; }
-.icon-youtube:hover .thumb-box { background: rgba(255, 0, 0, 0.2); border-color: rgba(255, 0, 0, 0.5); }
-.icon-youtube:hover { border-color: rgba(255, 0, 0, 0.5); }
 
 .icon-soundcloud .brand-icon { color: #ff5500; }
-.icon-soundcloud:hover .thumb-box { background: rgba(255, 85, 0, 0.2); border-color: rgba(255, 85, 0, 0.5); }
-.icon-soundcloud:hover { border-color: rgba(255, 85, 0, 0.5); }
 
 .icon-x .brand-icon { color: #ffffff; }
-.icon-x:hover .thumb-box { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.5); }
-.icon-x:hover { border-color: rgba(255, 255, 255, 0.5); }
 
 .icon-kofi .brand-icon { color: #ff5e5b; }
-.icon-kofi:hover .thumb-box { background: rgba(255, 94, 91, 0.2); border-color: rgba(255, 94, 91, 0.5); }
-.icon-kofi:hover { border-color: rgba(255, 94, 91, 0.5); }
-
-.link-card:hover .brand-icon {
-  transform: scale(1.08);
-}
 
 /* 文字區域 (隱藏副標題以維持超緊湊佈局) */
 .link-info {
@@ -262,25 +223,17 @@ button.link-card {
   text-overflow: ellipsis;
 }
 
-.link-sub {
-  display: none;
-}
-
 .link-arrow {
   font-size: 0.95rem;
-  color: #8c8a9c;
+  color: #a9a7b8;
   transition: transform var(--trans-speed) var(--trans-ease), color var(--trans-speed) var(--trans-ease);
   flex-shrink: 0;
 }
 
-button.link-card .link-arrow {
+.icon-youtube .link-arrow,
+.icon-soundcloud .link-arrow {
   font-size: 0.78rem;
   opacity: 0.85;
-}
-
-.link-card:hover .link-arrow {
-  color: var(--primary-accent);
-  transform: translate(2px, -2px);
 }
 
 /* Ko-fi：橫跨雙欄全寬壓軸 (保留副標題) */
@@ -291,7 +244,7 @@ button.link-card .link-arrow {
   padding: 0.85rem 1.1rem;
 }
 
-.highlight-card .link-sub {
+.link-sub {
   display: block;
   font-size: 0.76rem;
   color: var(--text-sub);
@@ -338,6 +291,7 @@ button.link-card .link-arrow {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   display: flex;
   flex-direction: column;
+  max-height: 100%;
 }
 
 .sc-modal-overlay.active .sc-modal-card {
@@ -378,7 +332,7 @@ button.link-card .link-arrow {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
   flex-shrink: 0;
 }
 
@@ -390,6 +344,8 @@ button.link-card .link-arrow {
 
 .sc-modal-body {
   width: 100%;
+  overflow-y: auto;
+  min-height: 0;
   line-height: 0;
   background: #08070c;
 }
@@ -421,13 +377,23 @@ button.link-card .link-arrow {
   font-weight: 700;
   font-size: 0.92rem;
   box-shadow: 0 4px 15px rgba(255, 85, 0, 0.35);
-  transition: all 0.2s;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
 .sc-external-btn:hover {
   background: linear-gradient(135deg, #ff6a1a, #e64d00);
   box-shadow: 0 6px 20px rgba(255, 85, 0, 0.5);
   transform: translateY(-1px);
+}
+
+.sc-external-btn--yt {
+  background: linear-gradient(135deg, #e63946, #b3001b);
+  box-shadow: 0 4px 15px rgba(230, 57, 70, 0.35);
+}
+
+.sc-external-btn--yt:hover {
+  background: linear-gradient(135deg, #ee4a56, #c4001f);
+  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5);
 }
 
 .sc-btn-icon {
@@ -462,16 +428,17 @@ button.link-card .link-arrow {
   padding: 2.5rem 1rem max(1.5rem, env(safe-area-inset-bottom));
   text-align: center;
   font-size: 0.76rem;
-  color: #636170;
+  color: #a09eae;
   letter-spacing: 0.04em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95);
 }
 
 .footer-mail {
-  color: #9a98a6;
+  color: #c2c0ce;
   text-decoration: none;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
   padding-bottom: 1px;
-  transition: all var(--trans-speed) var(--trans-ease);
+  transition: color var(--trans-speed) var(--trans-ease), border-color var(--trans-speed) var(--trans-ease), text-shadow var(--trans-speed) var(--trans-ease);
 }
 
 .footer-mail:hover {
@@ -523,5 +490,117 @@ button.link-card .link-arrow {
 
   .link-title {
     font-size: 0.82rem;
+  }
+}
+
+@media (hover: hover) {
+  .link-card:hover {
+    transform: translateY(-2px);
+    background: var(--card-bg-hover);
+    border-color: var(--card-border-hover);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 15px var(--primary-accent-glow);
+  }
+  .icon-spotify:hover .thumb-box { background: rgba(29, 185, 84, 0.2); border-color: rgba(29, 185, 84, 0.5); }
+  .icon-spotify:hover { border-color: rgba(29, 185, 84, 0.5); }
+  .icon-applemusic:hover .thumb-box { background: rgba(250, 36, 60, 0.2); border-color: rgba(250, 36, 60, 0.5); }
+  .icon-applemusic:hover { border-color: rgba(250, 36, 60, 0.5); }
+  .icon-bandcamp:hover .thumb-box { background: rgba(98, 154, 169, 0.2); border-color: rgba(98, 154, 169, 0.5); }
+  .icon-bandcamp:hover { border-color: rgba(98, 154, 169, 0.5); }
+  .icon-youtube:hover .thumb-box { background: rgba(255, 0, 0, 0.2); border-color: rgba(255, 0, 0, 0.5); }
+  .icon-youtube:hover { border-color: rgba(255, 0, 0, 0.5); }
+  .icon-soundcloud:hover .thumb-box { background: rgba(255, 85, 0, 0.2); border-color: rgba(255, 85, 0, 0.5); }
+  .icon-soundcloud:hover { border-color: rgba(255, 85, 0, 0.5); }
+  .icon-x:hover .thumb-box { background: rgba(255, 255, 255, 0.2); border-color: rgba(255, 255, 255, 0.5); }
+  .icon-x:hover { border-color: rgba(255, 255, 255, 0.5); }
+  .icon-kofi:hover .thumb-box { background: rgba(255, 94, 91, 0.2); border-color: rgba(255, 94, 91, 0.5); }
+  .icon-kofi:hover { border-color: rgba(255, 94, 91, 0.5); }
+  .link-card:hover .brand-icon {
+    transform: scale(1.08);
+  }
+  .link-card:hover .link-arrow {
+    color: var(--primary-accent);
+    transform: translate(2px, -2px);
+  }
+}
+
+/* ===================================================
+   Share button & toast
+   =================================================== */
+.share-btn {
+  position: absolute;
+  top: max(14px, env(safe-area-inset-top));
+  right: 14px;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  background: rgba(8, 7, 14, 0.45);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: background var(--trans-speed) var(--trans-ease), border-color var(--trans-speed) var(--trans-ease), transform var(--trans-speed) var(--trans-ease);
+}
+
+.share-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.share-btn:active {
+  transform: scale(0.94);
+}
+
+@media (hover: hover) {
+  .share-btn:hover {
+    background: var(--card-bg-hover);
+    border-color: var(--card-border-hover);
+  }
+}
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: max(28px, env(safe-area-inset-bottom));
+  z-index: 1000;
+  transform: translate(-50%, 12px);
+  padding: 0.55rem 1.1rem;
+  border-radius: var(--radius-full);
+  background: rgba(14, 12, 20, 0.95);
+  border: 1px solid rgba(230, 57, 70, 0.45);
+  color: var(--text-highlight);
+  font-size: 0.85rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--trans-ease), transform 0.25s var(--trans-ease);
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ===================================================
+   Accessibility
+   =================================================== */
+:focus-visible {
+  outline: 2px solid var(--primary-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+
+  .link-card:hover,
+  .link-card:active,
+  .sc-external-btn:hover {
+    transform: none;
   }
 }
