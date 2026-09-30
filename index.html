@@ -49,6 +49,9 @@
 
 <body>
 
+  <!-- Wolf eye glow (positioned over the hero image by JS) -->
+  <div class="eye-glow" id="eye-glow" aria-hidden="true"></div>
+
   <!-- Share -->
   <button type="button" class="share-btn" id="share-btn" data-umami-event="click-share" aria-label="Share this page">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg>
@@ -292,6 +295,22 @@
 
     setupModal('sc-modal-trigger', 'sc-modal', 'sc-modal-close', 'sc-iframe');
     setupModal('yt-modal-trigger', 'yt-modal', 'yt-modal-close', 'yt-iframe');
+
+    // Eye glow: track the wolf's eye inside the `cover`-scaled background image
+    (function () {
+      const glow = document.getElementById('eye-glow');
+      const IMG_W = 1179, IMG_H = 1334, EYE_X = 486, EYE_Y = 139; // px in hero.webp
+      function place() {
+        const w = document.body.offsetWidth, h = document.body.offsetHeight;
+        const s = Math.max(w / IMG_W, h / IMG_H);
+        glow.style.setProperty('--s', s);
+        glow.style.left = ((w - IMG_W * s) / 2 + EYE_X * s) + 'px';
+        glow.style.top = (EYE_Y * s) + 'px';
+        glow.classList.add('ready');
+      }
+      new ResizeObserver(place).observe(document.body);
+      place();
+    })();
 
     // Contact email: assembled at runtime so the address is not in the static HTML
     (function () {
