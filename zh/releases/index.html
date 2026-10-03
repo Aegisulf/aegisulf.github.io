@@ -4,6 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Language follows the visitor, whichever page they enter by:
+    //  - an explicit choice (language link) always wins
+    //  - otherwise a Chinese-preferring browser is sent to the Chinese page
+    // English / unknown browsers and crawlers are never redirected, so both versions stay indexable.
+    (function () {
+      var here = document.documentElement.lang.indexOf('zh') === 0 ? 'zh' : 'en';
+      var target = null;
+      try { var s = localStorage.getItem('lang'); if (s === 'en' || s === 'zh') target = s; } catch (e) { /* storage unavailable */ }
+      if (!target) {
+        var l = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+        if (l.some(function (x) { return /^zh/i.test(x); })) target = 'zh';
+      }
+      if (target && target !== here) location.replace("/en/releases/" + location.search + location.hash);
+    })();
+  </script>
   <title>作品 | AEGISULF</title>
   <meta name="description" content="Aegisulf，創作電子音樂。作品、故事與最新動態。">
   <meta name="theme-color" content="#0d0d11">
@@ -79,6 +95,8 @@
 </main>
 
 
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <footer class="site-footer">
     <p><a href="/">首頁</a> · <a href="/zh/releases/">作品</a></p>
     <p>© AEGISULF. 版權所有。</p>
@@ -91,6 +109,37 @@
       document.querySelectorAll('[data-set-lang]').forEach(function (a) {
         a.addEventListener('click', function () { save(a.dataset.setLang); });
       });
+      // Share: native share sheet when available, otherwise copy the link
+      var toast = document.getElementById('toast'), toastTimer;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+      }
+      document.querySelectorAll('.share-page').forEach(function (btn) {
+        btn.addEventListener('click', async function () {
+          var data = { title: document.title, text: btn.dataset.text, url: btn.dataset.url };
+          if (navigator.share) {
+            try { await navigator.share(data); } catch (e) { /* cancelled by the visitor */ }
+            return;
+          }
+          try {
+            await navigator.clipboard.writeText(data.url);
+            showToast(btn.dataset.copied);
+          } catch (e) {
+            var ta = document.createElement('textarea');
+            ta.value = data.url;
+            ta.style.cssText = 'position:fixed;opacity:0';
+            document.body.appendChild(ta);
+            ta.select();
+            var ok = document.execCommand('copy');
+            ta.remove();
+            showToast(ok ? btn.dataset.copied : btn.dataset.failed);
+          }
+        });
+      });
+
       // Preview player: the third-party iframe is only created after a click
       document.querySelectorAll('.player-load').forEach(function (btn) {
         btn.addEventListener('click', function () {

@@ -56,6 +56,6 @@ The Blog link appears on the home page automatically once a post exists.
 
 ## Notes
 
-- English is the default; browsers that prefer Chinese get Traditional Chinese (the home page switches in place; release and blog pages have a language link in the top bar). The choice is remembered in `localStorage`.
+- Language follows the visitor from any entry page: a Chinese-preferring browser is sent to the `/zh/` version of whatever page it opened, an explicit choice (language link / toggle, stored in `localStorage`) always wins, and English or unknown browsers and crawlers are never redirected, so both versions stay indexable. Share buttons always share the `/en/` URL, which Chinese browsers are redirected away from automatically.
 - Analytics: [Umami Cloud](https://umami.is/), cookie-free, only on the production domain, honours Do Not Track.
 - Wolf illustration by [@Korl413115](https://x.com/Korl413115).

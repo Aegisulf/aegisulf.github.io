@@ -10,6 +10,9 @@ en:
   in_production: In production
   listen_on: "Listen on %s"
   preview: Preview player
+  share: Share
+  link_copied: Link copied
+  copy_failed: Copy failed
   play_preview: "Play on %s"
   instrumental: Instrumental
   key: Key
@@ -35,6 +38,9 @@ zh:
   in_production: 製作中
   listen_on: "在 %s 收聽"
   preview: 試聽播放器
+  share: 分享
+  link_copied: 已複製連結
+  copy_failed: 複製失敗
   play_preview: "在 %s 播放"
   instrumental: 純音樂
   key: 調性

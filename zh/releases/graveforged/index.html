@@ -4,6 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Language follows the visitor, whichever page they enter by:
+    //  - an explicit choice (language link) always wins
+    //  - otherwise a Chinese-preferring browser is sent to the Chinese page
+    // English / unknown browsers and crawlers are never redirected, so both versions stay indexable.
+    (function () {
+      var here = document.documentElement.lang.indexOf('zh') === 0 ? 'zh' : 'en';
+      var target = null;
+      try { var s = localStorage.getItem('lang'); if (s === 'en' || s === 'zh') target = s; } catch (e) { /* storage unavailable */ }
+      if (!target) {
+        var l = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+        if (l.some(function (x) { return /^zh/i.test(x); })) target = 'zh';
+      }
+      if (target && target !== here) location.replace("/en/releases/graveforged/" + location.search + location.hash);
+    })();
+  </script>
   <title>Graveforged | AEGISULF</title>
   <meta name="description" content="Graveforged - Aegisulf. 11/6 上架.">
   <meta name="theme-color" content="#0d0d11">
@@ -57,7 +73,10 @@
         <h1>Graveforged</h1>
         <ul class="chips"><li>Electronic</li><li>UK Hardcore</li><li>Chiptune</li><li>Full 3/4</li><li>180 BPM</li><li>調性 Em</li><li>2:21</li><li>純音樂</li>
         </ul>
-        <p class="status status-upcoming">11/6 上架</p>
+        <div class="status-row">
+          <p class="status status-upcoming">11/6 上架</p>
+          <button type="button" class="share-pill share-page" data-url="https://aegisulf.github.io/en/releases/graveforged/" data-text="Graveforged - Aegisulf" data-copied="已複製連結" data-failed="複製失敗" data-umami-event="click-share" data-umami-event-release="graveforged"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg><span>分享</span></button>
+        </div>
       </div>
     </div>
     <section class="listen">
@@ -75,6 +94,8 @@
 </main>
 
 
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
   <footer class="site-footer">
     <p><a href="/">首頁</a> · <a href="/zh/releases/">作品</a></p>
     <p>© AEGISULF. 版權所有。</p>
@@ -87,6 +108,37 @@
       document.querySelectorAll('[data-set-lang]').forEach(function (a) {
         a.addEventListener('click', function () { save(a.dataset.setLang); });
       });
+      // Share: native share sheet when available, otherwise copy the link
+      var toast = document.getElementById('toast'), toastTimer;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+      }
+      document.querySelectorAll('.share-page').forEach(function (btn) {
+        btn.addEventListener('click', async function () {
+          var data = { title: document.title, text: btn.dataset.text, url: btn.dataset.url };
+          if (navigator.share) {
+            try { await navigator.share(data); } catch (e) { /* cancelled by the visitor */ }
+            return;
+          }
+          try {
+            await navigator.clipboard.writeText(data.url);
+            showToast(btn.dataset.copied);
+          } catch (e) {
+            var ta = document.createElement('textarea');
+            ta.value = data.url;
+            ta.style.cssText = 'position:fixed;opacity:0';
+            document.body.appendChild(ta);
+            ta.select();
+            var ok = document.execCommand('copy');
+            ta.remove();
+            showToast(ok ? btn.dataset.copied : btn.dataset.failed);
+          }
+        });
+      });
+
       // Preview player: the third-party iframe is only created after a click
       document.querySelectorAll('.player-load').forEach(function (btn) {
         btn.addEventListener('click', function () {

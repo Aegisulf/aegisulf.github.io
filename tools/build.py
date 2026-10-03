@@ -227,6 +227,7 @@ def main():
                 lang, r=r, body=render_md(body), prev=prev_r, next=next_r, section='releases',
                 page_title=f"{title} | AEGISULF", description=desc, path=paths[lang],
                 alt_path=paths['zh' if lang == 'en' else 'en'], alternates=alternates_for(paths),
+                share_url=site['site_url'] + paths['en'],
                 og_image=f"/assets/covers/{r['slug']}-og.jpg", og_square=True, accent=r['accent'],
                 bg_image=f"/assets/covers/{r['slug']}-512.webp", jsonld=jsonld, og_type='music.song')
             write(paths[lang].strip('/') + '/index.html', env.get_template('release.html').render(ctx))
@@ -259,6 +260,7 @@ def main():
                 ctx = page_ctx(lang, post=p, body=p['body'], section='blog', page_title=f"{p['title']} | AEGISULF",
                                description=p['summary'] or i18n[lang]['site_desc'], path=p['path'],
                                alt_path=translations.get(other), alternates=alternates_for(translations),
+                               share_url=site['site_url'] + translations.get('en', p['path']),
                                og_type='article', og_image=p['cover'] or '/assets/og-image.jpg')
                 write(p['path'].strip('/') + '/index.html', env.get_template('post.html').render(ctx))
                 written.append(p['path'])
