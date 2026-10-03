@@ -3,3 +3,6 @@ Desktop.ini
 .DS_Store
 *copy.html
 *.bak
+
+# private blog drafts kept next to the repo (not published)
+/20[0-9][0-9]-*.md
