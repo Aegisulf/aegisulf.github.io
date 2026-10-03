@@ -242,6 +242,62 @@ h1, h2 {
   }
 }
 
+/* ---------- preview player ---------- */
+.player {
+  margin-top: 2rem;
+}
+
+.player-load {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.1rem 1rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 28%, transparent), var(--card-bg));
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: transform var(--trans), border-color var(--trans);
+}
+
+.play-icon {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 0.12rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #0a0a0f;
+  font-size: 0.85rem;
+}
+
+.player-frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: #000;
+}
+
+.player-video { aspect-ratio: 16 / 9; }
+.player-spotify { height: 152px; }
+.player-soundcloud { height: 166px; }
+
+@media (hover: hover) {
+  .player-load:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+}
+
 /* ---------- listen buttons ---------- */
 .listen {
   display: grid;

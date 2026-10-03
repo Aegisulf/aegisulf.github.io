@@ -12,6 +12,7 @@ import re
 import shutil
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 import markdown
 import yaml
@@ -51,6 +52,30 @@ def fmt_date(d, lang):
     return f'{d.month}/{d.day}' if lang == 'zh' else f'{MONTHS[d.month - 1]} {d.day}'
 
 
+def pick_embed(r):
+    """Preview player source, by priority: YouTube -> Spotify -> SoundCloud (only exact track URLs)."""
+    links = r.get('links') or {}
+    yt = links.get('youtube')
+    if isinstance(yt, str):
+        m = re.search(r'(?:[?&]v=|youtu\.be/|/embed/)([\w-]{11})', yt)
+        if m:
+            return {'provider': 'youtube', 'label': 'YouTube', 'kind': 'video',
+                    'src': f'https://www.youtube-nocookie.com/embed/{m.group(1)}?autoplay=1&rel=0'}
+    sp = links.get('spotify')
+    if isinstance(sp, str):
+        m = re.search(r'/track/(\w+)', sp)
+        if m:
+            return {'provider': 'spotify', 'label': 'Spotify', 'kind': 'spotify',
+                    'src': f'https://open.spotify.com/embed/track/{m.group(1)}?utm_source=generator&theme=0'}
+    sc = links.get('soundcloud')
+    if isinstance(sc, str):
+        return {'provider': 'soundcloud', 'label': 'SoundCloud', 'kind': 'soundcloud',
+                'src': 'https://w.soundcloud.com/player/?url=' + quote(sc, safe='')
+                       + '&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false'
+                         '&show_user=true&show_reposts=false&show_teaser=false'}
+    return None
+
+
 def prepare_release(r, site, i18n):
     """Normalise one release entry: buttons, chips, status text."""
     buttons = []
@@ -80,6 +105,7 @@ def prepare_release(r, site, i18n):
             b['url'] = v
         buttons.append(b)
     r['buttons'] = buttons
+    r['embed'] = pick_embed(r)
 
     chips = {lang: [] for lang in LANGS}
     for lang in LANGS:

@@ -216,7 +216,7 @@
     {%- if has_blog %}
     <p class="footer-nav"><a href="/en/blog/" data-href-zh="/zh/blog/" data-zh="日誌">Blog</a></p>
     {%- endif %}
-    <p class="footer-credit"><span data-zh="狼人插畫：">Wolf illustration by </span><a href="{{ site.art_credit.url }}" target="_blank" rel="noopener noreferrer">{{ site.art_credit.name }}</a></p>
+    <p class="footer-credit"><span class="moon" id="moon"></span><span data-zh="狼人插畫：">Wolf illustration by </span><a href="{{ site.art_credit.url }}" target="_blank" rel="noopener noreferrer">{{ site.art_credit.name }}</a></p>
     <p><span data-zh="© AEGISULF. 版權所有。">© AEGISULF. All rights reserved.</span> · <a class="footer-mail" id="footer-mail" data-user="Aegisulf" data-domain="outlook.com" data-umami-event="click-email">Aegisulf [at] outlook.com</a></p>
   </footer>
 
@@ -345,6 +345,44 @@
       a.textContent = addr;
     })();
 
+    // Moon phase (mean synodic month, accurate to about a day). Around full moon the wolf's eye burns brighter.
+    const SYNODIC = 29.530588853;
+    const MOON_NAMES = {
+      en: ['New Moon', 'Waxing Crescent', 'First Quarter', 'Waxing Gibbous', 'Full Moon', 'Waning Gibbous', 'Last Quarter', 'Waning Crescent'],
+      zh: ['新月', '眉月', '上弦月', '盈凸月', '滿月', '虧凸月', '下弦月', '殘月']
+    };
+    const moonEl = document.getElementById('moon');
+
+    function moonState(date) {
+      const ref = Date.UTC(2000, 0, 6, 18, 14); // a known new moon
+      let age = ((date.getTime() - ref) / 86400000) % SYNODIC;
+      if (age < 0) age += SYNODIC;
+      const phase = age / SYNODIC;
+      return { phase, idx: Math.round(phase * 8) % 8, full: Math.abs(age - SYNODIC / 2) <= 1.15 };
+    }
+
+    function moonSvg(phase) {
+      const r = 8, c = 10;
+      const k = Math.cos(2 * Math.PI * phase);   // 1 = new, -1 = full
+      const rx = (Math.abs(k) * r).toFixed(2);
+      const lit = 'M ' + c + ' ' + (c - r) + ' A ' + r + ' ' + r + ' 0 0 1 ' + c + ' ' + (c + r) +
+        ' A ' + rx + ' ' + r + ' 0 0 ' + (k > 0 ? 0 : 1) + ' ' + c + ' ' + (c - r) + ' Z';
+      const flip = phase > 0.5 ? ' transform="translate(20 0) scale(-1 1)"' : ''; // waning: lit side on the left
+      return '<svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true">' +
+        '<circle cx="10" cy="10" r="8" fill="rgba(255,255,255,0.10)" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>' +
+        '<path d="' + lit + '" fill="#f3e9c9"' + flip + '/></svg>';
+    }
+
+    function updateMoon(lang) {
+      const s = moonState(new Date());
+      const name = MOON_NAMES[lang][s.idx];
+      moonEl.innerHTML = moonSvg(s.phase);
+      moonEl.setAttribute('role', 'img');
+      moonEl.setAttribute('aria-label', name);
+      moonEl.title = name;
+      document.body.classList.toggle('full-moon', s.full);
+    }
+
     // Language: English by default, Chinese when the browser prefers it (or the visitor chose it)
     const T = {
       en: { copied: 'Link copied', fail: 'Copy failed', toggle: '中文' },
@@ -381,6 +419,7 @@
         el.setAttribute('href', next === 'zh' ? el.dataset.hrefZh : el._en);
       });
       document.getElementById('lang-btn').textContent = T[next].toggle;
+      updateMoon(next);
     }
 
     document.getElementById('lang-btn').addEventListener('click', () => {

@@ -101,6 +101,19 @@
       document.querySelectorAll('[data-set-lang]').forEach(function (a) {
         a.addEventListener('click', function () { save(a.dataset.setLang); });
       });
+      // Preview player: the third-party iframe is only created after a click
+      document.querySelectorAll('.player-load').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var f = document.createElement('iframe');
+          f.src = btn.dataset.src;
+          f.title = btn.dataset.title;
+          f.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+          f.allowFullscreen = true;
+          f.className = 'player-frame player-' + btn.dataset.kind;
+          btn.parentNode.replaceChildren(f);
+        });
+      });
+
       var banner = document.getElementById('lang-banner');
       if (banner && pref() !== here) banner.hidden = false;
       var stay = document.getElementById('lang-stay');

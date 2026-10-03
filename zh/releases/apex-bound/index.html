@@ -65,6 +65,12 @@
         <p class="status status-out">已上架</p>
       </div>
     </div>
+    <section class="player" aria-label="試聽播放器">
+      <button type="button" class="player-load" data-src="https://www.youtube-nocookie.com/embed/rkcrpTDjJCY?autoplay=1&amp;rel=0" data-kind="video" data-title="Apex Bound - YouTube" data-umami-event="play-youtube" data-umami-event-release="apex-bound">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <span>在 YouTube 播放</span>
+      </button>
+    </section>
     <section class="listen">
       <a class="btn p-spotify" href="https://open.spotify.com/track/7HNxDJr8JAfZU5wIG1DPM7" target="_blank" rel="noopener noreferrer" data-umami-event="listen-spotify" data-umami-event-release="apex-bound"><svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true"><path fill="currentColor" d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.485 17.31c-.216.354-.675.467-1.028.252-2.817-1.72-6.363-2.109-10.539-1.155-.403.092-.807-.16-.899-.562-.092-.403.16-.807.562-.899 4.568-1.044 8.487-.604 11.652 1.336.353.215.466.674.252 1.028zm1.464-3.255c-.272.444-.853.585-1.296.313-3.224-1.982-8.14-2.556-11.954-1.398-.5.152-1.03-.135-1.182-.635-.152-.5.135-1.03.635-1.182 4.364-1.325 9.789-.688 13.484 1.583.444.272.585.853.313 1.296zm.126-3.39c-3.864-2.295-10.245-2.507-13.931-1.388-.593.18-1.22-.164-1.4-.757-.18-.593.164-1.22.757-1.4 4.238-1.286 11.288-1.038 15.733 1.602.533.317.706 1.008.389 1.541-.318.533-1.008.706-1.541.389z"/></svg>
 <span class="btn-label">在 Spotify 收聽</span><span class="arrow" aria-hidden="true">↗</span></a>
@@ -101,6 +107,19 @@
       document.querySelectorAll('[data-set-lang]').forEach(function (a) {
         a.addEventListener('click', function () { save(a.dataset.setLang); });
       });
+      // Preview player: the third-party iframe is only created after a click
+      document.querySelectorAll('.player-load').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var f = document.createElement('iframe');
+          f.src = btn.dataset.src;
+          f.title = btn.dataset.title;
+          f.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+          f.allowFullscreen = true;
+          f.className = 'player-frame player-' + btn.dataset.kind;
+          btn.parentNode.replaceChildren(f);
+        });
+      });
+
       var banner = document.getElementById('lang-banner');
       if (banner && pref() !== here) banner.hidden = false;
       var stay = document.getElementById('lang-stay');

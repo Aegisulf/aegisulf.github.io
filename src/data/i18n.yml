@@ -9,6 +9,8 @@ en:
   coming_soon: Coming soon
   in_production: In production
   listen_on: "Listen on %s"
+  preview: Preview player
+  play_preview: "Play on %s"
   instrumental: Instrumental
   story: Story
   prev: Previous
@@ -34,6 +36,8 @@ zh:
   coming_soon: 即將推出
   in_production: 製作中
   listen_on: "在 %s 收聽"
+  preview: 試聽播放器
+  play_preview: "在 %s 播放"
   instrumental: 純音樂
   story: 故事
   prev: 上一首

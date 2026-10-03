@@ -648,6 +648,10 @@ body::before {
     opacity: 0.7;
   }
 
+  .full-moon .eye-glow.ready {
+    opacity: 0.95;
+  }
+
   .link-card:hover,
   .link-card:active,
   .sc-external-btn:hover {
@@ -897,4 +901,33 @@ body::before {
   .footer {
     padding-top: 0.9rem;
   }
+
+  .footer-credit {
+    margin-bottom: 0.15rem;
+  }
+}
+
+/* ===================================================
+   Moon phase (footer) & full-moon eye
+   =================================================== */
+.moon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 0.45rem;
+  vertical-align: -2px;
+}
+
+.moon svg {
+  display: block;
+}
+
+/* around full moon the eye burns brighter and breathes faster */
+.full-moon .eye-glow.ready {
+  animation: eye-breathe-full 2.6s ease-in-out infinite;
+}
+
+@keyframes eye-breathe-full {
+  0%, 100% { opacity: 0.55; transform: translate(-50%, -50%) scale(0.95); }
+  50%      { opacity: 1;    transform: translate(-50%, -50%) scale(1.55); }
 }

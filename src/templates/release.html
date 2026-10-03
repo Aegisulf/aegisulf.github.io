@@ -16,6 +16,15 @@
       </div>
     </div>
 
+    {%- if r.embed %}
+    <section class="player" aria-label="{{ t.preview }}">
+      <button type="button" class="player-load" data-src="{{ r.embed.src }}" data-kind="{{ r.embed.kind }}" data-title="{{ r.title }} - {{ r.embed.label }}" data-umami-event="play-{{ r.embed.provider }}" data-umami-event-release="{{ r.slug }}">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <span>{{ t.play_preview % r.embed.label }}</span>
+      </button>
+    </section>
+    {%- endif %}
+
     {%- if r.buttons %}
     <section class="listen">
       {%- for b in r.buttons %}
