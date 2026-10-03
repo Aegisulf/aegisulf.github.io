@@ -18,6 +18,11 @@ from urllib.parse import quote
 
 import markdown
 import yaml
+
+try:
+    from PIL import Image
+except ImportError:  # image sizes are then omitted; the build warns
+    Image = None
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -131,12 +136,11 @@ def _figure(img_attrs):
     extra = ' loading="lazy" decoding="async"'
     local = ROOT / src.lstrip('/')
     if src.startswith('/') and local.is_file():
-        try:
-            from PIL import Image
+        if Image is None:
+            warnings.append('Pillow is not installed: blog images get no width/height (pip install -r requirements.txt)')
+        else:
             with Image.open(local) as im:
                 extra += f' width="{im.width}" height="{im.height}"'
-        except Exception:
-            pass
     elif src.startswith('/'):
         warnings.append(f'blog image not found: {src}')
     cap = f'<figcaption>{title}</figcaption>' if title else ''
