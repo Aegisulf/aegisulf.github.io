@@ -107,29 +107,41 @@ def prepare_release(r, site, i18n):
     r['buttons'] = buttons
     r['embed'] = pick_embed(r)
 
+    # genre may be a list or a comma separated string ("Digicore, Lo-fi, Electronic")
+    genres = r.get('genre') or []
+    if isinstance(genres, str):
+        genres = re.split(r'[,，、]', genres)
+    r['genres'] = [g.strip() for g in genres if str(g).strip()]
+
     chips = {lang: [] for lang in LANGS}
     for lang in LANGS:
-        if r.get('genre'):
-            chips[lang].append(r['genre'])
+        chips[lang].extend(r['genres'])
         if r.get('bpm'):
             chips[lang].append(f"{r['bpm']} BPM")
+        if r.get('key'):
+            chips[lang].append(f"{i18n[lang]['key']} {r['key']}")
         if r.get('duration'):
             chips[lang].append(str(r['duration']))
         if r.get('instrumental'):
             chips[lang].append(i18n[lang]['instrumental'])
     r['chips'] = chips
 
-    if r.get('upcoming'):
-        r['status'] = 'upcoming'
-        r['status_text'] = {lang: i18n[lang]['in_production'] for lang in LANGS}
-    elif soon_texts:
+    dated_text = None
+    if soon_texts:
         d, label = sorted(soon_texts)[0]
         several = len({x[0] for x in soon_texts}) == 1 and len(soon_texts) > 1  # same day on several stores
-        r['status'] = 'soon'
-        r['status_text'] = {
+        dated_text = {
             lang: (f'{fmt_date(d, lang)} 上架' if lang == 'zh' else f'Out {fmt_date(d, lang)}') if several
             else f'{label} · {fmt_date(d, lang)}' + (' 上架' if lang == 'zh' else '')
             for lang in LANGS}
+
+    if r.get('upcoming'):
+        # teaser page; once a release date is known it replaces "In production"
+        r['status'] = 'upcoming'
+        r['status_text'] = dated_text or {lang: i18n[lang]['in_production'] for lang in LANGS}
+    elif dated_text:
+        r['status'] = 'soon'
+        r['status_text'] = dated_text
     else:
         r['status'] = 'out'
         r['status_text'] = {lang: i18n[lang]['out_now'] for lang in LANGS}
@@ -208,8 +220,11 @@ def main():
                 'url': site['site_url'] + paths[lang], 'image': f"{site['site_url']}/assets/covers/{r['slug']}-og.jpg",
                 'byArtist': {'@type': 'MusicGroup', 'name': site['artist'], 'url': site['site_url'] + '/'},
             }
-            if r.get('genre'):
-                jsonld['genre'] = r['genre']
+            if r['genres']:
+                jsonld['genre'] = r['genres'] if len(r['genres']) > 1 else r['genres'][0]
+            publisher = r.get('publisher') or site.get('publisher')
+            if publisher:
+                jsonld['publisher'] = {'@type': 'Organization', 'name': publisher}
             ctx = page_ctx(
                 lang, r=r, body=render_md(body), prev=prev_r, next=next_r, section='releases',
                 page_title=f"{title} | AEGISULF", description=desc, path=paths[lang],

@@ -8,6 +8,7 @@
 #   (omitted)            not available there, button hidden
 #
 # hidden: true     -> kept here but not built/published (no pages, no cover)
+# genre: one or several, comma separated ("Digicore, Lo-fi, Electronic")
 # upcoming: true   -> teaser page, listed under "Upcoming"
 # featured: true   -> shown on the hub (only one); otherwise the newest released one is used
 
@@ -16,7 +17,14 @@
   title: Graveforged
   accent: "#3fa9ff"
   upcoming: true
+  genre: Electronic, UK Hardcore, Chiptune, Full 3/4
+  bpm: 180
+  key: Em
+  duration: "2:21"
+  instrumental: true
   links:
+    spotify: {soon: 2026-11-06}    # Symphonic: all stores on release day
+    apple: {soon: 2026-11-06}
     bandcamp: {soon: true}
 
 - slug: clan-guardian
@@ -24,6 +32,11 @@
   title: Clan Guardian
   accent: "#ff9a2e"
   featured: true
+  genre: Celtic, UK Hardcore, Psytrance, Drumstep
+  bpm: 170
+  key: Dm
+  duration: "3:19"
+  instrumental: true
   links:
     bandcamp: https://aegisulf.bandcamp.com/track/clan-guardian
     soundcloud: https://soundcloud.com/aegisulf/clan-guardian
@@ -34,9 +47,10 @@
   order: 4
   title: Apex Bound
   accent: "#ff6a3a"
-  genre: UK Hardcore
+  genre: UK Hardcore, Electronic, Chiptune
   bpm: 170
-  duration: "3:19"
+  key: Cm
+  duration: "2:34"
   instrumental: true
   links:
     spotify: https://open.spotify.com/track/7HNxDJr8JAfZU5wIG1DPM7
@@ -57,7 +71,11 @@
   order: 2
   title: Scarred Slumber
   accent: "#c07bff"
-  genre: Digicore
+  genre: Digicore, Lo-fi, Electronic
+  bpm: 140
+  key: Am
+  duration: "2:22"
+  instrumental: true
   links:
     spotify: https://open.spotify.com/track/1fZIapL7byHLWMOcN1XpcP
     apple: https://music.apple.com/album/scarred-slumber/6811073851?i=6811073852

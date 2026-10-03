@@ -1,5 +1,6 @@
 site_url: https://aegisulf.github.io
 artist: Aegisulf
+publisher: Symphonic   # default distributor; override per release with `publisher:`
 umami:
   src: https://cloud.umami.is/script.js
   website_id: d2d8d493-f332-4e29-8505-ff7b6c6f12ea

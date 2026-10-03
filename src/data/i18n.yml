@@ -12,6 +12,7 @@ en:
   preview: Preview player
   play_preview: "Play on %s"
   instrumental: Instrumental
+  key: Key
   story: Story
   prev: Previous
   next: Next
@@ -39,6 +40,7 @@ zh:
   preview: 試聽播放器
   play_preview: "在 %s 播放"
   instrumental: 純音樂
+  key: 調性
   story: 故事
   prev: 上一首
   next: 下一首
