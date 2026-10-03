@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // Language follows the visitor, whichever page they enter by:
+    //  - an explicit choice (language link) always wins
+    //  - otherwise a Chinese-preferring browser is sent to the Chinese page
+    // English / unknown browsers and crawlers are never redirected, so both versions stay indexable.
+    (function () {
+      var here = document.documentElement.lang.indexOf('zh') === 0 ? 'zh' : 'en';
+      var target = null;
+      try { var s = localStorage.getItem('lang'); if (s === 'en' || s === 'zh') target = s; } catch (e) { /* storage unavailable */ }
+      if (!target) {
+        var l = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+        if (l.some(function (x) { return /^zh/i.test(x); })) target = 'zh';
+      }
+      if (target && target !== here) location.replace("/en/blog/sample-post/" + location.search + location.hash);
+    })();
+  </script>
+  <title>範例文章：這個日誌可以放什麼 | AEGISULF</title>
+  <meta name="description" content="展示文字、圖片、影片與音樂播放器的範例，正式文章完成後可以刪除或取代。">
+  <meta name="theme-color" content="#0d0d11">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://aegisulf.github.io/zh/blog/sample-post/">
+  <link rel="alternate" hreflang="en" href="https://aegisulf.github.io/en/blog/sample-post/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://aegisulf.github.io/zh/blog/sample-post/">
+  <link rel="alternate" hreflang="x-default" href="https://aegisulf.github.io/en/blog/sample-post/">
+  <link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://aegisulf.github.io/zh/blog/sample-post/">
+  <meta property="og:title" content="範例文章：這個日誌可以放什麼 | AEGISULF">
+  <meta property="og:description" content="展示文字、圖片、影片與音樂播放器的範例，正式文章完成後可以刪除或取代。">
+  <meta property="og:image" content="https://aegisulf.github.io/assets/og-image.jpg">
+  <meta property="og:site_name" content="AEGISULF">
+  <meta property="og:locale" content="zh_TW">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@aegisulf">
+  <meta name="twitter:title" content="範例文章：這個日誌可以放什麼 | AEGISULF">
+  <meta name="twitter:description" content="展示文字、圖片、影片與音樂播放器的範例，正式文章完成後可以刪除或取代。">
+  <meta name="twitter:image" content="https://aegisulf.github.io/assets/og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pages.css?v=5701c045">
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="d2d8d493-f332-4e29-8505-ff7b6c6f12ea" data-domains="aegisulf.github.io" data-do-not-track="true"></script>
+</head>
+
+<body class="subpage">
+
+  <header class="topbar">
+    <a class="brand" href="/">AEGISULF</a>
+    <nav class="topnav" aria-label="Main">
+      <a href="/zh/releases/">作品</a>
+      <a href="/zh/blog/" aria-current="page">日誌</a>
+      <a class="lang-link" href="/en/blog/sample-post/" hreflang="en" lang="en" data-set-lang="en">English</a>
+    </nav>
+  </header>
+
+  
+<main class="post">
+  <article>
+    <header>
+      <p class="eyebrow"><time datetime="2026-10-03">2026-10-03</time></p>
+      <h1>範例文章：這個日誌可以放什麼</h1>
+      <button type="button" class="share-pill share-page" data-url="https://aegisulf.github.io/en/blog/sample-post/" data-text="範例文章：這個日誌可以放什麼 - Aegisulf" data-copied="已複製連結" data-failed="複製失敗" data-umami-event="click-share"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg><span>分享</span></button>
+    </header>
+    <div class="prose"><p>這是一篇<strong>範例文章</strong>，用來展示日誌能做到什麼。第一篇正式文章完成後，可以把它刪除或取代。</p>
+<h2>文字</h2>
+<p>一般的 Markdown 都可以使用：<strong>粗體</strong>、<em>斜體</em>、<a href="/zh/releases/">連結</a>、清單與引用。</p>
+<blockquote>
+<p>引用會長這樣。</p>
+</blockquote>
+<ul>
+<li>第一點</li>
+<li>第二點</li>
+</ul>
+<h2>圖片</h2>
+<p>單張圖片可以加上圖說：</p>
+<figure><img alt="Apex Bound 封面" src="/assets/covers/apex-bound.webp" loading="lazy" decoding="async" width="1024" height="1024"><figcaption>Apex Bound - 封面</figcaption></figure>
+<p>連續放兩張以上的圖片，會自動排成圖庫：</p>
+<div class="gallery"><figure><img alt="Clan Guardian 封面" src="/assets/covers/clan-guardian-512.webp" loading="lazy" decoding="async" width="512" height="512"></figure><figure><img alt="Scarred Slumber 封面" src="/assets/covers/scarred-slumber-512.webp" loading="lazy" decoding="async" width="512" height="512"></figure></div>
+<h2>影片</h2>
+<p>播放器要點擊後才會載入，頁面因此比較快，也不會預先連到第三方。</p>
+<div class="embed"><div class="embed-slot"><button type="button" class="player-load" data-src="https://www.youtube-nocookie.com/embed/rkcrpTDjJCY?autoplay=1&amp;rel=0" data-kind="video" data-title="Apex Bound 的 YouTube 影片" data-umami-event="play-youtube"><span class="play-icon" aria-hidden="true">▶</span><span>在 YouTube 播放</span></button></div><p class="embed-caption">Apex Bound 的 YouTube 影片</p></div>
+<h2>音樂服務</h2>
+<div class="embed"><div class="embed-slot"><button type="button" class="player-load" data-src="https://open.spotify.com/embed/track/7HNxDJr8JAfZU5wIG1DPM7?utm_source=generator&amp;theme=0" data-kind="spotify" data-title="Apex Bound 在 Spotify" data-umami-event="play-spotify"><span class="play-icon" aria-hidden="true">▶</span><span>在 Spotify 播放</span></button></div><p class="embed-caption">Apex Bound 在 Spotify</p></div>
+<div class="embed"><div class="embed-slot"><button type="button" class="player-load" data-src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Faegisulf%2Fapex-bound&amp;color=%23ff5500&amp;auto_play=true&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=false" data-kind="soundcloud" data-title="Apex Bound 在 SoundCloud" data-umami-event="play-soundcloud"><span class="play-icon" aria-hidden="true">▶</span><span>在 SoundCloud 播放</span></button></div><p class="embed-caption">Apex Bound 在 SoundCloud</p></div>
+<div class="embed"><div class="embed-slot"><button type="button" class="player-load" data-src="https://bandcamp.com/EmbeddedPlayer/track=2557044743/size=large/bgcol=0d0d11/linkcol=e63946/tracklist=false/artwork=small/transparent=true/" data-kind="bandcamp" data-title="Apex Bound 在 Bandcamp" data-umami-event="play-bandcamp"><span class="play-icon" aria-hidden="true">▶</span><span>在 Bandcamp 播放</span></button></div><p class="embed-caption">Apex Bound 在 Bandcamp</p></div>
+<h2>放在本站的音檔</h2>
+<figure class="audio"><audio controls preload="none" src="/assets/blog/apex-bound-preview.mp3"></audio><figcaption>Apex Bound 的 15 秒片段</figcaption></figure></div>
+  </article>
+  <nav class="pager" aria-label="日誌">
+    <a class="prev" href="/zh/blog/"><span>← 日誌</span><strong>所有文章</strong></a>
+    <span></span>
+  </nav>
+</main>
+
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <footer class="site-footer">
+    <p><a href="/">首頁</a> · <a href="/zh/releases/">作品</a> · <a href="/zh/blog/">日誌</a></p>
+    <p>© AEGISULF. 版權所有。</p>
+  </footer>
+
+  <script>
+    (function () {
+      // remember the visitor's explicit language choice (the home page reads it)
+      function save(l) { try { localStorage.setItem('lang', l); } catch (e) { /* ignore */ } }
+      document.querySelectorAll('[data-set-lang]').forEach(function (a) {
+        a.addEventListener('click', function () { save(a.dataset.setLang); });
+      });
+      // Share: native share sheet when available, otherwise copy the link
+      var toast = document.getElementById('toast'), toastTimer;
+      function showToast(msg) {
+        toast.textContent = msg;
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+      }
+      document.querySelectorAll('.share-page').forEach(function (btn) {
+        btn.addEventListener('click', async function () {
+          var data = { title: document.title, text: btn.dataset.text, url: btn.dataset.url };
+          if (navigator.share) {
+            try { await navigator.share(data); } catch (e) { /* cancelled by the visitor */ }
+            return;
+          }
+          try {
+            await navigator.clipboard.writeText(data.url);
+            showToast(btn.dataset.copied);
+          } catch (e) {
+            var ta = document.createElement('textarea');
+            ta.value = data.url;
+            ta.style.cssText = 'position:fixed;opacity:0';
+            document.body.appendChild(ta);
+            ta.select();
+            var ok = document.execCommand('copy');
+            ta.remove();
+            showToast(ok ? btn.dataset.copied : btn.dataset.failed);
+          }
+        });
+      });
+
+      // Preview player: the third-party iframe is only created after a click
+      document.querySelectorAll('.player-load').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var f = document.createElement('iframe');
+          f.src = btn.dataset.src;
+          f.title = btn.dataset.title;
+          f.allow = 'autoplay; encrypted-media; fullscreen; picture-in-picture';
+          f.allowFullscreen = true;
+          f.className = 'player-frame player-' + btn.dataset.kind;
+          btn.parentNode.replaceChildren(f);
+        });
+      });
+
+    })();
+  </script>
+</body>
+
+</html>

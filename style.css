@@ -773,6 +773,12 @@ body::before {
   padding: 0 0.1rem 0.35rem;
 }
 
+.featured-links {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
 .featured-all {
   font-size: 0.72rem;
   font-weight: 600;

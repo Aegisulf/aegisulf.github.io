@@ -13,6 +13,7 @@ import re
 import shutil
 import sys
 from pathlib import Path
+from html import escape
 from urllib.parse import quote
 
 import markdown
@@ -51,6 +52,120 @@ def render_md(text):
 
 def fmt_date(d, lang):
     return f'{d.month}/{d.day}' if lang == 'zh' else f'{MONTHS[d.month - 1]} {d.day}'
+
+
+# ---------------------------------------------------------------------------
+# Blog bodies: Markdown plus a few shortcodes (one per line):
+#   ::youtube[VIDEO_ID or URL]{caption}
+#   ::spotify[open.spotify.com URL]{caption}
+#   ::soundcloud[soundcloud.com URL]{caption}
+#   ::bandcamp[track=ID | album=ID | EmbeddedPlayer URL]{caption}
+#   ::audio[/assets/blog/clip.mp3]{caption}
+# Third-party players are click-to-load; images get width/height, lazy loading and captions.
+# ---------------------------------------------------------------------------
+SHORTCODE_RE = re.compile(r'^::(\w+)\[(.+?)\](?:\{(.*?)\})?[ \t]*$', re.M)
+IMG_RE = re.compile(r'<img\b([^>]*?)\s*/?>')
+
+
+def _attr(attrs, name):
+    m = re.search(r'\b' + name + r'="([^"]*)"', attrs)
+    return m.group(1) if m else None
+
+
+def _embed_html(kind, arg, caption, lang, i18n):
+    """Return the HTML for one shortcode, or None if the argument could not be understood."""
+    arg = arg.strip()
+    t = i18n[lang]
+    cap = f'<p class="embed-caption">{escape(caption)}</p>' if caption else ''
+    if kind == 'audio':
+        local = ROOT / arg.lstrip('/')
+        if arg.startswith('/') and not local.exists():
+            warnings.append(f'blog audio not found: {arg}')
+        label = f'<figcaption>{escape(caption)}</figcaption>' if caption else ''
+        return (f'<figure class="audio"><audio controls preload="none" src="{escape(arg, quote=True)}"></audio>'
+                f'{label}</figure>')
+
+    if kind == 'youtube':
+        m = re.search(r'(?:[?&]v=|youtu\.be/|/embed/|/shorts/)([\w-]{11})', arg) or re.fullmatch(r'()([\w-]{11})', arg)
+        vid = m.group(m.lastindex) if m else None
+        if not vid:
+            return None
+        src, label, css = f'https://www.youtube-nocookie.com/embed/{vid}?autoplay=1&rel=0', 'YouTube', 'video'
+    elif kind == 'spotify':
+        m = re.search(r'open\.spotify\.com/(?:intl-\w+/)?(track|album|playlist|episode|show)/(\w+)', arg)
+        if not m:
+            return None
+        src = f'https://open.spotify.com/embed/{m.group(1)}/{m.group(2)}?utm_source=generator&theme=0'
+        label, css = 'Spotify', 'spotify' if m.group(1) in ('track', 'episode') else 'spotify-tall'
+    elif kind == 'soundcloud':
+        if 'soundcloud.com/' not in arg:
+            return None
+        src = ('https://w.soundcloud.com/player/?url=' + quote(arg, safe='')
+               + '&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false'
+                 '&show_user=true&show_reposts=false&show_teaser=false')
+        label, css = 'SoundCloud', 'soundcloud-tall' if '/sets/' in arg else 'soundcloud'
+    elif kind == 'bandcamp':
+        if arg.startswith('http'):
+            src = arg
+        elif re.fullmatch(r'(track|album)=\d+', arg):
+            src = (f'https://bandcamp.com/EmbeddedPlayer/{arg}/size=large/bgcol=0d0d11/linkcol=e63946/'
+                   'tracklist=false/artwork=small/transparent=true/')
+        else:
+            return None
+        label, css = 'Bandcamp', 'bandcamp'
+    else:
+        return None
+    title = escape(caption or label, quote=True)
+    return (f'<div class="embed"><div class="embed-slot">'
+            f'<button type="button" class="player-load" data-src="{escape(src, quote=True)}" data-kind="{css}" '
+            f'data-title="{title}" data-umami-event="play-{kind}"><span class="play-icon" aria-hidden="true">▶</span>'
+            f'<span>{escape(t["play_preview"] % label)}</span></button></div>{cap}</div>')
+
+
+def _figure(img_attrs):
+    """<img ...> -> lazy-loaded <img> with intrinsic size (avoids layout shift), wrapped in <figure> with caption."""
+    attrs = img_attrs
+    title = _attr(attrs, 'title')
+    src = _attr(attrs, 'src') or ''
+    attrs = re.sub(r'\s*\btitle="[^"]*"', '', attrs)
+    extra = ' loading="lazy" decoding="async"'
+    local = ROOT / src.lstrip('/')
+    if src.startswith('/') and local.is_file():
+        try:
+            from PIL import Image
+            with Image.open(local) as im:
+                extra += f' width="{im.width}" height="{im.height}"'
+        except Exception:
+            pass
+    elif src.startswith('/'):
+        warnings.append(f'blog image not found: {src}')
+    cap = f'<figcaption>{title}</figcaption>' if title else ''
+    return f'<figure><img{attrs}{extra}>{cap}</figure>'
+
+
+def render_post(text, lang, i18n):
+    """Markdown (+ shortcodes) -> HTML for a blog post."""
+    embeds = []
+
+    def stash(m):
+        html = _embed_html(m.group(1).lower(), m.group(2), (m.group(3) or '').strip(), lang, i18n)
+        if html is None:
+            warnings.append(f'blog: could not understand shortcode: {m.group(0).strip()}')
+            return ''
+        embeds.append(html)
+        return f'\n\n@@EMBED{len(embeds) - 1}@@\n\n'
+
+    text = SHORTCODE_RE.sub(stash, text.replace('\r\n', '\n'))
+    html = markdown.markdown(text, extensions=['extra', 'sane_lists']) if text.strip() else ''
+    for i, e in enumerate(embeds):
+        html = html.replace(f'<p>@@EMBED{i}@@</p>', e)
+    # two or more images in one paragraph -> gallery; a lone image -> figure
+    html = re.sub(r'<p>\s*((?:<img\b[^>]*>\s*){2,})</p>',
+                  lambda m: '<div class="gallery">' + ''.join(_figure(i.group(1)) for i in IMG_RE.finditer(m.group(1))) + '</div>',
+                  html)
+    html = re.sub(r'<p>\s*<img\b([^>]*?)\s*/?>\s*</p>', lambda m: _figure(m.group(1)), html)
+    return html
+
 
 
 def pick_embed(r):
@@ -101,11 +216,14 @@ def prepare_release(r, site, i18n):
                     warnings.append(f"{r['slug']}: {label} date {d} has passed - add the real URL in releases.yml")
         elif v is True:
             b['url'] = site['artist_links'][key]
+            b['fallback'] = True
             warnings.append(f"{r['slug']}: {label} link falls back to the artist page - add the track URL")
         else:
             b['url'] = v
         buttons.append(b)
     r['buttons'] = buttons
+    r['soundcloud_url'] = next(
+        (b['url'] for b in buttons if b['key'] == 'soundcloud' and b.get('url') and not b.get('fallback')), None)
     r['embed'] = pick_embed(r)
 
     # genre may be a list or a comma separated string ("Digicore, Lo-fi, Electronic")
@@ -174,7 +292,7 @@ def main():
         posts[lang].append({
             'title': fm.get('title', slug), 'summary': fm.get('summary', ''), 'date': date,
             'slug': slug, 'lang': lang, 'ref': fm.get('ref', slug), 'cover': fm.get('cover'),
-            'body': render_md(body), 'path': f'/{lang}/blog/{slug}/',
+            'body': render_post(body, lang, i18n), 'path': f'/{lang}/blog/{slug}/',
         })
     for lang in LANGS:
         posts[lang].sort(key=lambda p: p['date'], reverse=True)

@@ -52,6 +52,23 @@ Markdown body...
 
 The Blog link appears on the home page automatically once a post exists.
 
+**Images, video and music in posts** - plain Markdown for text and images, plus one-line shortcodes. Third-party players only load after a click.
+
+```markdown
+![Alt text](/assets/blog/photo.webp "Caption shown under the image")   <- single image with caption
+
+![First](/assets/blog/a.webp)                                          <- 2+ images in a row
+![Second](/assets/blog/b.webp)                                            become a gallery
+
+::youtube[VIDEO_ID or URL]{optional caption}
+::spotify[https://open.spotify.com/track/...]{optional caption}        <- track, album, playlist, episode
+::soundcloud[https://soundcloud.com/aegisulf/track-name]{optional caption}
+::bandcamp[track=1234567890]{optional caption}                          <- or album=ID, or a full EmbeddedPlayer URL
+::audio[/assets/blog/clip.mp3]{optional caption}                        <- a file hosted in this repo
+```
+
+Put images and audio under `assets/blog/` (use WebP images and short MP3 clips; host full tracks and long videos on YouTube / SoundCloud instead). The Bandcamp ID is in the page's `bc-page-properties` meta tag, or in the embed code from Bandcamp's *Share / Embed* dialog.
+
 **Preview** - `python -m http.server 8000`, then open <http://localhost:8000/>.
 
 ## Notes

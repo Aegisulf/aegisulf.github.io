@@ -11,6 +11,7 @@ en:
   listen_on: "Listen on %s"
   preview: Preview player
   share: Share
+  comment_soundcloud: Comment on SoundCloud
   link_copied: Link copied
   copy_failed: Copy failed
   play_preview: "Play on %s"
@@ -39,6 +40,7 @@ zh:
   listen_on: "在 %s 收聽"
   preview: 試聽播放器
   share: 分享
+  comment_soundcloud: 到 SoundCloud 留言
   link_copied: 已複製連結
   copy_failed: 複製失敗
   play_preview: "在 %s 播放"

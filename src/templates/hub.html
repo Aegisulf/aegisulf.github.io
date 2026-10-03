@@ -104,7 +104,12 @@
       <div class="featured-card">
         <div class="featured-top">
           <span class="featured-label" data-zh="{{ zh.new_release }}">{{ en.new_release }}</span>
-          <a href="/en/releases/" data-href-zh="/zh/releases/" class="featured-all" data-umami-event="click-all-releases"><span data-zh="全部作品">All releases</span> →</a>
+          <span class="featured-links">
+            <a href="/en/releases/" data-href-zh="/zh/releases/" class="featured-all" data-umami-event="click-all-releases"><span data-zh="全部作品">All releases</span> →</a>
+            {%- if has_blog %}
+            <a href="/en/blog/" data-href-zh="/zh/blog/" class="featured-all" data-umami-event="click-blog"><span data-zh="日誌">Blog</span> →</a>
+            {%- endif %}
+          </span>
         </div>
         <a href="/en/releases/{{ featured.slug }}/" data-href-zh="/zh/releases/{{ featured.slug }}/" class="featured-main" data-umami-event="click-featured" data-umami-event-release="{{ featured.slug }}">
           <img src="assets/covers/{{ featured.slug }}-128.webp" width="44" height="44" alt="" class="featured-cover">
@@ -213,9 +218,6 @@
 
   <!-- 頁尾 -->
   <footer class="footer">
-    {%- if has_blog %}
-    <p class="footer-nav"><a href="/en/blog/" data-href-zh="/zh/blog/" data-zh="日誌">Blog</a></p>
-    {%- endif %}
     <p class="footer-credit"><span class="moon" id="moon"></span><span data-zh="狼人插畫：">Wolf illustration by </span><a href="{{ site.art_credit.url }}" target="_blank" rel="noopener noreferrer">{{ site.art_credit.name }}</a></p>
     <p><span data-zh="© AEGISULF. 版權所有。">© AEGISULF. All rights reserved.</span> · <a class="footer-mail" id="footer-mail" data-user="Aegisulf" data-domain="outlook.com" data-umami-event="click-email">Aegisulf [at] outlook.com</a></p>
   </footer>

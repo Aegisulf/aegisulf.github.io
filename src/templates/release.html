@@ -48,6 +48,10 @@
       {{ body | safe }}
     </section>
     {%- endif %}
+
+    {%- if r.soundcloud_url %}
+    <p class="comment-link"><a href="{{ r.soundcloud_url }}" target="_blank" rel="noopener noreferrer" data-umami-event="comment-soundcloud" data-umami-event-release="{{ r.slug }}">{{ icon('soundcloud') }}<span>{{ t.comment_soundcloud }}</span><span class="arrow" aria-hidden="true">↗</span></a></p>
+    {%- endif %}
   </article>
 
   <nav class="pager" aria-label="Releases">

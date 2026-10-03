@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en-US">
 
 <head>
   <meta charset="UTF-8">
@@ -17,30 +17,30 @@
         var l = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
         if (l.some(function (x) { return /^zh/i.test(x); })) target = 'zh';
       }
-      if (target && target !== here) location.replace("/en/releases/" + location.search + location.hash);
+      if (target && target !== here) location.replace("/zh/blog/" + location.search + location.hash);
     })();
   </script>
-  <title>作品 | AEGISULF</title>
-  <meta name="description" content="Aegisulf，創作電子音樂。作品、故事與最新動態。">
+  <title>Blog | AEGISULF</title>
+  <meta name="description" content="Aegisulf, crafting electronic music. Releases, stories and updates.">
   <meta name="theme-color" content="#0d0d11">
   <meta name="color-scheme" content="dark">
-  <link rel="canonical" href="https://aegisulf.github.io/zh/releases/">
-  <link rel="alternate" hreflang="en" href="https://aegisulf.github.io/en/releases/">
-  <link rel="alternate" hreflang="zh-Hant" href="https://aegisulf.github.io/zh/releases/">
-  <link rel="alternate" hreflang="x-default" href="https://aegisulf.github.io/en/releases/">
+  <link rel="canonical" href="https://aegisulf.github.io/en/blog/">
+  <link rel="alternate" hreflang="en" href="https://aegisulf.github.io/en/blog/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://aegisulf.github.io/zh/blog/">
+  <link rel="alternate" hreflang="x-default" href="https://aegisulf.github.io/en/blog/">
   <link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
 
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aegisulf.github.io/zh/releases/">
-  <meta property="og:title" content="作品 | AEGISULF">
-  <meta property="og:description" content="Aegisulf，創作電子音樂。作品、故事與最新動態。">
+  <meta property="og:url" content="https://aegisulf.github.io/en/blog/">
+  <meta property="og:title" content="Blog | AEGISULF">
+  <meta property="og:description" content="Aegisulf, crafting electronic music. Releases, stories and updates.">
   <meta property="og:image" content="https://aegisulf.github.io/assets/og-image.jpg">
   <meta property="og:site_name" content="AEGISULF">
-  <meta property="og:locale" content="zh_TW">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@aegisulf">
-  <meta name="twitter:title" content="作品 | AEGISULF">
-  <meta name="twitter:description" content="Aegisulf，創作電子音樂。作品、故事與最新動態。">
+  <meta name="twitter:title" content="Blog | AEGISULF">
+  <meta name="twitter:description" content="Aegisulf, crafting electronic music. Releases, stories and updates.">
   <meta name="twitter:image" content="https://aegisulf.github.io/assets/og-image.jpg">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,51 +56,31 @@
   <header class="topbar">
     <a class="brand" href="/">AEGISULF</a>
     <nav class="topnav" aria-label="Main">
-      <a href="/zh/releases/" aria-current="page">作品</a>
-      <a href="/zh/blog/">日誌</a>
-      <a class="lang-link" href="/en/releases/" hreflang="en" lang="en" data-set-lang="en">English</a>
+      <a href="/en/releases/">Releases</a>
+      <a href="/en/blog/" aria-current="page">Blog</a>
+      <a class="lang-link" href="/zh/blog/" hreflang="zh" lang="zh" data-set-lang="zh">中文</a>
     </nav>
   </header>
 
   
 <main class="index">
-  <h1>作品</h1>
-  <h2 class="section-title">即將發行</h2>
-  <div class="rel-grid">
-<a class="rel-card" href="/zh/releases/graveforged/" style="--accent: #3fa9ff">
-  <img src="/assets/covers/graveforged-512.webp" width="512" height="512" alt="" loading="lazy">
-  <span class="rel-title">Graveforged</span>
-  <span class="rel-status">11/6 上架</span>
-</a>
-</div>
-  <h2 class="section-title">已發行</h2>
-  <div class="rel-grid">
-<a class="rel-card" href="/zh/releases/clan-guardian/" style="--accent: #ff9a2e">
-  <img src="/assets/covers/clan-guardian-512.webp" width="512" height="512" alt="" loading="lazy">
-  <span class="rel-title">Clan Guardian</span>
-  <span class="rel-status">10/16 上架</span>
-</a>
-
-<a class="rel-card" href="/zh/releases/apex-bound/" style="--accent: #ff6a3a">
-  <img src="/assets/covers/apex-bound-512.webp" width="512" height="512" alt="" loading="lazy">
-  <span class="rel-title">Apex Bound</span>
-  <span class="rel-status">已上架</span>
-</a>
-
-<a class="rel-card" href="/zh/releases/scarred-slumber/" style="--accent: #c07bff">
-  <img src="/assets/covers/scarred-slumber-512.webp" width="512" height="512" alt="" loading="lazy">
-  <span class="rel-title">Scarred Slumber</span>
-  <span class="rel-status">已上架</span>
-</a>
-</div>
+  <h1>Blog</h1>
+  <ul class="post-list">
+    <li>
+      <a href="/en/blog/sample-post/">
+        <time datetime="2026-10-03">2026-10-03</time>
+        <strong>Sample post: what this blog can hold</strong><span>A demo of text, images, video and music players. Replace it with the first real post.</span>
+      </a>
+    </li>
+  </ul>
 </main>
 
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <footer class="site-footer">
-    <p><a href="/">首頁</a> · <a href="/zh/releases/">作品</a> · <a href="/zh/blog/">日誌</a></p>
-    <p>© AEGISULF. 版權所有。</p>
+    <p><a href="/">Home</a> · <a href="/en/releases/">Releases</a> · <a href="/en/blog/">Blog</a></p>
+    <p>© AEGISULF. All rights reserved.</p>
   </footer>
 
   <script>
