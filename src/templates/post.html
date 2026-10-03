@@ -5,7 +5,7 @@
     <header>
       <p class="eyebrow"><time datetime="{{ post.date.isoformat() }}">{{ post.date.isoformat() }}</time></p>
       <h1>{{ post.title }}</h1>
-      <button type="button" class="share-pill share-page" data-url="{{ share_url }}" data-text="{{ post.title }} - {{ site.artist }}" data-copied="{{ t.link_copied }}" data-failed="{{ t.copy_failed }}" data-umami-event="click-share"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg><span>{{ t.share }}</span></button>
+<button type="button" class="share-icon share-page" aria-label="{{ t.share }}" title="{{ t.share }}" data-url="{{ share_url }}" data-text="{{ post.title }} - {{ site.artist }}" data-copied="{{ t.link_copied }}" data-failed="{{ t.copy_failed }}" data-umami-event="click-share"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg></button>
     </header>
     <div class="prose">{{ body | safe }}</div>
   </article>

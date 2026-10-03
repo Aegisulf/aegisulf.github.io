@@ -8,6 +8,7 @@ Generated (safe to overwrite, do not edit by hand): index.html, en/, zh/, sitema
 Edit instead: src/data/*.yml, src/content/**, src/templates/*
 """
 import datetime
+import hashlib
 import re
 import shutil
 import sys
@@ -148,8 +149,15 @@ def prepare_release(r, site, i18n):
     return r
 
 
+def asset_version(name):
+    """Short content hash, appended to CSS urls so browsers never keep a stale stylesheet after a deploy."""
+    data = (ROOT / name).read_bytes().replace(b'\r\n', b'\n')  # same hash on Windows (CRLF) and CI (LF)
+    return hashlib.md5(data).hexdigest()[:8]
+
+
 def main():
     site = load_yaml('site.yml')
+    site['css_v'] = {'style': asset_version('style.css'), 'pages': asset_version('pages.css')}
     i18n = load_yaml('i18n.yml')
     releases = [prepare_release(r, site, i18n) for r in load_yaml('releases.yml') if not r.get('hidden')]
     releases.sort(key=lambda r: r['order'])

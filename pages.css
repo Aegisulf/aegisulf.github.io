@@ -149,8 +149,15 @@ h1, h2 {
   text-align: center;
 }
 
-.cover {
+.cover-wrap {
+  position: relative;
   width: min(78vw, 320px);
+  flex-shrink: 0;
+}
+
+.cover {
+  display: block;
+  width: 100%;
   height: auto;
   aspect-ratio: 1;
   border-radius: var(--radius-lg);
@@ -207,51 +214,50 @@ h1, h2 {
   }
 }
 
-/* ---------- share ---------- */
-.status-row {
+/* ---------- share (same look as the home page button) ---------- */
+.share-icon {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
-}
-
-.share-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.25rem 0.85rem;
-  font-family: inherit;
-  font-size: 0.82rem;
-  font-weight: 600;
   color: var(--text-main);
-  background: var(--card-bg);
+  background: rgba(8, 7, 14, 0.45);
   border: 1px solid var(--card-border);
-  border-radius: 9999px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   cursor: pointer;
-  transition: border-color var(--trans), background var(--trans);
+  transition: background var(--trans), border-color var(--trans), transform var(--trans);
 }
 
-.share-pill svg {
-  width: 15px;
-  height: 15px;
+.share-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
-.post header .share-pill {
-  margin-top: 1rem;
+.share-icon:active {
+  transform: scale(0.94);
 }
 
 @media (hover: hover) {
-  .share-pill:hover {
+  .share-icon:hover {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
     border-color: var(--accent);
-    background: color-mix(in srgb, var(--accent) 18%, transparent);
   }
 }
 
-@media (min-width: 720px) {
-  .status-row {
-    justify-content: flex-start;
-  }
+.post header {
+  position: relative;
+}
+
+.post header .share-icon {
+  top: 0;
+  right: 0;
 }
 
 .toast {
@@ -263,7 +269,7 @@ h1, h2 {
   padding: 0.55rem 1.1rem;
   border-radius: 9999px;
   background: rgba(14, 12, 20, 0.95);
-  border: 1px solid var(--accent);
+  border: 1px solid rgba(230, 57, 70, 0.45);
   color: #fff;
   font-size: 0.85rem;
   opacity: 0;
