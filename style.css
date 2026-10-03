@@ -750,19 +750,41 @@ body::before {
 .featured-card {
   grid-column: span 2;
   min-width: 0;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.55rem 0.9rem 0.55rem 0.55rem;
+  padding: 0.4rem 0.55rem 0.55rem;
   background: var(--card-bg);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   border: 1px solid var(--card-border);
   border-radius: var(--radius-md);
-  text-decoration: none;
   color: inherit;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
   transition: transform var(--trans-speed) var(--trans-ease), background var(--trans-speed) var(--trans-ease), border-color var(--trans-speed) var(--trans-ease);
+}
+
+.featured-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0 0.1rem 0.35rem;
+}
+
+.featured-all {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-sub);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color var(--trans-speed) var(--trans-ease);
+}
+
+.featured-main {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
 }
 
 .featured-cover {
@@ -794,6 +816,10 @@ body::before {
 }
 
 @media (hover: hover) {
+  .featured-all:hover {
+    color: var(--primary-accent);
+  }
+
   .featured-card:hover {
     transform: translateY(-2px);
     background: var(--card-bg-hover);
@@ -802,9 +828,8 @@ body::before {
 }
 
 @media (max-width: 400px) {
-  .featured-card {
+  .featured-main {
     gap: 0.55rem;
-    padding-right: 0.6rem;
   }
 
   .featured-status {
@@ -816,6 +841,10 @@ body::before {
 .footer-nav {
   margin-bottom: 0.4rem;
   letter-spacing: 0.08em;
+}
+
+.footer-credit {
+  margin-bottom: 0.3rem;
 }
 
 .footer-nav a,
@@ -854,6 +883,15 @@ body::before {
   .highlight-card {
     padding-top: 0.7rem;
     padding-bottom: 0.7rem;
+  }
+
+  .featured-card {
+    padding-top: 0.3rem;
+    padding-bottom: 0.45rem;
+  }
+
+  .featured-top {
+    padding-bottom: 0.25rem;
   }
 
   .footer {

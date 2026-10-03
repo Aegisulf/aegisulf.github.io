@@ -90,7 +90,7 @@
         </svg>
       </h1>
 
-      <p class="profile-bio" data-zh-html="Aegisulf，創作電子音樂。<br>歡迎追蹤我的動態，一起支持這段音樂旅程。">Aegisulf, crafting electronic music.<br>Connect with me for updates and support my journey.</p>
+      <p class="profile-bio" data-zh-html="以利爪鍛造電子音樂的狼人。<br>聽聽新作，歡迎追蹤與支持。">A werewolf forging electronic music.<br>Listen, follow along, and show your support.</p>
     </div>
 
   </header>
@@ -101,14 +101,19 @@
 
       {% if featured %}
       <!-- Featured release (set `featured: true` in src/data/releases.yml) -->
-      <a href="/en/releases/{{ featured.slug }}/" data-href-zh="/zh/releases/{{ featured.slug }}/" class="featured-card" data-umami-event="click-featured" data-umami-event-release="{{ featured.slug }}">
-        <img src="assets/covers/{{ featured.slug }}-128.webp" width="44" height="44" alt="" class="featured-cover">
-        <div class="link-info">
+      <div class="featured-card">
+        <div class="featured-top">
           <span class="featured-label" data-zh="{{ zh.new_release }}">{{ en.new_release }}</span>
-          <span class="link-title">{{ featured.title }}</span>
+          <a href="/en/releases/" data-href-zh="/zh/releases/" class="featured-all" data-umami-event="click-all-releases"><span data-zh="全部作品">All releases</span> →</a>
         </div>
-        <span class="featured-status" data-zh="{{ featured.status_text.zh }}">{{ featured.status_text.en }}</span>
-      </a>
+        <a href="/en/releases/{{ featured.slug }}/" data-href-zh="/zh/releases/{{ featured.slug }}/" class="featured-main" data-umami-event="click-featured" data-umami-event-release="{{ featured.slug }}">
+          <img src="assets/covers/{{ featured.slug }}-128.webp" width="44" height="44" alt="" class="featured-cover">
+          <div class="link-info">
+            <span class="link-title">{{ featured.title }}</span>
+          </div>
+          <span class="featured-status" data-zh="{{ featured.status_text.zh }}">{{ featured.status_text.en }}</span>
+        </a>
+      </div>
       {% endif %}
 
       <!-- 1. Spotify -->
@@ -208,11 +213,10 @@
 
   <!-- 頁尾 -->
   <footer class="footer">
-    <p class="footer-nav">
-      <a href="/en/releases/" data-href-zh="/zh/releases/" data-zh="作品">Releases</a>{% if has_blog %}
-      · <a href="/en/blog/" data-href-zh="/zh/blog/" data-zh="日誌">Blog</a>{% endif %}
-      · <span class="footer-credit"><span data-zh="插畫：">Artwork by </span><a href="{{ site.art_credit.url }}" target="_blank" rel="noopener noreferrer">{{ site.art_credit.name }}</a></span>
-    </p>
+    {%- if has_blog %}
+    <p class="footer-nav"><a href="/en/blog/" data-href-zh="/zh/blog/" data-zh="日誌">Blog</a></p>
+    {%- endif %}
+    <p class="footer-credit"><span data-zh="狼人插畫：">Wolf illustration by </span><a href="{{ site.art_credit.url }}" target="_blank" rel="noopener noreferrer">{{ site.art_credit.name }}</a></p>
     <p><span data-zh="© AEGISULF. 版權所有。">© AEGISULF. All rights reserved.</span> · <a class="footer-mail" id="footer-mail" data-user="Aegisulf" data-domain="outlook.com" data-umami-event="click-email">Aegisulf [at] outlook.com</a></p>
   </footer>
 
