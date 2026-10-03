@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% macro card(r) %}
+<a class="rel-card" href="/{{ lang }}/releases/{{ r.slug }}/" style="--accent: {{ r.accent }}">
+  <img src="/assets/covers/{{ r.slug }}-512.webp" width="512" height="512" alt="" loading="lazy">
+  <span class="rel-title">{{ r.title }}</span>
+  <span class="rel-status">{{ r.status_text[lang] }}</span>
+</a>
+{% endmacro %}
+{% block content %}
+<main class="index">
+  <h1>{{ t.releases }}</h1>
+  {%- if upcoming %}
+  <h2 class="section-title">{{ t.upcoming }}</h2>
+  <div class="rel-grid">{% for r in upcoming %}{{ card(r) }}{% endfor %}</div>
+  {%- endif %}
+  <h2 class="section-title">{{ t.released }}</h2>
+  <div class="rel-grid">{% for r in released %}{{ card(r) }}{% endfor %}</div>
+</main>
+{% endblock %}

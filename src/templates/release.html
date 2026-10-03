@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="release">
+  <article>
+    <div class="release-head">
+      <img class="cover" src="/assets/covers/{{ r.slug }}.webp" width="1024" height="1024" alt="{{ r.title }}">
+      <div class="release-info">
+        <p class="eyebrow">{{ site.artist }}</p>
+        <h1>{{ r.title }}</h1>
+        {%- if r.chips[lang] %}
+        <ul class="chips">
+          {%- for c in r.chips[lang] %}<li>{{ c }}</li>{% endfor %}
+        </ul>
+        {%- endif %}
+        <p class="status status-{{ r.status }}">{{ r.status_text[lang] }}</p>
+      </div>
+    </div>
+
+    {%- if r.buttons %}
+    <section class="listen">
+      {%- for b in r.buttons %}
+      {%- if b.soon %}
+      <span class="btn soon p-{{ b.key }}">{{ icon(b.key) }}<span class="btn-label">{{ b.label }}</span><span class="btn-sub">{{ b.soon_text[lang] }}</span></span>
+      {%- else %}
+      <a class="btn p-{{ b.key }}" href="{{ b.url }}" target="_blank" rel="noopener noreferrer" data-umami-event="listen-{{ b.key }}" data-umami-event-release="{{ r.slug }}">{{ icon(b.key) }}<span class="btn-label">{{ t.listen_on % b.label }}</span><span class="arrow" aria-hidden="true">↗</span></a>
+      {%- endif %}
+      {%- endfor %}
+    </section>
+    {%- endif %}
+
+    {%- if body %}
+    <section class="story prose">
+      <h2>{{ t.story }}</h2>
+      {{ body | safe }}
+    </section>
+    {%- endif %}
+  </article>
+
+  <nav class="pager" aria-label="Releases">
+    {%- if prev %}<a class="prev" href="/{{ lang }}/releases/{{ prev.slug }}/"><span>← {{ t.prev }}</span><strong>{{ prev.title }}</strong></a>{% else %}<span></span>{% endif %}
+    {%- if next %}<a class="next" href="/{{ lang }}/releases/{{ next.slug }}/"><span>{{ t.next }} →</span><strong>{{ next.title }}</strong></a>{% else %}<span></span>{% endif %}
+  </nav>
+</main>
+{% endblock %}

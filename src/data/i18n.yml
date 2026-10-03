@@ -1,0 +1,50 @@
+en:
+  lang_code: en-US
+  lang_name: English
+  releases: Releases
+  blog: Blog
+  home: Home
+  new_release: New release
+  out_now: Out now
+  coming_soon: Coming soon
+  in_production: In production
+  listen_on: "Listen on %s"
+  instrumental: Instrumental
+  story: Story
+  prev: Previous
+  next: Next
+  upcoming: Upcoming
+  released: Released
+  all_posts: All posts
+  site_desc: "Aegisulf, crafting electronic music. Releases, stories and updates."
+  rights: "© AEGISULF. All rights reserved."
+  artwork: "Artwork by"
+  banner_text: "This page is also available in English."
+  banner_switch: "Read in English"
+  banner_stay: "Stay here"
+  no_translation: "Only available in Traditional Chinese for now."
+zh:
+  lang_code: zh-Hant
+  lang_name: 中文
+  releases: 作品
+  blog: 日誌
+  home: 首頁
+  new_release: 最新作品
+  out_now: 已上架
+  coming_soon: 即將推出
+  in_production: 製作中
+  listen_on: "在 %s 收聽"
+  instrumental: 純音樂
+  story: 故事
+  prev: 上一首
+  next: 下一首
+  upcoming: 即將發行
+  released: 已發行
+  all_posts: 所有文章
+  site_desc: "Aegisulf，創作電子音樂。作品、故事與最新動態。"
+  rights: "© AEGISULF. 版權所有。"
+  artwork: "插畫："
+  banner_text: "這個頁面有繁體中文版。"
+  banner_switch: "閱讀中文版"
+  banner_stay: "留在這裡"
+  no_translation: "目前僅提供英文。"

@@ -1,0 +1,95 @@
+{%- from "_icons.html" import icon -%}
+<!DOCTYPE html>
+<html lang="{{ t.lang_code }}">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page_title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="theme-color" content="#0d0d11">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="{{ site.site_url }}{{ path }}">
+  {%- for alt in alternates %}
+  <link rel="alternate" hreflang="{{ alt.hreflang }}" href="{{ site.site_url }}{{ alt.path }}">
+  {%- endfor %}
+  <link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+
+  <meta property="og:type" content="{{ og_type | default('website') }}">
+  <meta property="og:url" content="{{ site.site_url }}{{ path }}">
+  <meta property="og:title" content="{{ page_title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:image" content="{{ site.site_url }}{{ og_image }}">
+  <meta property="og:site_name" content="AEGISULF">
+  <meta property="og:locale" content="{{ 'zh_TW' if lang == 'zh' else 'en_US' }}">
+  <meta name="twitter:card" content="{{ 'summary' if og_square else 'summary_large_image' }}">
+  <meta name="twitter:site" content="@aegisulf">
+  <meta name="twitter:title" content="{{ page_title }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:image" content="{{ site.site_url }}{{ og_image }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pages.css">
+
+  <script defer src="{{ site.umami.src }}" data-website-id="{{ site.umami.website_id }}" data-domains="aegisulf.github.io" data-do-not-track="true"></script>
+  {%- if jsonld %}
+  <script type="application/ld+json">{{ jsonld | tojson }}</script>
+  {%- endif %}
+</head>
+
+<body class="subpage"{% if accent %} style="--accent: {{ accent }}"{% endif %}>
+  {%- if bg_image %}
+  <div class="ambient" style="background-image: url('{{ bg_image }}')" aria-hidden="true"></div>
+  {%- endif %}
+
+  <header class="topbar">
+    <a class="brand" href="/">AEGISULF</a>
+    <nav class="topnav" aria-label="Main">
+      <a href="/{{ lang }}/releases/"{% if section == 'releases' %} aria-current="page"{% endif %}>{{ t.releases }}</a>
+      {%- if has_blog %}
+      <a href="/{{ lang }}/blog/"{% if section == 'blog' %} aria-current="page"{% endif %}>{{ t.blog }}</a>
+      {%- endif %}
+      {%- if alt_page %}
+      <a class="lang-link" href="{{ alt_page.path }}" hreflang="{{ alt_page.lang }}" lang="{{ alt_page.lang }}" data-set-lang="{{ alt_page.lang }}">{{ alt_page.name }}</a>
+      {%- endif %}
+    </nav>
+  </header>
+
+  {%- if alt_page %}
+  <div class="lang-banner" id="lang-banner" hidden lang="{{ alt_page.lang }}">
+    <span>{{ alt_page.banner_text }}</span>
+    <a href="{{ alt_page.path }}" data-set-lang="{{ alt_page.lang }}">{{ alt_page.banner_switch }}</a>
+    <button type="button" id="lang-stay">{{ alt_page.banner_stay }}</button>
+  </div>
+  {%- endif %}
+
+  {% block content %}{% endblock %}
+
+  <footer class="site-footer">
+    <p><a href="/">{{ t.home }}</a> · <a href="/{{ lang }}/releases/">{{ t.releases }}</a>{% if has_blog %} · <a href="/{{ lang }}/blog/">{{ t.blog }}</a>{% endif %}</p>
+    <p>{{ t.rights }}</p>
+  </footer>
+
+  <script>
+    (function () {
+      var here = document.documentElement.lang.indexOf('zh') === 0 ? 'zh' : 'en';
+      function pref() {
+        try { var s = localStorage.getItem('lang'); if (s === 'en' || s === 'zh') return s; } catch (e) { /* storage unavailable */ }
+        var l = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+        return l.some(function (x) { return /^zh/i.test(x); }) ? 'zh' : 'en';
+      }
+      function save(l) { try { localStorage.setItem('lang', l); } catch (e) { /* ignore */ } }
+      document.querySelectorAll('[data-set-lang]').forEach(function (a) {
+        a.addEventListener('click', function () { save(a.dataset.setLang); });
+      });
+      var banner = document.getElementById('lang-banner');
+      if (banner && pref() !== here) banner.hidden = false;
+      var stay = document.getElementById('lang-stay');
+      if (stay) stay.addEventListener('click', function () { save(here); banner.hidden = true; });
+    })();
+  </script>
+</body>
+
+</html>

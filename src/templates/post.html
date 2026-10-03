@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<main class="post">
+  <article>
+    <header>
+      <p class="eyebrow"><time datetime="{{ post.date.isoformat() }}">{{ post.date.isoformat() }}</time></p>
+      <h1>{{ post.title }}</h1>
+    </header>
+    <div class="prose">{{ body | safe }}</div>
+  </article>
+  <nav class="pager" aria-label="{{ t.blog }}">
+    <a class="prev" href="/{{ lang }}/blog/"><span>← {{ t.blog }}</span><strong>{{ t.all_posts }}</strong></a>
+    <span></span>
+  </nav>
+</main>
+{% endblock %}

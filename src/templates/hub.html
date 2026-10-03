@@ -41,7 +41,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicGroup", "description": "Aegisulf, crafting electronic music.", "image": "https://aegisulf.github.io/assets/og-image.jpg", "name": "Aegisulf", "sameAs": ["https://open.spotify.com/artist/7qatwbY2RmZGrM398fgFIr", "https://music.apple.com/artist/aegisulf/6804000118", "https://aegisulf.bandcamp.com", "https://www.youtube.com/@aegisulf", "https://soundcloud.com/aegisulf", "https://x.com/aegisulf"], "url": "https://aegisulf.github.io/"}</script>
+  <script type="application/ld+json">{{ jsonld | tojson }}</script>
 
   <!-- Umami Cloud analytics (cookie-free) -->
   <script defer src="https://cloud.umami.is/script.js"
@@ -99,17 +99,17 @@
   <main class="main-container">
     <section class="links-section">
 
-      
+      {% if featured %}
       <!-- Featured release (set `featured: true` in src/data/releases.yml) -->
-      <a href="/en/releases/clan-guardian/" data-href-zh="/zh/releases/clan-guardian/" class="featured-card" data-umami-event="click-featured" data-umami-event-release="clan-guardian">
-        <img src="assets/covers/clan-guardian-128.webp" width="44" height="44" alt="" class="featured-cover">
+      <a href="/en/releases/{{ featured.slug }}/" data-href-zh="/zh/releases/{{ featured.slug }}/" class="featured-card" data-umami-event="click-featured" data-umami-event-release="{{ featured.slug }}">
+        <img src="assets/covers/{{ featured.slug }}-128.webp" width="44" height="44" alt="" class="featured-cover">
         <div class="link-info">
-          <span class="featured-label" data-zh="最新作品">New release</span>
-          <span class="link-title">Clan Guardian</span>
+          <span class="featured-label" data-zh="{{ zh.new_release }}">{{ en.new_release }}</span>
+          <span class="link-title">{{ featured.title }}</span>
         </div>
-        <span class="featured-status" data-zh="10/16 上架">Out Oct 16</span>
+        <span class="featured-status" data-zh="{{ featured.status_text.zh }}">{{ featured.status_text.en }}</span>
       </a>
-      
+      {% endif %}
 
       <!-- 1. Spotify -->
       <a href="https://open.spotify.com/artist/7qatwbY2RmZGrM398fgFIr" data-umami-event="click-spotify" class="link-card icon-spotify" target="_blank" rel="noopener noreferrer">
@@ -209,8 +209,9 @@
   <!-- 頁尾 -->
   <footer class="footer">
     <p class="footer-nav">
-      <a href="/en/releases/" data-href-zh="/zh/releases/" data-zh="作品">Releases</a>
-      · <span class="footer-credit"><span data-zh="插畫：">Artwork by </span><a href="https://x.com/Korl413115" target="_blank" rel="noopener noreferrer">@Korl413115</a></span>
+      <a href="/en/releases/" data-href-zh="/zh/releases/" data-zh="作品">Releases</a>{% if has_blog %}
+      · <a href="/en/blog/" data-href-zh="/zh/blog/" data-zh="日誌">Blog</a>{% endif %}
+      · <span class="footer-credit"><span data-zh="插畫：">Artwork by </span><a href="{{ site.art_credit.url }}" target="_blank" rel="noopener noreferrer">{{ site.art_credit.name }}</a></span>
     </p>
     <p><span data-zh="© AEGISULF. 版權所有。">© AEGISULF. All rights reserved.</span> · <a class="footer-mail" id="footer-mail" data-user="Aegisulf" data-domain="outlook.com" data-umami-event="click-email">Aegisulf [at] outlook.com</a></p>
   </footer>

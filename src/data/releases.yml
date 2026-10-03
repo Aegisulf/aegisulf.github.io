@@ -1,0 +1,64 @@
+# One entry per release shown on the site (r001 / r002 are intentionally hidden).
+#
+# links.<platform> accepts:
+#   "https://..."        exact URL of this release on that platform
+#   true                 live, but exact URL not filled in yet -> falls back to the artist page
+#                        (the build prints a warning so it is not forgotten)
+#   {soon: 2026-10-16}   not live yet, shows "Platform · Oct 16" (date optional: {soon: true})
+#   (omitted)            not available there, button hidden
+#
+# hidden: true     -> kept here but not built/published (no pages, no cover)
+# upcoming: true   -> teaser page, listed under "Upcoming"
+# featured: true   -> shown on the hub (only one); otherwise the newest released one is used
+
+- slug: graveforged
+  order: 6
+  title: Graveforged
+  accent: "#3fa9ff"
+  upcoming: true
+  links:
+    bandcamp: {soon: true}
+
+- slug: clan-guardian
+  order: 5
+  title: Clan Guardian
+  accent: "#ff9a2e"
+  featured: true
+  links:
+    bandcamp: https://aegisulf.bandcamp.com/track/clan-guardian
+    soundcloud: https://soundcloud.com/aegisulf/clan-guardian
+    spotify: {soon: 2026-10-16}
+    apple: {soon: 2026-10-16}   # same day: all stores go live together via Symphonic
+
+- slug: apex-bound
+  order: 4
+  title: Apex Bound
+  accent: "#ff6a3a"
+  genre: UK Hardcore
+  bpm: 170
+  duration: "3:19"
+  instrumental: true
+  links:
+    spotify: https://open.spotify.com/track/7HNxDJr8JAfZU5wIG1DPM7
+    apple: https://music.apple.com/album/apex-bound/6804000117?i=6804000120
+    bandcamp: https://aegisulf.bandcamp.com/track/apex-bound
+    youtube: https://www.youtube.com/watch?v=rkcrpTDjJCY
+    soundcloud: https://soundcloud.com/aegisulf/apex-bound
+
+- slug: trial-of-the-silver-dawn
+  order: 3
+  title: Trial of the Silver Dawn
+  hidden: true  # not finished enough to publish yet
+  accent: "#8fb4ff"
+  links:
+    soundcloud: true
+
+- slug: scarred-slumber
+  order: 2
+  title: Scarred Slumber
+  accent: "#c07bff"
+  genre: Digicore
+  links:
+    spotify: https://open.spotify.com/track/1fZIapL7byHLWMOcN1XpcP
+    apple: https://music.apple.com/album/scarred-slumber/6811073851?i=6811073852
+    soundcloud: https://soundcloud.com/aegisulf/scarred-slumber

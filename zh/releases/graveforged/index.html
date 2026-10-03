@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Graveforged | AEGISULF</title>
+  <meta name="description" content="Graveforged - Aegisulf. 製作中.">
+  <meta name="theme-color" content="#0d0d11">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://aegisulf.github.io/zh/releases/graveforged/">
+  <link rel="alternate" hreflang="en" href="https://aegisulf.github.io/en/releases/graveforged/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://aegisulf.github.io/zh/releases/graveforged/">
+  <link rel="alternate" hreflang="x-default" href="https://aegisulf.github.io/en/releases/graveforged/">
+  <link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+
+  <meta property="og:type" content="music.song">
+  <meta property="og:url" content="https://aegisulf.github.io/zh/releases/graveforged/">
+  <meta property="og:title" content="Graveforged | AEGISULF">
+  <meta property="og:description" content="Graveforged - Aegisulf. 製作中.">
+  <meta property="og:image" content="https://aegisulf.github.io/assets/covers/graveforged-og.jpg">
+  <meta property="og:site_name" content="AEGISULF">
+  <meta property="og:locale" content="zh_TW">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@aegisulf">
+  <meta name="twitter:title" content="Graveforged | AEGISULF">
+  <meta name="twitter:description" content="Graveforged - Aegisulf. 製作中.">
+  <meta name="twitter:image" content="https://aegisulf.github.io/assets/covers/graveforged-og.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/pages.css">
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="d2d8d493-f332-4e29-8505-ff7b6c6f12ea" data-domains="aegisulf.github.io" data-do-not-track="true"></script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "MusicRecording", "byArtist": {"@type": "MusicGroup", "name": "Aegisulf", "url": "https://aegisulf.github.io/"}, "image": "https://aegisulf.github.io/assets/covers/graveforged-og.jpg", "name": "Graveforged", "url": "https://aegisulf.github.io/zh/releases/graveforged/"}</script>
+</head>
+
+<body class="subpage" style="--accent: #3fa9ff">
+  <div class="ambient" style="background-image: url('/assets/covers/graveforged-512.webp')" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="/">AEGISULF</a>
+    <nav class="topnav" aria-label="Main">
+      <a href="/zh/releases/" aria-current="page">作品</a>
+      <a class="lang-link" href="/en/releases/graveforged/" hreflang="en" lang="en" data-set-lang="en">English</a>
+    </nav>
+  </header>
+  <div class="lang-banner" id="lang-banner" hidden lang="en">
+    <span>This page is also available in English.</span>
+    <a href="/en/releases/graveforged/" data-set-lang="en">Read in English</a>
+    <button type="button" id="lang-stay">Stay here</button>
+  </div>
+
+  
+<main class="release">
+  <article>
+    <div class="release-head">
+      <img class="cover" src="/assets/covers/graveforged.webp" width="1024" height="1024" alt="Graveforged">
+      <div class="release-info">
+        <p class="eyebrow">Aegisulf</p>
+        <h1>Graveforged</h1>
+        <p class="status status-upcoming">製作中</p>
+      </div>
+    </div>
+    <section class="listen">
+      <span class="btn soon p-bandcamp"><svg viewBox="0 0 24 24" class="brand-icon" aria-hidden="true"><path fill="currentColor" d="M0 18.75l7.437-13.5h16.563l-7.438 13.5z"/></svg>
+<span class="btn-label">Bandcamp</span><span class="btn-sub">即將推出</span></span>
+    </section>
+  </article>
+
+  <nav class="pager" aria-label="Releases"><a class="prev" href="/zh/releases/clan-guardian/"><span>← 上一首</span><strong>Clan Guardian</strong></a><span></span>
+  </nav>
+</main>
+
+
+  <footer class="site-footer">
+    <p><a href="/">首頁</a> · <a href="/zh/releases/">作品</a></p>
+    <p>© AEGISULF. 版權所有。</p>
+  </footer>
+
+  <script>
+    (function () {
+      var here = document.documentElement.lang.indexOf('zh') === 0 ? 'zh' : 'en';
+      function pref() {
+        try { var s = localStorage.getItem('lang'); if (s === 'en' || s === 'zh') return s; } catch (e) { /* storage unavailable */ }
+        var l = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
+        return l.some(function (x) { return /^zh/i.test(x); }) ? 'zh' : 'en';
+      }
+      function save(l) { try { localStorage.setItem('lang', l); } catch (e) { /* ignore */ } }
+      document.querySelectorAll('[data-set-lang]').forEach(function (a) {
+        a.addEventListener('click', function () { save(a.dataset.setLang); });
+      });
+      var banner = document.getElementById('lang-banner');
+      if (banner && pref() !== here) banner.hidden = false;
+      var stay = document.getElementById('lang-stay');
+      if (stay) stay.addEventListener('click', function () { save(here); banner.hidden = true; });
+    })();
+  </script>
+</body>
+
+</html>
