@@ -191,9 +191,7 @@ def main():
                    alt_page=None, og_image='/assets/og-image.jpg')
         ctx.update(kw)
         if kw.get('alt_path'):
-            ctx['alt_page'] = {'lang': other, 'path': kw['alt_path'], 'name': i18n[other]['lang_name'],
-                               'banner_text': i18n[other]['banner_text'], 'banner_switch': i18n[other]['banner_switch'],
-                               'banner_stay': i18n[other]['banner_stay']}
+            ctx['alt_page'] = {'lang': other, 'path': kw['alt_path'], 'name': i18n[other]['lang_name']}
         return ctx
 
     def alternates_for(paths):

@@ -46,11 +46,6 @@
       <a class="lang-link" href="/en/releases/graveforged/" hreflang="en" lang="en" data-set-lang="en">English</a>
     </nav>
   </header>
-  <div class="lang-banner" id="lang-banner" hidden lang="en">
-    <span>This page is also available in English.</span>
-    <a href="/en/releases/graveforged/" data-set-lang="en">Read in English</a>
-    <button type="button" id="lang-stay">Stay here</button>
-  </div>
 
   
 <main class="release">
@@ -87,12 +82,7 @@
 
   <script>
     (function () {
-      var here = document.documentElement.lang.indexOf('zh') === 0 ? 'zh' : 'en';
-      function pref() {
-        try { var s = localStorage.getItem('lang'); if (s === 'en' || s === 'zh') return s; } catch (e) { /* storage unavailable */ }
-        var l = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-        return l.some(function (x) { return /^zh/i.test(x); }) ? 'zh' : 'en';
-      }
+      // remember the visitor's explicit language choice (the home page reads it)
       function save(l) { try { localStorage.setItem('lang', l); } catch (e) { /* ignore */ } }
       document.querySelectorAll('[data-set-lang]').forEach(function (a) {
         a.addEventListener('click', function () { save(a.dataset.setLang); });
@@ -110,10 +100,6 @@
         });
       });
 
-      var banner = document.getElementById('lang-banner');
-      if (banner && pref() !== here) banner.hidden = false;
-      var stay = document.getElementById('lang-stay');
-      if (stay) stay.addEventListener('click', function () { save(here); banner.hidden = true; });
     })();
   </script>
 </body>

@@ -44,11 +44,6 @@
       <a class="lang-link" href="/zh/releases/" hreflang="zh" lang="zh" data-set-lang="zh">中文</a>
     </nav>
   </header>
-  <div class="lang-banner" id="lang-banner" hidden lang="zh">
-    <span>這個頁面有繁體中文版。</span>
-    <a href="/zh/releases/" data-set-lang="zh">閱讀中文版</a>
-    <button type="button" id="lang-stay">留在這裡</button>
-  </div>
 
   
 <main class="index">
@@ -91,12 +86,7 @@
 
   <script>
     (function () {
-      var here = document.documentElement.lang.indexOf('zh') === 0 ? 'zh' : 'en';
-      function pref() {
-        try { var s = localStorage.getItem('lang'); if (s === 'en' || s === 'zh') return s; } catch (e) { /* storage unavailable */ }
-        var l = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ''];
-        return l.some(function (x) { return /^zh/i.test(x); }) ? 'zh' : 'en';
-      }
+      // remember the visitor's explicit language choice (the home page reads it)
       function save(l) { try { localStorage.setItem('lang', l); } catch (e) { /* ignore */ } }
       document.querySelectorAll('[data-set-lang]').forEach(function (a) {
         a.addEventListener('click', function () { save(a.dataset.setLang); });
@@ -114,10 +104,6 @@
         });
       });
 
-      var banner = document.getElementById('lang-banner');
-      if (banner && pref() !== here) banner.hidden = false;
-      var stay = document.getElementById('lang-stay');
-      if (stay) stay.addEventListener('click', function () { save(here); banner.hidden = true; });
     })();
   </script>
 </body>

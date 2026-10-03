@@ -114,41 +114,6 @@ a {
   }
 }
 
-/* ---------- language suggestion ---------- */
-.lang-banner {
-  width: calc(100% - 2.4rem);
-  max-width: 840px;
-  margin: 0 auto 0.5rem;
-  padding: 0.6rem 0.9rem;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.4rem 0.9rem;
-  font-size: 0.85rem;
-  background: var(--card-bg);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-md);
-}
-
-.lang-banner[hidden] {
-  display: none;
-}
-
-.lang-banner a {
-  font-weight: 600;
-  color: #fff;
-}
-
-.lang-banner button {
-  margin-left: auto;
-  background: none;
-  border: 0;
-  color: var(--text-dim);
-  font: inherit;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
 /* ---------- layout ---------- */
 main {
   width: 100%;

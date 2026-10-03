@@ -22,9 +22,6 @@ en:
   site_desc: "Aegisulf, crafting electronic music. Releases, stories and updates."
   rights: "© AEGISULF. All rights reserved."
   artwork: "Artwork by"
-  banner_text: "This page is also available in English."
-  banner_switch: "Read in English"
-  banner_stay: "Stay here"
   no_translation: "Only available in Traditional Chinese for now."
 zh:
   lang_code: zh-Hant
@@ -50,7 +47,4 @@ zh:
   site_desc: "Aegisulf，創作電子音樂。作品、故事與最新動態。"
   rights: "© AEGISULF. 版權所有。"
   artwork: "插畫："
-  banner_text: "這個頁面有繁體中文版。"
-  banner_switch: "閱讀中文版"
-  banner_stay: "留在這裡"
   no_translation: "目前僅提供英文。"
