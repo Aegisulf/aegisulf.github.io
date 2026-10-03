@@ -271,6 +271,17 @@ def prepare_release(r, site, i18n):
     return r
 
 
+def write_small_logo():
+    """Small-size logo for the sub pages' top bar: same outlines as the home page, thin stroke, padded viewBox."""
+    frag = (SRC / 'templates' / '_logo_paths.html').read_text(encoding='utf-8')
+    paths = ''.join(re.findall(r'<path\b[^>]*/>', frag, re.S))
+    svg = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 919.90356 183.13313">'
+           '<style>path{fill:#06050a;stroke:#e63946;stroke-width:1.2px;stroke-linejoin:round;stroke-linecap:round;'
+           'vector-effect:non-scaling-stroke}</style>' + paths + '</svg>\n')
+    out = ROOT / 'assets' / 'logo-small.svg'
+    out.write_text(svg, encoding='utf-8', newline='\n')
+
+
 def asset_version(name):
     """Short content hash, appended to CSS urls so browsers never keep a stale stylesheet after a deploy."""
     data = (ROOT / name).read_bytes().replace(b'\r\n', b'\n')  # same hash on Windows (CRLF) and CI (LF)
@@ -279,7 +290,9 @@ def asset_version(name):
 
 def main():
     site = load_yaml('site.yml')
-    site['css_v'] = {'style': asset_version('style.css'), 'pages': asset_version('pages.css')}
+    write_small_logo()
+    site['css_v'] = {'style': asset_version('style.css'), 'pages': asset_version('pages.css'),
+                     'logo': asset_version('assets/logo-small.svg')}
     i18n = load_yaml('i18n.yml')
     releases = [prepare_release(r, site, i18n) for r in load_yaml('releases.yml') if not r.get('hidden')]
     releases.sort(key=lambda r: r['order'])

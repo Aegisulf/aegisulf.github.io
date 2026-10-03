@@ -17,7 +17,9 @@ A small static site. Pages are generated from `src/` by `tools/build.py`, and th
 | `style.css` | Home page styles |
 | `pages.css` | Styles for release / blog pages |
 | `assets/` | Images (`assets/covers/<slug>*.webp` are the optimised covers) |
-| `index.html`, `en/`, `zh/`, `sitemap.xml` | **Generated** - do not edit by hand |
+| `src/templates/_logo_paths.html` | The logo outlines - single source for the home page logo and the generated `assets/logo-small.svg` (sub page top bar) |
+| `404.html` | Redirects any unknown address to the home page |
+| `index.html`, `en/`, `zh/`, `sitemap.xml`, `assets/logo-small.svg` | **Generated** - do not edit by hand |
 
 ## Build
 

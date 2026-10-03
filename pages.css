@@ -74,13 +74,27 @@ a {
 }
 
 .brand {
-  font-family: 'Cinzel', serif;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  font-size: 1.05rem;
-  text-decoration: none;
-  color: #fff;
-  text-shadow: 0 0 14px rgba(230, 57, 70, 0.7);
+  display: block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.brand img {
+  display: block;
+  height: 24px;
+  width: auto;
+  filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.7));
+}
+
+/* narrow phones: leave room for Releases / Blog / language */
+@media (max-width: 380px) {
+  .brand img {
+    height: 20px;
+  }
+
+  .topnav {
+    gap: 0.8rem;
+  }
 }
 
 .topnav {

@@ -63,7 +63,7 @@
   {%- endif %}
 
   <header class="topbar">
-    <a class="brand" href="/">AEGISULF</a>
+    <a class="brand" href="/"><img src="/assets/logo-small.svg?v={{ site.css_v.logo }}" alt="AEGISULF" width="121" height="24"></a>
     <nav class="topnav" aria-label="Main">
       <a href="/{{ lang }}/releases/"{% if section == 'releases' %} aria-current="page"{% endif %}>{{ t.releases }}</a>
       {%- if has_blog %}
