@@ -214,50 +214,59 @@ h1, h2 {
   }
 }
 
-/* ---------- share (same look as the home page button) ---------- */
-.share-icon {
-  position: absolute;
-  top: 0.7rem;
-  right: 0.7rem;
-  z-index: 2;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+/* ---------- share (icon + label, glass style like the home page button) ---------- */
+.status-row {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 0.6rem;
+}
+
+.share-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.9rem 0.25rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.5;
   color: var(--text-main);
   background: rgba(8, 7, 14, 0.45);
   border: 1px solid var(--card-border);
+  border-radius: 9999px;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   cursor: pointer;
   transition: background var(--trans), border-color var(--trans), transform var(--trans);
 }
 
-.share-icon svg {
-  width: 18px;
-  height: 18px;
+.share-pill svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
 }
 
-.share-icon:active {
-  transform: scale(0.94);
+.share-pill:active {
+  transform: scale(0.96);
+}
+
+.post header .share-pill {
+  margin-top: 1rem;
 }
 
 @media (hover: hover) {
-  .share-icon:hover {
+  .share-pill:hover {
     background: color-mix(in srgb, var(--accent) 22%, transparent);
     border-color: var(--accent);
   }
 }
 
-.post header {
-  position: relative;
-}
-
-.post header .share-icon {
-  top: 0;
-  right: 0;
+@media (min-width: 720px) {
+  .status-row {
+    justify-content: flex-start;
+  }
 }
 
 .toast {

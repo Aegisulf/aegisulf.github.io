@@ -5,7 +5,6 @@
     <div class="release-head">
       <div class="cover-wrap">
         <img class="cover" src="/assets/covers/{{ r.slug }}.webp" width="1024" height="1024" alt="{{ r.title }}">
-        <button type="button" class="share-icon share-page" aria-label="{{ t.share }}" title="{{ t.share }}" data-url="{{ share_url }}" data-text="{{ r.title }} - {{ site.artist }}" data-copied="{{ t.link_copied }}" data-failed="{{ t.copy_failed }}" data-umami-event="click-share" data-umami-event-release="{{ r.slug }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg></button>
       </div>
       <div class="release-info">
         <p class="eyebrow">{{ site.artist }}</p>
@@ -15,7 +14,10 @@
           {%- for c in r.chips[lang] %}<li>{{ c }}</li>{% endfor %}
         </ul>
         {%- endif %}
-        <p class="status status-{{ r.status }}">{{ r.status_text[lang] }}</p>
+        <div class="status-row">
+          <p class="status status-{{ r.status }}">{{ r.status_text[lang] }}</p>
+          <button type="button" class="share-pill share-page" data-url="{{ share_url }}" data-text="{{ r.title }} - {{ site.artist }}" data-copied="{{ t.link_copied }}" data-failed="{{ t.copy_failed }}" data-umami-event="click-share" data-umami-event-release="{{ r.slug }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12v7a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-7M16 6l-4-4-4 4M12 2v13"/></svg><span>{{ t.share }}</span></button>
+        </div>
       </div>
     </div>
 
