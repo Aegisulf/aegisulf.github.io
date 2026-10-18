@@ -40,8 +40,8 @@
   links:
     bandcamp: https://aegisulf.bandcamp.com/track/clan-guardian
     soundcloud: https://soundcloud.com/aegisulf/clan-guardian
-    spotify: {soon: 2026-10-16}
-    apple: {soon: 2026-10-16}   # same day: all stores go live together via Symphonic
+    spotify: https://open.spotify.com/track/3iukCozz1njgJyHuiYHWSN
+    apple: https://music.apple.com/album/clan-guardian/6816500488?i=6816500489
 
 - slug: apex-bound
   order: 4
