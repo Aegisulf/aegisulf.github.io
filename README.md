@@ -1,6 +1,6 @@
-# aegisulf.github.io
+# aegisulf.com (aegisulf.github.io)
 
-Official hub for **Aegisulf** (electronic music): <https://aegisulf.github.io/>
+Official hub for **Aegisulf** (electronic music): <https://aegisulf.com/> (GitHub Pages, custom domain via `CNAME`)
 
 A small static site. Pages are generated from `src/` by `tools/build.py`, and the generated files are committed so GitHub Pages can serve them as-is.
 

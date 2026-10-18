@@ -1,4 +1,5 @@
-site_url: https://aegisulf.github.io
+site_url: https://aegisulf.com
+domain: aegisulf.com          # analytics only records this host (not localhost / previews)
 artist: Aegisulf
 publisher: Symphonic   # default distributor; override per release with `publisher:`
 umami:
@@ -11,7 +12,7 @@ artist_links:
   youtube: https://www.youtube.com/@aegisulf
   soundcloud: https://soundcloud.com/aegisulf
   x: https://x.com/aegisulf
-  kofi: https://ko-fi.com/aegisulf_music
+  kofi: https://ko-fi.com/aegisulf_lycan
 art_credit:
   name: "@Korl413115"
   url: https://x.com/Korl413115

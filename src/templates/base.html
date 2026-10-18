@@ -51,7 +51,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/pages.css?v={{ site.css_v.pages }}">
 
-  <script defer src="{{ site.umami.src }}" data-website-id="{{ site.umami.website_id }}" data-domains="aegisulf.github.io" data-do-not-track="true"></script>
+  <script defer src="{{ site.umami.src }}" data-website-id="{{ site.umami.website_id }}" data-domains="{{ site.domain }}" data-do-not-track="true"></script>
   {%- if jsonld %}
   <script type="application/ld+json">{{ jsonld | tojson }}</script>
   {%- endif %}
