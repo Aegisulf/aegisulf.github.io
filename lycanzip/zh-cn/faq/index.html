@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>常见问题 · LycanZip</title>
+<meta name="description" content="LycanZip 的常见问题：SmartScreen、杀毒软件的提示、资源管理器菜单、默认应用、格式和密码。">
+<meta name="theme-color" content="#0b1230">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://aegisulf.com/lycanzip/zh-cn/faq/">
+<link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/faq/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/faq/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/faq/">
+<link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/faq/">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<meta property="og:title" content="常见问题 · LycanZip">
+<meta property="og:description" content="LycanZip 的常见问题：SmartScreen、杀毒软件的提示、资源管理器菜单、默认应用、格式和密码。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aegisulf.com/lycanzip/zh-cn/faq/">
+<meta property="og:image" content="https://aegisulf.com/lycanzip/assets/shots/thumbnails.webp">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-999px">跳到内容</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../../zh-cn/"><img src="../../assets/logo.svg" alt="" width="30" height="30">LycanZip</a>
+<nav class="nav" aria-label="Main"><a href="../../zh-cn/">首页</a><a href="../../zh-cn/download/">下载</a><a href="../../zh-cn/faq/" aria-current="page">常见问题</a><a href="../../zh-cn/privacy/">隐私</a><a href="../../changelog/">更新日志 (EN)</a><a href="https://github.com/Aegisulf/LycanZip">GitHub</a></nav>
+<details class="lang"><summary aria-label="语言">简体中文</summary><div><a href="../../faq/" data-lang="en" hreflang="en">English</a><a href="../../zh-tw/faq/" data-lang="zh-tw" hreflang="zh-Hant-TW">繁體中文</a><a href="../../zh-cn/faq/" data-lang="zh-cn" hreflang="zh-Hans-CN" aria-current="true">简体中文</a></div></details>
+</div></header>
+<main id="main">
+<div class="wrap page faq">
+  <h1>常见问题</h1>
+
+  <details>
+    <summary>Windows 提示“Windows 已保护你的电脑”。这个下载安全吗？</summary>
+    <p>只有 Store 版有代码签名，而 SmartScreen 会对不常见的程序发出警告。<strong>请核对下载文件的 SHA-256</strong> 与发布页面是否一致（<a href="../../zh-cn/download/#verify">方法</a>），再选“更多信息 → 仍要运行”。完整的源代码是公开的。</p>
+  </details>
+
+  <details>
+    <summary>扫描后，我的杀毒软件把“lycanzip-cli.exe”列为“受影响的项目”。LycanZip 中毒了吗？</summary>
+    <p><strong>没有。</strong>扫描压缩包时，LycanZip 会通过 Windows 的 Antimalware Scan Interface（AMSI），把每个文件的内容交给你的杀毒软件。有些杀毒软件会把交出内容的程序列为“受影响的项目”。LycanZip 自己的提示会指出真正被报告的文件。</p>
+  </details>
+
+  <details>
+    <summary>安装程序、便携版还是 Store 版？</summary>
+    <p><strong>安装程序</strong>最简单，而且能自动更新。<strong>便携版</strong>把设置放在程序旁边（适合 U 盘）。<strong>Store 版</strong>由 Windows 更新。</p>
+  </details>
+
+  <details>
+    <summary>资源管理器的菜单在哪里？</summary>
+    <p>在“设置 → 文件资源管理器”中开启。在 Windows 10 上，它们在右键菜单里。在 Windows 11 上，安装程序和 zip 版把它们放在“显示更多选项”里（或按 <kbd>Shift</kbd>+<kbd>F10</kbd>）；只有 <strong>Store 版</strong>会显示在新式的第一层菜单。每一项都可以关掉。另外还有按住右键拖拽的菜单。</p>
+  </details>
+
+  <details>
+    <summary>为什么 Windows 11 新式菜单只有 Store 版有？</summary>
+    <p>Windows 11 只让<strong>签名过的安装包</strong>把项目加进新式的第一层菜单。只有 Store 版有签名（由 Store 签），安装程序和 zip 版没有，因为代码签名证书要花钱，而 LycanZip 是免费的。它们改用传统菜单，项目相同。</p>
+  </details>
+
+  <details>
+    <summary>怎么让 LycanZip 来打开压缩包？</summary>
+    <p>在“设置 → 文件资源管理器”中注册文件类型，再到“Windows 设置 → 应用 → 默认应用”里选一次 LycanZip。Windows 不允许程序自己设为默认。</p>
+  </details>
+
+  <details>
+    <summary>LycanZip 能打开和创建哪些格式？</summary>
+    <p><strong>打开：</strong>7-Zip 能读的都行：zip、7z、rar（含分卷）、tar、gz、xz、bz2、iso、cab、wim 等。<strong>创建：</strong>zip、7z、tar、tar.gz、tar.xz、tar.bz2、iso。RAR 只能解压：使用 7-Zip 代码的程序不能写出 RAR 格式。</p>
+  </details>
+
+  <details>
+    <summary>旧 zip 文件里的文件名是乱码。</summary>
+    <p>LycanZip 会自动识别 Big5、GBK、Shift-JIS、EUC-KR 和 UTF-8。如果猜错了，用压缩包视图右上角的按钮选择编码。</p>
+  </details>
+
+  <details>
+    <summary>我的密码安全吗？忘记密码能找回来吗？</summary>
+    <p>zip 默认使用 <strong>AES-256</strong>，7z 还能连文件名一起加密。LycanZip 不会保存或发送密码。<strong>忘记的密码无法找回。</strong></p>
+  </details>
+
+  <details>
+    <summary>LycanZip 会通过网络发送东西吗？</summary>
+    <p>不会发送任何关于你或你的文件的数据。详见<a href="../../zh-cn/privacy/">隐私政策</a>。</p>
+  </details>
+
+  <details>
+    <summary>“在 VirusTotal 查询”做了什么？文件会被上传吗？</summary>
+    <p><strong>只会发送 SHA-256</strong>（放在网址里），并在浏览器中打开该哈希值的 VirusTotal 页面。文件绝不会被上传。如果 VirusTotal 不认识这个哈希值，只代表没有人上传过一模一样的文件，不代表文件安全。</p>
+  </details>
+
+  <details>
+    <summary>有东西不能用。到哪里报告？</summary>
+    <p>到 <a href="https://github.com/Aegisulf/LycanZip/issues">GitHub</a> 提一个 issue，并附上 <code>lycanzip-cli info</code> 的输出（版本、设置位置、日志文件夹）。</p>
+  </details>
+</div>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>LycanZip 是以 MIT 许可的自由软件。它使用 7-Zip 引擎（GNU LGPL，附 unRAR 限制）；本项目并非 7-Zip 作者所制作，也未获其认可。<a href="../../zh-cn/license/">许可</a></p>
+<p>© Aegisulf · <a href="../../zh-cn/privacy/">隐私</a> · <a href="https://github.com/Aegisulf/LycanZip/issues">报告问题</a> · <a href="https://ko-fi.com/aegisulf_lycan">在 Ko-fi 支持</a></p>
+</div></footer>
+<script>
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("[data-lang]");
+  if (a) { try { localStorage.setItem("lycanzip-lang", a.getAttribute("data-lang")); } catch (x) {} }
+});
+</script>
+</body>
+</html>

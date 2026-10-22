@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var T = {"zh-tw":"../zh-tw/privacy/","zh-cn":"../zh-cn/privacy/"}, saved = null;
+    try { saved = localStorage.getItem("lycanzip-lang"); } catch (e) {}
+    var pick = saved;
+    if (!pick) {
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      for (var i = 0; i < list.length && !pick; i++) {
+        var l = String(list[i]).toLowerCase();
+        if (l.indexOf("en") === 0) pick = "en";
+        else if (l.indexOf("zh") === 0) pick = /hant|-tw|-hk|-mo/.test(l) ? "zh-tw" : "zh-cn";
+      }
+    }
+    if (pick && pick !== "en" && T[pick]) location.replace(T[pick]);
+  } catch (e) {}
+})();
+</script>
+<title>Privacy policy · LycanZip</title>
+<meta name="description" content="LycanZip collects no personal data and has no telemetry or ads. What stays on your computer, and the one optional request for new versions.">
+<meta name="theme-color" content="#0b1230">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://aegisulf.com/lycanzip/privacy/">
+<link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/privacy/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/privacy/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/privacy/">
+<link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/privacy/">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<meta property="og:title" content="Privacy policy · LycanZip">
+<meta property="og:description" content="LycanZip collects no personal data and has no telemetry or ads. What stays on your computer, and the one optional request for new versions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aegisulf.com/lycanzip/privacy/">
+<meta property="og:image" content="https://aegisulf.com/lycanzip/assets/shots/thumbnails.webp">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-999px">Skip to the content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../"><img src="../assets/logo.svg" alt="" width="30" height="30">LycanZip</a>
+<nav class="nav" aria-label="Main"><a href="../">Home</a><a href="../download/">Download</a><a href="../faq/">FAQ</a><a href="../privacy/" aria-current="page">Privacy</a><a href="../changelog/">Changelog</a><a href="https://github.com/Aegisulf/LycanZip">GitHub</a></nav>
+<details class="lang"><summary aria-label="Language">English</summary><div><a href="../privacy/" data-lang="en" hreflang="en" aria-current="true">English</a><a href="../zh-tw/privacy/" data-lang="zh-tw" hreflang="zh-Hant-TW">繁體中文</a><a href="../zh-cn/privacy/" data-lang="zh-cn" hreflang="zh-Hans-CN">简体中文</a></div></details>
+</div></header>
+<main id="main">
+<div class="wrap page">
+  <h1>Privacy policy</h1>
+  <p class="sub">Last updated: 22 October 2026. Applies to the program LycanZip (the installer, the zip packages and the Microsoft Store version) and to this web site.</p>
+
+  <h2>In short</h2>
+  <p>LycanZip does not collect, store on a server, sell or share any personal data. It has no telemetry, no advertising, no tracking and no accounts. It works fully offline.</p>
+
+  <h2>What stays on your computer</h2>
+  <ul>
+    <li><strong>Settings and presets</strong>: your choices (theme, language, compression presets, recent folders) are saved in a file on your computer, in the program folder (portable) or in <code>%LOCALAPPDATA%\LycanZip</code> (standard and Store).</li>
+    <li><strong>Log file</strong>: a short log of what the program did (errors, versions). It uses file names only; full paths are written only if you switch on the detailed log with full paths yourself. It is never sent anywhere. You can read and delete it (<code>lycanzip-cli info</code> shows where it is).</li>
+    <li><strong>Crash reports</strong>: if the program crashes it writes a report on your computer so that you can attach it to a bug report if you wish. Nothing is uploaded.</li>
+    <li><strong>Temporary files</strong>: files opened from an archive are unpacked into a temporary folder and removed afterwards.</li>
+  </ul>
+
+  <h2>Your files</h2>
+  <p>LycanZip reads and writes the files you ask it to. It does not upload them or send their names or content anywhere. If you use the antivirus scan, the content of the files is handed to the antivirus program that is installed on your computer through the Windows Antimalware Scan Interface; what that program does is described by its own vendor.</p>
+
+  <h2>Network requests</h2>
+  <p>LycanZip makes no network request by itself, with one optional exception: a check for a new version. When it is switched on (it is off by default; the Microsoft Store version is never checked, the Store updates it), the program downloads one small public file, <code>aegisulf.com/lycanzip/latest.json</code>, that tells the latest version number. The request contains no identifier, no settings and nothing about your computer or files. An installed copy (made by the installer) that has this check switched on also downloads the update itself from <code>aegisulf.com/lycanzip/updates/</code>, checks its signature, and installs it only when you choose; the request is as anonymous as the one above. As with any web request, the server that hosts the file (GitHub Pages) sees the IP address of the request in its own logs; LycanZip has no access to those.</p>
+  <p>The second case is something you start yourself: <em>Look up on VirusTotal</em> (in <em>More options</em>, in the menu of a file in an archive and in the hash values window). LycanZip calculates the SHA-256 of the file and opens <code>virustotal.com</code> in your web browser at the page of that hash. Only the hash is part of the address; the file is not uploaded and LycanZip uses no VirusTotal account or API. VirusTotal and your browser see the request as with any web page you open. If VirusTotal does not know the hash, that does not mean that the file is safe.</p>
+
+  <h2>This web site</h2>
+  <p>The site has no cookies, no analytics and no third-party scripts or fonts. Its pages are served by GitHub Pages, which may keep technical logs as described in <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub’s privacy statement</a>.</p>
+
+  <h2>Children</h2>
+  <p>LycanZip does not collect data from anyone, including children.</p>
+
+  <h2>Changes and contact</h2>
+  <p>If this policy changes, the date above changes and the new text is published here. Questions: open an issue on <a href="https://github.com/Aegisulf/LycanZip/issues">GitHub</a>.</p>
+</div>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>LycanZip is free software under the MIT license. It uses the 7-Zip engine (GNU LGPL with the unRAR restriction); it is not made or endorsed by the authors of 7-Zip. <a href="../license/">Licenses</a></p>
+<p>© Aegisulf · <a href="../privacy/">Privacy</a> · <a href="https://github.com/Aegisulf/LycanZip/issues">Report a problem</a> · <a href="https://ko-fi.com/aegisulf_lycan">Support on Ko-fi</a></p>
+</div></footer>
+<script>
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("[data-lang]");
+  if (a) { try { localStorage.setItem("lycanzip-lang", a.getAttribute("data-lang")); } catch (x) {} }
+});
+</script>
+</body>
+</html>

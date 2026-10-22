@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var T = {"zh-tw":"../zh-tw/download/","zh-cn":"../zh-cn/download/"}, saved = null;
+    try { saved = localStorage.getItem("lycanzip-lang"); } catch (e) {}
+    var pick = saved;
+    if (!pick) {
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      for (var i = 0; i < list.length && !pick; i++) {
+        var l = String(list[i]).toLowerCase();
+        if (l.indexOf("en") === 0) pick = "en";
+        else if (l.indexOf("zh") === 0) pick = /hant|-tw|-hk|-mo/.test(l) ? "zh-tw" : "zh-cn";
+      }
+    }
+    if (pick && pick !== "en" && T[pick]) location.replace(T[pick]);
+  } catch (e) {}
+})();
+</script>
+<title>Download · LycanZip</title>
+<meta name="description" content="Download LycanZip: the installer, the portable zip and the standard zip, how to check the download, and what to do about the SmartScreen warning.">
+<meta name="theme-color" content="#0b1230">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://aegisulf.com/lycanzip/download/">
+<link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/download/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/download/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/download/">
+<link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/download/">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="stylesheet" href="../assets/style.css">
+<meta property="og:title" content="Download · LycanZip">
+<meta property="og:description" content="Download LycanZip: the installer, the portable zip and the standard zip, how to check the download, and what to do about the SmartScreen warning.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aegisulf.com/lycanzip/download/">
+<meta property="og:image" content="https://aegisulf.com/lycanzip/assets/shots/thumbnails.webp">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-999px">Skip to the content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../"><img src="../assets/logo.svg" alt="" width="30" height="30">LycanZip</a>
+<nav class="nav" aria-label="Main"><a href="../">Home</a><a href="../download/" aria-current="page">Download</a><a href="../faq/">FAQ</a><a href="../privacy/">Privacy</a><a href="../changelog/">Changelog</a><a href="https://github.com/Aegisulf/LycanZip">GitHub</a></nav>
+<details class="lang"><summary aria-label="Language">English</summary><div><a href="../download/" data-lang="en" hreflang="en" aria-current="true">English</a><a href="../zh-tw/download/" data-lang="zh-tw" hreflang="zh-Hant-TW">繁體中文</a><a href="../zh-cn/download/" data-lang="zh-cn" hreflang="zh-Hans-CN">简体中文</a></div></details>
+</div></header>
+<main id="main">
+<div class="wrap page">
+  <h1>Download LycanZip</h1>
+  <p class="sub">Latest version: <strong>0.9.2</strong> (<a href="../changelog/">what is new</a>). <strong>Windows 10 (1809 or newer) and Windows 11, 64-bit.</strong></p>
+
+  <div class="dl-store" id="store-card">
+    <h3>Microsoft Store <span class="badge">Recommended for Windows 11</span></h3>
+    <p>The only version with the <strong>new Windows 11 right-click menu</strong>. Signed and updated by Windows.</p>
+    <div class="buttons">
+      <span class="btn warm soon">Open in the Store &mdash; soon</span>
+      <span class="btn soon">Store installer &mdash; soon</span>
+    </div>
+  </div>
+
+  <div class="dl-row">
+    <div class="card">
+      <h3>Installer <span class="tag">recommended for Windows 10</span></h3>
+      <p>One click, <strong>no administrator needed</strong>. <strong>Updates itself</strong> when you let it.</p>
+      <a class="btn primary" href="https://github.com/Aegisulf/LycanZip/releases/latest">Get it from GitHub</a>
+    </div>
+    <div class="card">
+      <h3>Standard <span class="tag">zip</span></h3>
+      <p>The same program, settings in your user profile. Used by Scoop.</p>
+      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/latest">Get it from GitHub</a>
+    </div>
+    <div class="card">
+      <h3>Portable <span class="tag">zip</span></h3>
+      <p>Unzip anywhere and run <code>LycanZip.exe</code>. Settings stay in the same folder: fine for a USB stick.</p>
+      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/latest">Get it from GitHub</a>
+    </div>
+  </div>
+
+  <h2>Requirements</h2>
+  <ul>
+    <li>Windows 10 version 1809 or newer, or Windows 11; 64-bit.</li>
+    <li><strong>Nothing else to install.</strong> Everything LycanZip needs is in the package.</li>
+    <li>About 70 MB of disk space.</li>
+  </ul>
+
+  <h2>With a package manager</h2>
+  <p><a href="https://learn.microsoft.com/windows/package-manager/winget/">winget</a> or <a href="https://scoop.sh/">Scoop</a> (with version 1.0):</p>
+  <pre><code>winget install Aegisulf.LycanZip
+scoop install lycanzip</code></pre>
+
+  <h2 id="verify">Check your download</h2>
+  <p>Every release lists the <strong>SHA-256</strong> of each file. In PowerShell, in the folder of the download:</p>
+  <pre><code>Get-FileHash .\LycanZip-0.9.2-Setup.exe -Algorithm SHA256</code></pre>
+  <p>The value must match the release page. If not, delete the file and download it again.</p>
+  <div class="note">LycanZip can do this too: right-click the file, choose <em>Calculate hash values…</em> and paste the value from the release page.</div>
+
+  <h2 id="smartscreen">“Windows protected your PC” (SmartScreen)</h2>
+  <p>Only the Store version is signed with a certificate, and Windows warns about programs it has not seen often. <strong>It does not mean the file is bad.</strong> After checking the SHA-256 above, click <em>More info</em>, then <em>Run anyway</em>.</p>
+  <p>If Windows blocks files you unzip, right-click the zip first, choose <em>Properties</em> and tick <em>Unblock</em>.</p>
+
+  <h2 id="store">The Microsoft Store version</h2>
+  <p>The same program as a Store package, signed and updated by Windows. It is the only version with the <strong>new Windows 11 right-click menu</strong>: Windows only allows that for signed packages. The links will be here when it passes the Store review.</p>
+
+  <h2>Uninstall</h2>
+  <p>Installer: <em>Settings → Apps</em>. Zip: delete the folder (and <code>%LOCALAPPDATA%\LycanZip</code> for the standard zip). If you switched on the Explorer menu or file associations, switch them off in the settings first. Store version: remove it in <em>Settings → Apps</em>.</p>
+</div>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>LycanZip is free software under the MIT license. It uses the 7-Zip engine (GNU LGPL with the unRAR restriction); it is not made or endorsed by the authors of 7-Zip. <a href="../license/">Licenses</a></p>
+<p>© Aegisulf · <a href="../privacy/">Privacy</a> · <a href="https://github.com/Aegisulf/LycanZip/issues">Report a problem</a> · <a href="https://ko-fi.com/aegisulf_lycan">Support on Ko-fi</a></p>
+</div></footer>
+<script>
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("[data-lang]");
+  if (a) { try { localStorage.setItem("lycanzip-lang", a.getAttribute("data-lang")); } catch (x) {} }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-Hans-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>许可 · LycanZip</title>
+<meta name="description" content="LycanZip 以 MIT 许可。它使用 7-Zip 引擎，许可为 GNU LGPL 并附 unRAR 限制。">
+<meta name="theme-color" content="#0b1230">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://aegisulf.com/lycanzip/zh-cn/license/">
+<link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/license/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/license/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/license/">
+<link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/license/">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<meta property="og:title" content="许可 · LycanZip">
+<meta property="og:description" content="LycanZip 以 MIT 许可。它使用 7-Zip 引擎，许可为 GNU LGPL 并附 unRAR 限制。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aegisulf.com/lycanzip/zh-cn/license/">
+<meta property="og:image" content="https://aegisulf.com/lycanzip/assets/shots/thumbnails.webp">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-999px">跳到内容</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../../zh-cn/"><img src="../../assets/logo.svg" alt="" width="30" height="30">LycanZip</a>
+<nav class="nav" aria-label="Main"><a href="../../zh-cn/">首页</a><a href="../../zh-cn/download/">下载</a><a href="../../zh-cn/faq/">常见问题</a><a href="../../zh-cn/privacy/">隐私</a><a href="../../changelog/">更新日志 (EN)</a><a href="https://github.com/Aegisulf/LycanZip">GitHub</a></nav>
+<details class="lang"><summary aria-label="语言">简体中文</summary><div><a href="../../license/" data-lang="en" hreflang="en">English</a><a href="../../zh-tw/license/" data-lang="zh-tw" hreflang="zh-Hant-TW">繁體中文</a><a href="../../zh-cn/license/" data-lang="zh-cn" hreflang="zh-Hans-CN" aria-current="true">简体中文</a></div></details>
+</div></header>
+<main id="main">
+<div class="wrap page">
+  <h1>许可与致谢</h1>
+  <p class="sub">这是英文版的翻译；如有出入，以<a href="../../license/">英文版</a>为准。</p>
+
+  <h2>LycanZip</h2>
+  <p>LycanZip 是以 <a href="https://github.com/Aegisulf/LycanZip/blob/main/LICENSE">MIT 许可</a>发布的自由软件。只要附上许可文本，你可以使用、复制、修改和分享它，包括商业用途。不附带任何担保。</p>
+
+  <h2>7-Zip</h2>
+  <p>压缩和解压由 Igor Pavlov 的 <a href="https://www.7-zip.org/">7-Zip</a> 引擎负责，以独立的库（<code>7z.dll</code>）加载，连同它的许可文本一起放在安装包里。7-Zip 的许可是 GNU LGPL，而读取 RAR 压缩包的代码带有“unRAR 限制”：可以用来<em>读取</em> RAR 压缩包，但不能用来开发<em>创建</em> RAR 压缩包的软件。LycanZip 只解压 RAR。LycanZip 并非 7-Zip 作者所制作、认可或支持。</p>
+
+  <h2>Windows App SDK 和 WinUI 3</h2>
+  <p>界面使用 Microsoft 的 Windows App SDK 和 WinUI 3（MIT 许可）。本网站上的“Windows”、“Microsoft Store”和其他产品名称属于其所有者。</p>
+
+  <h2>完整清单</h2>
+  <p>所有组件及其许可的完整清单，在每个安装包的 <code>THIRD_PARTY.md</code> 文件和 <code>licenses</code> 文件夹里，也在<a href="https://github.com/Aegisulf/LycanZip">源代码仓库</a>。</p>
+</div>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>LycanZip 是以 MIT 许可的自由软件。它使用 7-Zip 引擎（GNU LGPL，附 unRAR 限制）；本项目并非 7-Zip 作者所制作，也未获其认可。<a href="../../zh-cn/license/">许可</a></p>
+<p>© Aegisulf · <a href="../../zh-cn/privacy/">隐私</a> · <a href="https://github.com/Aegisulf/LycanZip/issues">报告问题</a> · <a href="https://ko-fi.com/aegisulf_lycan">在 Ko-fi 支持</a></p>
+</div></footer>
+<script>
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("[data-lang]");
+  if (a) { try { localStorage.setItem("lycanzip-lang", a.getAttribute("data-lang")); } catch (x) {} }
+});
+</script>
+</body>
+</html>

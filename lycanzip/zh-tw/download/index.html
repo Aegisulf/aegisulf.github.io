@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>下載 · LycanZip</title>
+<meta name="description" content="下載 LycanZip：安裝程式、可攜版 zip 與標準版 zip，如何驗證下載的檔案，以及 SmartScreen 警告怎麼處理。">
+<meta name="theme-color" content="#0b1230">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://aegisulf.com/lycanzip/zh-tw/download/">
+<link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/download/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/download/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/download/">
+<link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/download/">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<meta property="og:title" content="下載 · LycanZip">
+<meta property="og:description" content="下載 LycanZip：安裝程式、可攜版 zip 與標準版 zip，如何驗證下載的檔案，以及 SmartScreen 警告怎麼處理。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aegisulf.com/lycanzip/zh-tw/download/">
+<meta property="og:image" content="https://aegisulf.com/lycanzip/assets/shots/thumbnails.webp">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-999px">跳到內容</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../../zh-tw/"><img src="../../assets/logo.svg" alt="" width="30" height="30">LycanZip</a>
+<nav class="nav" aria-label="Main"><a href="../../zh-tw/">首頁</a><a href="../../zh-tw/download/" aria-current="page">下載</a><a href="../../zh-tw/faq/">常見問題</a><a href="../../zh-tw/privacy/">隱私權</a><a href="../../changelog/">更新紀錄 (EN)</a><a href="https://github.com/Aegisulf/LycanZip">GitHub</a></nav>
+<details class="lang"><summary aria-label="語言">繁體中文</summary><div><a href="../../download/" data-lang="en" hreflang="en">English</a><a href="../../zh-tw/download/" data-lang="zh-tw" hreflang="zh-Hant-TW" aria-current="true">繁體中文</a><a href="../../zh-cn/download/" data-lang="zh-cn" hreflang="zh-Hans-CN">简体中文</a></div></details>
+</div></header>
+<main id="main">
+<div class="wrap page">
+  <h1>下載 LycanZip</h1>
+  <p class="sub">最新版本：<strong>0.9.2</strong>（<a href="../../changelog/">更新內容，英文</a>）。<strong>Windows 10（1809 以上）與 Windows 11，64 位元。</strong></p>
+
+  <div class="dl-store" id="store-card">
+    <h3>Microsoft Store <span class="badge">Windows 11 建議使用</span></h3>
+    <p>唯一有 <strong>Windows 11 新式右鍵選單</strong>的版本。由 Windows 簽章並負責更新。</p>
+    <div class="buttons">
+      <span class="btn warm soon">在 Store 開啟 &mdash; 即將提供</span>
+      <span class="btn soon">Store 安裝程式 &mdash; 即將提供</span>
+    </div>
+  </div>
+
+  <div class="dl-row">
+    <div class="card">
+      <h3>安裝程式 <span class="tag">Windows 10 建議使用</span></h3>
+      <p>一鍵安裝，<strong>不需要系統管理員權限</strong>。你同意的話，它會<strong>自己更新</strong>。</p>
+      <a class="btn primary" href="https://github.com/Aegisulf/LycanZip/releases/latest">從 GitHub 取得</a>
+    </div>
+    <div class="card">
+      <h3>標準版 <span class="tag">zip</span></h3>
+      <p>同一個程式，設定放在你的使用者資料夾。Scoop 使用這一版。</p>
+      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/latest">從 GitHub 取得</a>
+    </div>
+    <div class="card">
+      <h3>可攜版 <span class="tag">zip</span></h3>
+      <p>解壓縮到任何地方，執行 <code>LycanZip.exe</code>。設定留在同一個資料夾，適合放在隨身碟。</p>
+      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/latest">從 GitHub 取得</a>
+    </div>
+  </div>
+
+  <h2>系統需求</h2>
+  <ul>
+    <li>Windows 10 1809 以上，或 Windows 11；64 位元。</li>
+    <li><strong>不需要另外安裝任何東西。</strong>LycanZip 需要的都在套件裡。</li>
+    <li>約 70 MB 磁碟空間。</li>
+  </ul>
+
+  <h2>用套件管理員安裝</h2>
+  <p><a href="https://learn.microsoft.com/windows/package-manager/winget/">winget</a> 或 <a href="https://scoop.sh/">Scoop</a>（1.0 版起提供）：</p>
+  <pre><code>winget install Aegisulf.LycanZip
+scoop install lycanzip</code></pre>
+
+  <h2 id="verify">驗證你下載的檔案</h2>
+  <p>每個版本都列出各檔案的 <strong>SHA-256</strong>。在下載檔案所在的資料夾開啟 PowerShell，執行：</p>
+  <pre><code>Get-FileHash .\LycanZip-0.9.2-Setup.exe -Algorithm SHA256</code></pre>
+  <p>顯示的值必須和發行頁面上的一致。不一致就刪掉檔案，重新下載。</p>
+  <div class="note">LycanZip 本身也能做：在檔案上按右鍵，選「計算雜湊值…」，再貼上發行頁面上的值。</div>
+
+  <h2 id="smartscreen">「Windows 已保護您的電腦」（SmartScreen）</h2>
+  <p>只有 Store 版有憑證簽章，而 Windows 會對不常見的程式發出警告。<strong>這不代表檔案有問題。</strong>確認上面的 SHA-256 之後，按「其他資訊」，再按「仍要執行」。</p>
+  <p>如果 Windows 擋住你解壓縮出來的檔案，請先在 zip 上按右鍵，選「內容」，勾選「解除封鎖」。</p>
+
+  <h2 id="store">Microsoft Store 版</h2>
+  <p>同一個程式的 Store 套件，由 Windows 簽章並負責更新。它是唯一有 <strong>Windows 11 新式右鍵選單</strong>的版本：Windows 只允許簽章過的套件這麼做。通過 Store 審核後，連結會放在這裡。</p>
+
+  <h2>解除安裝</h2>
+  <p>安裝程式：到「設定 → 應用程式」。Zip：刪除資料夾（標準版另外刪除 <code>%LOCALAPPDATA%\LycanZip</code>）。如果你開啟過檔案總管選單或檔案關聯，請先在設定裡關掉。Store 版：在「設定 → 應用程式」移除。</p>
+</div>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>LycanZip 是以 MIT 授權的自由軟體。它使用 7-Zip 引擎（GNU LGPL，附 unRAR 限制）；本專案並非 7-Zip 作者所製作，也未獲其背書。<a href="../../zh-tw/license/">授權</a></p>
+<p>© Aegisulf · <a href="../../zh-tw/privacy/">隱私權</a> · <a href="https://github.com/Aegisulf/LycanZip/issues">回報問題</a> · <a href="https://ko-fi.com/aegisulf_lycan">在 Ko-fi 支持</a></p>
+</div></footer>
+<script>
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("[data-lang]");
+  if (a) { try { localStorage.setItem("lycanzip-lang", a.getAttribute("data-lang")); } catch (x) {} }
+});
+</script>
+</body>
+</html>

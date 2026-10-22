@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隱私權政策 · LycanZip</title>
+<meta name="description" content="LycanZip 不蒐集個人資料，沒有遙測也沒有廣告。哪些東西留在你的電腦上，以及唯一一個選用的檢查新版本請求。">
+<meta name="theme-color" content="#0b1230">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://aegisulf.com/lycanzip/zh-tw/privacy/">
+<link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/privacy/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/privacy/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/privacy/">
+<link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/privacy/">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<meta property="og:title" content="隱私權政策 · LycanZip">
+<meta property="og:description" content="LycanZip 不蒐集個人資料，沒有遙測也沒有廣告。哪些東西留在你的電腦上，以及唯一一個選用的檢查新版本請求。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aegisulf.com/lycanzip/zh-tw/privacy/">
+<meta property="og:image" content="https://aegisulf.com/lycanzip/assets/shots/thumbnails.webp">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-999px">跳到內容</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../../zh-tw/"><img src="../../assets/logo.svg" alt="" width="30" height="30">LycanZip</a>
+<nav class="nav" aria-label="Main"><a href="../../zh-tw/">首頁</a><a href="../../zh-tw/download/">下載</a><a href="../../zh-tw/faq/">常見問題</a><a href="../../zh-tw/privacy/" aria-current="page">隱私權</a><a href="../../changelog/">更新紀錄 (EN)</a><a href="https://github.com/Aegisulf/LycanZip">GitHub</a></nav>
+<details class="lang"><summary aria-label="語言">繁體中文</summary><div><a href="../../privacy/" data-lang="en" hreflang="en">English</a><a href="../../zh-tw/privacy/" data-lang="zh-tw" hreflang="zh-Hant-TW" aria-current="true">繁體中文</a><a href="../../zh-cn/privacy/" data-lang="zh-cn" hreflang="zh-Hans-CN">简体中文</a></div></details>
+</div></header>
+<main id="main">
+<div class="wrap page">
+  <h1>隱私權政策</h1>
+  <p class="sub">最後更新：22 October 2026。適用於 LycanZip 程式（安裝程式、zip 套件與 Microsoft Store 版）以及本網站。這是英文版的翻譯；如有出入，以<a href="../../privacy/">英文版</a>為準。</p>
+
+  <h2>簡單說</h2>
+  <p>LycanZip 不蒐集、不在伺服器上儲存、不販賣也不分享任何個人資料。沒有遙測、沒有廣告、沒有追蹤、沒有帳號。完全可以離線使用。</p>
+
+  <h2>哪些東西留在你的電腦上</h2>
+  <ul>
+    <li><strong>設定與範本</strong>：你的選擇（主題、語言、壓縮範本、最近使用的資料夾）存在你電腦上的檔案裡：可攜版在程式資料夾，標準版與 Store 版在 <code>%LOCALAPPDATA%\LycanZip</code>。</li>
+    <li><strong>記錄檔</strong>：程式做了什麼的簡短記錄（錯誤、版本）。只記檔名；只有你自己開啟「含完整路徑的詳細記錄」時才會寫入完整路徑。它不會傳送到任何地方。你可以閱讀與刪除它（<code>lycanzip-cli info</code> 會顯示位置）。</li>
+    <li><strong>當機報告</strong>：程式當機時會在你的電腦上寫一份報告，方便你需要時附在問題回報裡。不會上傳任何東西。</li>
+    <li><strong>暫存檔</strong>：從壓縮檔開啟的檔案會解壓縮到暫存資料夾，之後移除。</li>
+  </ul>
+
+  <h2>你的檔案</h2>
+  <p>LycanZip 只讀寫你要它處理的檔案。它不會上傳這些檔案，也不會把檔名或內容傳到任何地方。如果你使用病毒掃描，檔案內容會透過 Windows 的 Antimalware Scan Interface 交給你電腦上安裝的防毒軟體；那個軟體做什麼，由它自己的廠商說明。</p>
+
+  <h2>網路請求</h2>
+  <p>LycanZip 本身不發出任何網路請求，只有一個選用的例外：檢查新版本。開啟它的時候（預設是關的；Microsoft Store 版不會檢查，由 Store 更新），程式會下載一個很小的公開檔案 <code>aegisulf.com/lycanzip/latest.json</code>，內容是最新的版本號碼。請求裡沒有識別碼、沒有設定，也沒有任何關於你的電腦或檔案的資料。已安裝的版本（由安裝程式安裝）如果開了這個檢查，也會自己從 <code>aegisulf.com/lycanzip/updates/</code> 下載更新、檢查簽章，並且只在你選擇時才安裝；那個請求和上面的一樣匿名。和任何網路請求一樣，放這個檔案的伺服器（GitHub Pages）會在它自己的記錄裡看到請求的 IP 位址；LycanZip 無法存取那些記錄。</p>
+  <p>第二種是你自己發起的：<em>在 VirusTotal 查詢</em>（在「更多選項」、壓縮檔內檔案的選單與雜湊值視窗裡）。LycanZip 會計算檔案的 SHA-256，並在你的瀏覽器開啟 <code>virustotal.com</code> 上該雜湊值的頁面。網址裡只有雜湊值；檔案不會被上傳，LycanZip 也不使用 VirusTotal 帳號或 API。VirusTotal 與你的瀏覽器看到的請求，和你開啟任何網頁時一樣。如果 VirusTotal 不認得這個雜湊值，不代表檔案安全。</p>
+
+  <h2>本網站</h2>
+  <p>本網站沒有 cookie、沒有分析工具，也沒有第三方的指令碼或字型。頁面由 GitHub Pages 提供，它可能依 <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub 的隱私權聲明</a>保留技術記錄。</p>
+
+  <h2>兒童</h2>
+  <p>LycanZip 不蒐集任何人的資料，包括兒童。</p>
+
+  <h2>變更與聯絡</h2>
+  <p>如果本政策有變更，上面的日期會更新，新的內容會發佈在這裡。有問題請到 <a href="https://github.com/Aegisulf/LycanZip/issues">GitHub</a> 開一個 issue。</p>
+</div>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>LycanZip 是以 MIT 授權的自由軟體。它使用 7-Zip 引擎（GNU LGPL，附 unRAR 限制）；本專案並非 7-Zip 作者所製作，也未獲其背書。<a href="../../zh-tw/license/">授權</a></p>
+<p>© Aegisulf · <a href="../../zh-tw/privacy/">隱私權</a> · <a href="https://github.com/Aegisulf/LycanZip/issues">回報問題</a> · <a href="https://ko-fi.com/aegisulf_lycan">在 Ko-fi 支持</a></p>
+</div></footer>
+<script>
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("[data-lang]");
+  if (a) { try { localStorage.setItem("lycanzip-lang", a.getAttribute("data-lang")); } catch (x) {} }
+});
+</script>
+</body>
+</html>

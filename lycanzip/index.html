@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+(function () {
+  try {
+    var T = {"zh-tw":"zh-tw/","zh-cn":"zh-cn/"}, saved = null;
+    try { saved = localStorage.getItem("lycanzip-lang"); } catch (e) {}
+    var pick = saved;
+    if (!pick) {
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || ""];
+      for (var i = 0; i < list.length && !pick; i++) {
+        var l = String(list[i]).toLowerCase();
+        if (l.indexOf("en") === 0) pick = "en";
+        else if (l.indexOf("zh") === 0) pick = /hant|-tw|-hk|-mo/.test(l) ? "zh-tw" : "zh-cn";
+      }
+    }
+    if (pick && pick !== "en" && T[pick]) location.replace(T[pick]);
+  } catch (e) {}
+})();
+</script>
+<title>LycanZip File Archiver</title>
+<meta name="description" content="A modern, free and open source file archiver made only for Windows 10 and 11. Opens zip, 7z, rar, tar and more, previews pictures and music inside archives, no ads, no telemetry.">
+<meta name="theme-color" content="#0b1230">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://aegisulf.com/lycanzip/">
+<link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/">
+<link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="stylesheet" href="assets/style.css">
+<meta property="og:title" content="LycanZip File Archiver">
+<meta property="og:description" content="A modern, free and open source file archiver made only for Windows 10 and 11. Opens zip, 7z, rar, tar and more, previews pictures and music inside archives, no ads, no telemetry.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aegisulf.com/lycanzip/">
+<meta property="og:image" content="https://aegisulf.com/lycanzip/assets/shots/thumbnails.webp">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-999px">Skip to the content</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href=""><img src="assets/logo.svg" alt="" width="30" height="30">LycanZip</a>
+<nav class="nav" aria-label="Main"><a href="" aria-current="page">Home</a><a href="download/">Download</a><a href="faq/">FAQ</a><a href="privacy/">Privacy</a><a href="changelog/">Changelog</a><a href="https://github.com/Aegisulf/LycanZip">GitHub</a></nav>
+<details class="lang"><summary aria-label="Language">English</summary><div><a href="" data-lang="en" hreflang="en" aria-current="true">English</a><a href="zh-tw/" data-lang="zh-tw" hreflang="zh-Hant-TW">繁體中文</a><a href="zh-cn/" data-lang="zh-cn" hreflang="zh-Hans-CN">简体中文</a></div></details>
+</div></header>
+<main id="main">
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><span>Windows 10 &middot; Windows 11</span> only</p>
+      <h1>A <span>modern</span> file archiver, made only for Windows</h1>
+      <p class="lead">Zip, 7z, tar and more, with the look and feel of Windows 11. <strong>Free, open source, no ads, nothing collected.</strong></p>
+      <div class="buttons">
+        <a class="btn primary" href="download/">Download</a>
+        <a class="btn" href="https://github.com/Aegisulf/LycanZip">Source on GitHub</a>
+      </div>
+      <ul class="facts">
+        <li>Windows 10 and 11, 64-bit</li>
+        <li>MIT license</li>
+        <li>Portable version available</li>
+      </ul>
+    </div>
+    <div class="hero-art">
+      <img class="pup" src="assets/wolf-pup.svg" alt="" width="600" height="550">
+      <img class="logo" src="assets/logo.svg" alt="The LycanZip wolf" width="230" height="230">
+    </div>
+  </div>
+</div>
+
+<div class="banner"><div class="wrap"><p>Premium features, <strong>but it&rsquo;s free.</strong></p></div></div>
+
+<section>
+  <div class="wrap">
+    <h2>What it does</h2>
+    <div class="timeline">
+
+      <article class="tl-item">
+        <h3>Everything an archiver should do</h3>
+        <p>Open <strong>zip, 7z, rar, tar, iso</strong> and dozens more. Create zip, 7z and tar with <strong>AES-256</strong> passwords. Browse, search, <strong>drag files out</strong> to Explorer, use the <strong>right-click menu</strong>. It works like the rest of Windows.</p>
+        <div class="pair">
+          <figure class="shot"><img src="assets/shots/details.webp" width="1800" height="1260" loading="lazy" alt="LycanZip showing the content of a 7z archive as a list with type, size and date, next to a folder tree"><figcaption>A folder tree and a details list.</figcaption></figure>
+          <figure class="shot"><img src="assets/shots/compress.webp" width="1800" height="1260" loading="lazy" alt="The New archive page with format, mode and protection settings"><figcaption>Making an archive: a format and a mode.</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="tl-item warm">
+        <h3>The Windows 11 right-click menu <span class="badge">Store version only</span></h3>
+        <p>Entries <strong>right in the top level</strong> of the Windows 11 menu, no &ldquo;Show more options&rdquo; first. Windows only allows this for a <strong>signed package</strong>, so it comes with the <strong>Microsoft Store version</strong>. The other versions use the classic menu.</p>
+      </article>
+
+      <article class="tl-item spotlight">
+        <h3>Look before you unpack: pictures and music</h3>
+        <p><strong>Pictures</strong> open in a viewer with a thumbnail strip, zoom and animations. <strong>Music</strong> plays in a built-in player that shows the tags. Nothing is unpacked. Hold <kbd>Shift</kbd> when you open an archive to go straight to the pictures.</p>
+        <figure class="shot wide"><img src="assets/shots/thumbnails.webp" width="1800" height="1260" loading="lazy" alt="LycanZip showing the pictures of a zip archive as thumbnails next to a folder tree"><figcaption>The pictures of an archive as thumbnails.</figcaption></figure>
+        <div class="pair">
+          <figure class="shot"><img src="assets/shots/preview.webp" width="1800" height="1177" loading="lazy" alt="The picture preview window with a strip of thumbnails on the left"><figcaption>The picture preview.</figcaption></figure>
+          <figure class="shot"><img src="assets/shots/audio.webp" width="1816" height="1148" loading="lazy" alt="The audio preview window with a playlist, the title, artist and format of the song, and the player controls"><figcaption>The audio preview.</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <h3>Dark, light, your colour</h3>
+        <p><strong>Light or dark</strong>, six <strong>accent colours</strong>, or just follow Windows. Optional <strong>sound effects</strong> (two sets) and animations, which you can switch off.</p>
+        <div class="quad">
+          <figure class="shot"><img src="assets/shots/theme-light.webp" width="1200" height="845" loading="lazy" alt="LycanZip in the light theme with the Moonlight accent"><figcaption>Light &middot; Moonlight</figcaption></figure>
+          <figure class="shot"><img src="assets/shots/theme-blood.webp" width="1200" height="845" loading="lazy" alt="LycanZip in the dark theme with the Blood Moon accent"><figcaption>Dark &middot; Blood Moon</figcaption></figure>
+          <figure class="shot"><img src="assets/shots/theme-forest.webp" width="1200" height="845" loading="lazy" alt="LycanZip in the light theme with the Forest accent"><figcaption>Light &middot; Forest</figcaption></figure>
+          <figure class="shot"><img src="assets/shots/theme-aurora.webp" width="1200" height="845" loading="lazy" alt="LycanZip in the dark theme with the Aurora accent"><figcaption>Dark &middot; Aurora</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="tl-item">
+        <h3>Change an archive in place</h3>
+        <p><strong>Add, delete, rename, replace</strong> inside zip, 7z and tar, or edit a file in your own editor and save it back. Done on a safe copy.</p>
+      </article>
+
+      <article class="tl-item">
+        <h3>File names come out right</h3>
+        <p>Old zip files with <strong>Big5, GBK, Shift-JIS or EUC-KR</strong> names are detected automatically.</p>
+      </article>
+
+      <article class="tl-item spotlight">
+        <h3>Safe by design</h3>
+        <p><strong>No telemetry, no ads, nothing collected.</strong> And three ways to check what you are about to open:</p>
+        <div class="trio">
+          <div class="mini"><h4>Antivirus scan</h4><p>Scan an archive with <strong>your own antivirus</strong> through Windows AMSI, without unpacking it to disk.</p></div>
+          <div class="mini"><h4>SHA-256 check</h4><p>Hash any file, folder or archive. <strong>Verify a <code>.sha256</code> file</strong> with a double click.</p></div>
+          <div class="mini"><h4>VirusTotal lookup</h4><p>One click opens the VirusTotal page of the file&rsquo;s hash. <strong>Only the hash is sent, never the file.</strong></p></div>
+        </div>
+        <p class="after">Unsafe paths are refused, links are not followed, and compression bombs are caught.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Small, honest and open</h2>
+    <div class="grid">
+      <div class="card"><h3>Free and open source</h3><p><strong>MIT license</strong>, source on <a href="https://github.com/Aegisulf/LycanZip">GitHub</a>. No ads, no accounts.</p></div>
+      <div class="card"><h3>Nothing is collected</h3><p>Works offline. See the <a href="privacy/">privacy policy</a>.</p></div>
+      <div class="card"><h3>Built on 7-Zip</h3><p>Packing is done by the proven <strong>7-Zip engine</strong>. See <a href="license/">licenses</a>.</p></div>
+    </div>
+    <p style="margin-top:30px"><a class="btn primary" href="download/">Get LycanZip</a> <a class="btn" href="https://ko-fi.com/aegisulf_lycan">Support the project on Ko-fi</a></p>
+    <p class="sub" style="margin-top:14px">Made in spare time. If it saves you time, a coffee helps; so does a bug report.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>LycanZip is free software under the MIT license. It uses the 7-Zip engine (GNU LGPL with the unRAR restriction); it is not made or endorsed by the authors of 7-Zip. <a href="license/">Licenses</a></p>
+<p>© Aegisulf · <a href="privacy/">Privacy</a> · <a href="https://github.com/Aegisulf/LycanZip/issues">Report a problem</a> · <a href="https://ko-fi.com/aegisulf_lycan">Support on Ko-fi</a></p>
+</div></footer>
+<script>
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("[data-lang]");
+  if (a) { try { localStorage.setItem("lycanzip-lang", a.getAttribute("data-lang")); } catch (x) {} }
+});
+</script>
+</body>
+</html>
