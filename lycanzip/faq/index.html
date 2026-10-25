@@ -6,6 +6,7 @@
 <script>
 (function () {
   try {
+    if (/[?&]lang=en(&|$)/.test(location.search)) return;   // a link that asks for the English text (the note on a translated legal page): stay, remember nothing
     var T = {"zh-tw":"../zh-tw/faq/","zh-cn":"../zh-cn/faq/"}, saved = null;
     try { saved = localStorage.getItem("lycanzip-lang"); } catch (e) {}
     var pick = saved;
@@ -62,6 +63,11 @@
   <details>
     <summary>Installer, portable or Store?</summary>
     <p>The <strong>installer</strong> is the easy one and can update itself. <strong>Portable</strong> keeps its settings next to the program (a USB stick). The <strong>Store</strong> version is updated by Windows.</p>
+  </details>
+
+  <details>
+    <summary>Can I have the Store version and another one at the same time?</summary>
+    <p>Yes, but <strong>one is enough</strong>. When the Store version is installed, it provides the right-click menu and the file types: the installer, zip and portable versions switch their own off when they start, so File Explorer shows LycanZip once, and they say so one time. Each copy keeps its own settings. To keep only one, remove the other in <em>Settings → Apps → Installed apps</em> (a portable folder can simply be deleted).</p>
   </details>
 
   <details>

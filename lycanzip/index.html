@@ -6,6 +6,7 @@
 <script>
 (function () {
   try {
+    if (/[?&]lang=en(&|$)/.test(location.search)) return;   // a link that asks for the English text (the note on a translated legal page): stay, remember nothing
     var T = {"zh-tw":"zh-tw/","zh-cn":"zh-cn/"}, saved = null;
     try { saved = localStorage.getItem("lycanzip-lang"); } catch (e) {}
     var pick = saved;
