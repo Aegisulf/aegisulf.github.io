@@ -35,8 +35,8 @@
     <h3>Microsoft Store <span class="badge">Windows 11 推荐使用</span></h3>
     <p>唯一有 <strong>Windows 11 新式右键菜单</strong>的版本。由 Windows 签名并负责更新。</p>
     <div class="buttons">
-      <a class="btn warm" href="https://apps.microsoft.com/detail/9PB97QFZM56W?hl=zh-CN&amp;gl=CN">在 Store 中打开</a>
-      <a class="btn" href="https://get.microsoft.com/installer/download/9PB97QFZM56W?cid=website_cta_psi">Store 安装程序</a>
+      <a class="btn warm" href="https://apps.microsoft.com/detail/9PB97QFZM56W?hl=zh-CN&amp;gl=CN" target="_blank" rel="noopener"><svg class="store-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 6V5a4 4 0 0 1 8 0v1h4.5a.5.5 0 0 1 .5.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6.5a.5.5 0 0 1 .5-.5Zm1.5 0h5V5a2.5 2.5 0 0 0-5 0Z" fill="currentColor" opacity="0.28"/><rect x="7" y="9" width="4.6" height="4.6" fill="#F25022"/><rect x="12.4" y="9" width="4.6" height="4.6" fill="#7FBA00"/><rect x="7" y="14.4" width="4.6" height="4.6" fill="#00A4EF"/><rect x="12.4" y="14.4" width="4.6" height="4.6" fill="#FFB900"/></svg>在 Store 中打开</a>
+      <a class="btn" href="https://get.microsoft.com/installer/download/9PB97QFZM56W?cid=website_cta_psi" target="_blank" rel="noopener"><svg class="store-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 6V5a4 4 0 0 1 8 0v1h4.5a.5.5 0 0 1 .5.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6.5a.5.5 0 0 1 .5-.5Zm1.5 0h5V5a2.5 2.5 0 0 0-5 0Z" fill="currentColor" opacity="0.28"/><rect x="7" y="9" width="4.6" height="4.6" fill="#F25022"/><rect x="12.4" y="9" width="4.6" height="4.6" fill="#7FBA00"/><rect x="7" y="14.4" width="4.6" height="4.6" fill="#00A4EF"/><rect x="12.4" y="14.4" width="4.6" height="4.6" fill="#FFB900"/></svg>Store 安装程序</a>
     </div>
   </div>
 
@@ -44,19 +44,23 @@
     <div class="card">
       <h3>安装程序 <span class="tag">Windows 10 推荐使用</span></h3>
       <p>一键安装，<strong>不需要管理员权限</strong>。你同意的话，它会<strong>自动更新</strong>。</p>
-      <a class="btn primary" href="https://github.com/Aegisulf/LycanZip/releases/latest">从 GitHub 获取</a>
+      <a class="btn primary" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.0.0/LycanZip-1.0.0-Setup.exe">下载 (.exe)</a>
+      <p class="sha"><span>SHA-256</span><code>e05cba46fac2f3c5762451a9dea2b1e5c039a2fd37dc597aeba44176b895df7f</code></p>
     </div>
     <div class="card">
       <h3>标准版 <span class="tag">zip</span></h3>
-      <p>同一个程序，设置保存在你的用户文件夹。Scoop 使用这一版。</p>
-      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/latest">从 GitHub 获取</a>
+      <p>同一个程序，设置保存在你的用户文件夹。</p>
+      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.0.0/LycanZip-1.0.0-win-x64.zip">下载 (.zip)</a>
+      <p class="sha"><span>SHA-256</span><code>ea67f9fbe537c9e9c2dbdb6a0dfc26ba496835ec7876af1de987b3d37387039f</code></p>
     </div>
     <div class="card">
       <h3>便携版 <span class="tag">zip</span></h3>
       <p>解压到任意位置，运行 <code>LycanZip.exe</code>。设置保存在同一个文件夹，适合放在 U 盘。</p>
-      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/latest">从 GitHub 获取</a>
+      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.0.0/LycanZip-1.0.0-win-x64-portable.zip">下载 (.zip)</a>
+      <p class="sha"><span>SHA-256</span><code>19ef5ff6f4be5b66270a680dd6046a93d3b109120ad52d9042a63deb732fce16</code></p>
     </div>
   </div>
+  <p class="dl-all">所有文件与旧版本：<a href="https://github.com/Aegisulf/LycanZip/releases" target="_blank" rel="noopener">GitHub 上的发布页面</a>。</p>
 
   <h2>系统要求</h2>
   <ul>
@@ -65,16 +69,15 @@
     <li>约 70 MB 磁盘空间。</li>
   </ul>
 
-  <h2>用包管理器安装</h2>
-  <p><a href="https://learn.microsoft.com/windows/package-manager/winget/">winget</a> 或 <a href="https://scoop.sh/">Scoop</a>（1.0 版起提供）：</p>
-  <pre><code>winget install Aegisulf.LycanZip
-scoop install lycanzip</code></pre>
+  <h2>用 winget 安装</h2>
+  <p><a href="https://learn.microsoft.com/windows/package-manager/winget/">winget</a>（Windows 内置的包管理器）：</p>
+  <pre><code>winget install Aegisulf.LycanZip</code></pre>
 
   <h2 id="verify">校验你下载的文件</h2>
-  <p>每个版本都列出各文件的 <strong>SHA-256</strong>。在下载文件所在的文件夹打开 PowerShell，运行：</p>
+  <p>各文件的 <strong>SHA-256</strong> 列在上面的下载按钮下方（发布页面上也有）。在下载文件所在的文件夹打开 PowerShell，运行：</p>
   <pre><code>Get-FileHash .\LycanZip-1.0.0-Setup.exe -Algorithm SHA256</code></pre>
-  <p>显示的值必须和发布页面上的一致。不一致就删掉文件，重新下载。</p>
-  <div class="note">LycanZip 本身也能做：在文件上右键，选“计算哈希值…”，再粘贴发布页面上的值。</div>
+  <p>显示的值必须和上面列出的一致。不一致就删掉文件，重新下载。</p>
+  <div class="note">LycanZip 本身也能做：在文件上右键，选“计算哈希值…”，再粘贴上面列出的值。</div>
 
   <h2 id="smartscreen">“Windows 已保护你的电脑”（SmartScreen）</h2>
   <p>只有 Store 版有证书签名，而 Windows 会对不常见的程序发出警告。<strong>这不代表文件有问题。</strong>确认上面的 SHA-256 之后，点“更多信息”，再点“仍要运行”。</p>

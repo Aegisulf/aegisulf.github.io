@@ -54,8 +54,8 @@
     <h3>Microsoft Store <span class="badge">Recommended for Windows 11</span></h3>
     <p>The only version with the <strong>new Windows 11 right-click menu</strong>. Signed and updated by Windows.</p>
     <div class="buttons">
-      <a class="btn warm" href="https://apps.microsoft.com/detail/9PB97QFZM56W">Open in the Store</a>
-      <a class="btn" href="https://get.microsoft.com/installer/download/9PB97QFZM56W?cid=website_cta_psi">Store installer</a>
+      <a class="btn warm" href="https://apps.microsoft.com/detail/9PB97QFZM56W" target="_blank" rel="noopener"><svg class="store-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 6V5a4 4 0 0 1 8 0v1h4.5a.5.5 0 0 1 .5.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6.5a.5.5 0 0 1 .5-.5Zm1.5 0h5V5a2.5 2.5 0 0 0-5 0Z" fill="currentColor" opacity="0.28"/><rect x="7" y="9" width="4.6" height="4.6" fill="#F25022"/><rect x="12.4" y="9" width="4.6" height="4.6" fill="#7FBA00"/><rect x="7" y="14.4" width="4.6" height="4.6" fill="#00A4EF"/><rect x="12.4" y="14.4" width="4.6" height="4.6" fill="#FFB900"/></svg>Open in the Store</a>
+      <a class="btn" href="https://get.microsoft.com/installer/download/9PB97QFZM56W?cid=website_cta_psi" target="_blank" rel="noopener"><svg class="store-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M8 6V5a4 4 0 0 1 8 0v1h4.5a.5.5 0 0 1 .5.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6.5a.5.5 0 0 1 .5-.5Zm1.5 0h5V5a2.5 2.5 0 0 0-5 0Z" fill="currentColor" opacity="0.28"/><rect x="7" y="9" width="4.6" height="4.6" fill="#F25022"/><rect x="12.4" y="9" width="4.6" height="4.6" fill="#7FBA00"/><rect x="7" y="14.4" width="4.6" height="4.6" fill="#00A4EF"/><rect x="12.4" y="14.4" width="4.6" height="4.6" fill="#FFB900"/></svg>Store installer</a>
     </div>
   </div>
 
@@ -63,19 +63,23 @@
     <div class="card">
       <h3>Installer <span class="tag">recommended for Windows 10</span></h3>
       <p>One click, <strong>no administrator needed</strong>. <strong>Updates itself</strong> when you let it.</p>
-      <a class="btn primary" href="https://github.com/Aegisulf/LycanZip/releases/latest">Get it from GitHub</a>
+      <a class="btn primary" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.0.0/LycanZip-1.0.0-Setup.exe">Download (.exe)</a>
+      <p class="sha"><span>SHA-256</span><code>e05cba46fac2f3c5762451a9dea2b1e5c039a2fd37dc597aeba44176b895df7f</code></p>
     </div>
     <div class="card">
       <h3>Standard <span class="tag">zip</span></h3>
-      <p>The same program, settings in your user profile. Used by Scoop.</p>
-      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/latest">Get it from GitHub</a>
+      <p>The same program, settings in your user profile.</p>
+      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.0.0/LycanZip-1.0.0-win-x64.zip">Download (.zip)</a>
+      <p class="sha"><span>SHA-256</span><code>ea67f9fbe537c9e9c2dbdb6a0dfc26ba496835ec7876af1de987b3d37387039f</code></p>
     </div>
     <div class="card">
       <h3>Portable <span class="tag">zip</span></h3>
       <p>Unzip anywhere and run <code>LycanZip.exe</code>. Settings stay in the same folder: fine for a USB stick.</p>
-      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/latest">Get it from GitHub</a>
+      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.0.0/LycanZip-1.0.0-win-x64-portable.zip">Download (.zip)</a>
+      <p class="sha"><span>SHA-256</span><code>19ef5ff6f4be5b66270a680dd6046a93d3b109120ad52d9042a63deb732fce16</code></p>
     </div>
   </div>
+  <p class="dl-all">All files and earlier versions: <a href="https://github.com/Aegisulf/LycanZip/releases" target="_blank" rel="noopener">the releases on GitHub</a>.</p>
 
   <h2>Requirements</h2>
   <ul>
@@ -84,16 +88,15 @@
     <li>About 70 MB of disk space.</li>
   </ul>
 
-  <h2>With a package manager</h2>
-  <p><a href="https://learn.microsoft.com/windows/package-manager/winget/">winget</a> or <a href="https://scoop.sh/">Scoop</a> (with version 1.0):</p>
-  <pre><code>winget install Aegisulf.LycanZip
-scoop install lycanzip</code></pre>
+  <h2>With winget</h2>
+  <p><a href="https://learn.microsoft.com/windows/package-manager/winget/">winget</a>, the package manager of Windows:</p>
+  <pre><code>winget install Aegisulf.LycanZip</code></pre>
 
   <h2 id="verify">Check your download</h2>
-  <p>Every release lists the <strong>SHA-256</strong> of each file. In PowerShell, in the folder of the download:</p>
+  <p>The <strong>SHA-256</strong> of each file is shown under its button above (and on the release page). In PowerShell, in the folder of the download:</p>
   <pre><code>Get-FileHash .\LycanZip-1.0.0-Setup.exe -Algorithm SHA256</code></pre>
-  <p>The value must match the release page. If not, delete the file and download it again.</p>
-  <div class="note">LycanZip can do this too: right-click the file, choose <em>Calculate hash values…</em> and paste the value from the release page.</div>
+  <p>The value must match the one above. If not, delete the file and download it again.</p>
+  <div class="note">LycanZip can do this too: right-click the file, choose <em>Calculate hash values…</em> and paste the value from above.</div>
 
   <h2 id="smartscreen">“Windows protected your PC” (SmartScreen)</h2>
   <p>Only the Store version is signed with a certificate, and Windows warns about programs it has not seen often. <strong>It does not mean the file is bad.</strong> After checking the SHA-256 above, click <em>More info</em>, then <em>Run anyway</em>.</p>

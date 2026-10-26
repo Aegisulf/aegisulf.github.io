@@ -22,13 +22,11 @@ body {
   color: var(--text);
   font: 17px/1.65 "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Noto Sans", "Helvetica Neue", Arial, sans-serif;
   background:
-    radial-gradient(1.2px 1.2px at 12% 14%, #cfd9ff 50%, transparent 52%),
     radial-gradient(1px 1px at 27% 38%, #b9c8ff 50%, transparent 52%),
     radial-gradient(1.4px 1.4px at 41% 9%, #e6ecff 50%, transparent 52%),
     radial-gradient(1px 1px at 63% 24%, #b9c8ff 50%, transparent 52%),
     radial-gradient(1.3px 1.3px at 78% 12%, #dbe4ff 50%, transparent 52%),
     radial-gradient(1px 1px at 91% 33%, #b9c8ff 50%, transparent 52%),
-    radial-gradient(1px 1px at 5% 61%, #b9c8ff 50%, transparent 52%),
     radial-gradient(1.2px 1.2px at 88% 70%, #cfd9ff 50%, transparent 52%),
     linear-gradient(180deg, var(--bg1) 0%, var(--bg0) 70%) fixed;
   min-height: 100vh;
@@ -111,7 +109,7 @@ kbd { background: rgba(126, 166, 255, 0.14); border: 1px solid var(--panel-line)
 .tl-item { position: relative; padding: 0 0 46px; }
 .tl-item:last-child { padding-bottom: 6px; }
 .tl-item::before {
-  content: ""; position: absolute; left: -48px; top: 6px; width: 15px; height: 15px; border-radius: 50%;
+  content: ""; position: absolute; left: -44px; top: 6px; width: 15px; height: 15px; border-radius: 50%;   /* centred on the line: 52 - 44 + 7.5 = 15.5 = 14 + 3 / 2 */
   background: radial-gradient(circle at 40% 38%, #ffffff 0 22%, #a9c6ff 42%, var(--neon) 100%);
   box-shadow: 0 0 0 4px rgba(79, 140, 255, 0.2), 0 0 10px #6c9dff, 0 0 26px rgba(79, 140, 255, 0.9);
   animation: glow 3.4s ease-in-out infinite;
@@ -124,7 +122,7 @@ kbd { background: rgba(126, 166, 255, 0.14); border: 1px solid var(--panel-line)
 .tl-item.spotlight { margin: 4px 0 46px -18px; padding: 24px 24px 26px 18px; border-radius: 18px; border: 1px solid rgba(110, 160, 255, 0.45);
   background: linear-gradient(160deg, rgba(40, 70, 160, 0.34), rgba(10, 18, 48, 0.55));
   box-shadow: 0 0 0 1px rgba(79, 140, 255, 0.12), 0 0 34px rgba(79, 140, 255, 0.22), inset 0 0 40px rgba(79, 140, 255, 0.08); }
-.tl-item.spotlight::before { left: -30px; top: 30px; width: 19px; height: 19px; }
+.tl-item.spotlight::before { left: -28px; top: 30px; width: 19px; height: 19px; }   /* the box starts 18 px further left */
 .tl-item.spotlight h3 { font-size: 26px; padding-top: 4px; }
 .tl-item.spotlight > p { color: #c4d0ee; }
 
@@ -177,6 +175,11 @@ th { color: var(--muted); font-weight: 600; }
 .note { border-left: 3px solid var(--accent); padding: 8px 16px; background: rgba(126, 166, 255, 0.09); border-radius: 0 10px 10px 0; margin: 18px 0; max-width: 46em; }
 .dl-row { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); margin: 18px 0 8px; }
 .dl-row .card .btn { margin-top: 14px; }
+.dl-row .card .sha { margin: 12px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+.dl-row .card .sha span { display: block; font-weight: 600; letter-spacing: 0.4px; }
+.dl-row .card .sha code { display: block; word-break: break-all; font-size: 12px; color: var(--text); opacity: 0.85; user-select: all; }
+.dl-all { margin: 6px 0 0; color: var(--muted); font-size: 15px; }
+.store-icon { flex: none; }
 .tag { display: inline-block; font-size: 12.5px; padding: 1px 9px; border-radius: 999px; border: 1px solid var(--panel-line); color: var(--muted); margin-left: 6px; vertical-align: middle; }
 .faq details { background: var(--panel); border: 1px solid var(--panel-line); border-radius: 12px; padding: 12px 18px; margin: 12px 0; max-width: 52em; }
 .faq summary { cursor: pointer; font-weight: 600; }
@@ -206,7 +209,7 @@ th { color: var(--muted); font-weight: 600; }
   .timeline::before { left: 7px; }
   .tl-item::before { left: -33px; }
   .tl-item.spotlight { margin-left: -8px; padding: 18px 14px 20px 14px; }
-  .tl-item.spotlight::before { left: -25px; }
+  .tl-item.spotlight::before { left: -27px; }
   .site-header .wrap { flex-wrap: wrap; padding-top: 8px; padding-bottom: 6px; }
   .nav { margin-left: 0; width: 100%; }
 }
