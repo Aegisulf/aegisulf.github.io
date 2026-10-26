@@ -463,8 +463,8 @@ def main():
               f'<p><a href="{target}" style="color:#e63946">{target}</a></p>\n</body>\n</html>\n')
 
     # ---- sitemap ----
-    today = datetime.date.today().isoformat()
-    urls = ''.join(f"  <url>\n    <loc>{site['site_url']}{p}</loc>\n    <lastmod>{today}</lastmod>\n  </url>\n" for p in written)
+    # No <lastmod>: a build date is not a content date, and it differs between this machine and the CI runner.
+    urls = ''.join(f"  <url>\n    <loc>{site['site_url']}{p}</loc>\n  </url>\n" for p in written)
     write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
                          + urls + '</urlset>\n')
 
