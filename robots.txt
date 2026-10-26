@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://aegisulf.com/sitemap.xml
+Sitemap: https://aegisulf.com/lycanzip/sitemap.xml

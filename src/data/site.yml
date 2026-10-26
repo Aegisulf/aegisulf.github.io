@@ -1,4 +1,5 @@
 site_url: https://aegisulf.com
+music_base: /music           # the music site lives under /music; the root is the landing page
 domain: aegisulf.com          # analytics only records this host (not localhost / previews)
 artist: Aegisulf
 publisher: Symphonic   # default distributor; override per release with `publisher:`

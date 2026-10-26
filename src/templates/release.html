@@ -55,8 +55,8 @@
   </article>
 
   <nav class="pager" aria-label="Releases">
-    {%- if prev %}<a class="prev" href="/{{ lang }}/releases/{{ prev.slug }}/"><span>← {{ t.prev }}</span><strong>{{ prev.title }}</strong></a>{% else %}<span></span>{% endif %}
-    {%- if next %}<a class="next" href="/{{ lang }}/releases/{{ next.slug }}/"><span>{{ t.next }} →</span><strong>{{ next.title }}</strong></a>{% else %}<span></span>{% endif %}
+    {%- if prev %}<a class="prev" href="{{ site.music_base }}/{{ lang }}/releases/{{ prev.slug }}/"><span>← {{ t.prev }}</span><strong>{{ prev.title }}</strong></a>{% else %}<span></span>{% endif %}
+    {%- if next %}<a class="next" href="{{ site.music_base }}/{{ lang }}/releases/{{ next.slug }}/"><span>{{ t.next }} →</span><strong>{{ next.title }}</strong></a>{% else %}<span></span>{% endif %}
   </nav>
 </main>
 {% endblock %}

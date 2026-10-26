@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aegisulf | Music &amp; LycanZip</title>
+  <meta name="description" content="Aegisulf: electronic music, and LycanZip, a free and open source file archiver for Windows.">
+  <meta name="theme-color" content="#05060c">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="{{ site.site_url }}/">
+  <link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ site.site_url }}/">
+  <meta property="og:title" content="Aegisulf | Music &amp; LycanZip">
+  <meta property="og:description" content="Electronic music, and a free, open source file archiver for Windows.">
+  <meta property="og:image" content="{{ site.site_url }}/assets/og-image.jpg">
+  <meta property="og:site_name" content="AEGISULF">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@aegisulf">
+  <meta name="twitter:image" content="{{ site.site_url }}/assets/og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/landing.css?v={{ site.css_v.landing }}">
+
+  <script defer src="{{ site.umami.src }}" data-website-id="{{ site.umami.website_id }}" data-domains="{{ site.domain }}" data-do-not-track="true"></script>
+</head>
+
+<body class="landing">
+  <h1 class="sr-only">Aegisulf: music and software</h1>
+
+  <main class="split">
+
+    <!-- Left: music (red) -->
+    <section class="panel panel-music" aria-labelledby="music-title">
+      <div class="panel-inner">
+        <p class="tag"><span class="dot" aria-hidden="true"></span>MUSIC <span class="sep">//</span> 01</p>
+        <h2 id="music-title" class="brand"><img src="/assets/logo-small.svg?v={{ site.css_v.logo }}" alt="AEGISULF" width="181" height="36"></h2>
+        <p class="lead">A werewolf forging electronic music.</p>
+
+        {% if featured %}
+        <a class="card card-red" href="{{ music_base }}/en/releases/{{ featured.slug }}/" data-umami-event="landing-latest" data-umami-event-release="{{ featured.slug }}">
+          <img src="/assets/covers/{{ featured.slug }}-128.webp" width="56" height="56" alt="" class="cover">
+          <span class="card-text">
+            <span class="card-label">LATEST RELEASE</span>
+            <strong>{{ featured.title }}</strong>
+            <span class="card-meta">{{ featured.status_text.en }}</span>
+          </span>
+          <span class="card-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        {% endif %}
+
+        <div class="actions">
+          {% if listen %}
+          <a class="btn btn-red" href="{{ listen.url }}" target="_blank" rel="noopener noreferrer" data-umami-event="landing-listen" data-umami-event-platform="{{ listen.key }}"><span aria-hidden="true">&#9654;</span> Listen on {{ listen.label }}</a>
+          {% endif %}
+          <a class="btn btn-ghost" href="{{ music_base }}/" data-umami-event="landing-music">All music &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right: LycanZip (blue) -->
+    <section class="panel panel-soft" aria-labelledby="soft-title">
+      <div class="panel-inner">
+        <p class="tag"><span class="dot" aria-hidden="true"></span>SOFTWARE <span class="sep">//</span> 02</p>
+        <h2 id="soft-title" class="brand brand-lz"><img src="/lycanzip/assets/logo.svg" alt="" width="64" height="64"><span>LycanZip</span></h2>
+        <p class="lead">A free, open source file archiver for Windows 10 &amp; 11.</p>
+
+        <ul class="chips" aria-label="Highlights">
+          {% if lz.version %}<li>v{{ lz.version }}</li>{% endif %}
+          <li>zip</li><li>7z</li><li>rar</li><li>tar</li><li>No ads</li>
+        </ul>
+
+        <div class="actions">
+          <a class="btn btn-blue" href="/lycanzip/download/" data-umami-event="landing-lz-download">Download</a>
+          <a class="btn btn-ghost" href="/lycanzip/" data-umami-event="landing-lz">Learn more &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="seam" aria-hidden="true"></div>
+  </main>
+</body>
+
+</html>

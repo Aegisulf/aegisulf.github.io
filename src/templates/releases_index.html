@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% macro card(r) %}
-<a class="rel-card" href="/{{ lang }}/releases/{{ r.slug }}/" style="--accent: {{ r.accent }}">
+<a class="rel-card" href="{{ site.music_base }}/{{ lang }}/releases/{{ r.slug }}/" style="--accent: {{ r.accent }}">
   <img src="/assets/covers/{{ r.slug }}-512.webp" width="512" height="512" alt="" loading="lazy">
   <span class="rel-title">{{ r.title }}</span>
   <span class="rel-status">{{ r.status_text[lang] }}</span>

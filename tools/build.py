@@ -9,6 +9,7 @@ Edit instead: src/data/*.yml, src/content/**, src/templates/*
 """
 import datetime
 import hashlib
+import json
 import re
 import shutil
 import sys
@@ -290,9 +291,10 @@ def asset_version(name):
 
 def main():
     site = load_yaml('site.yml')
+    base = site['music_base'].rstrip('/')  # '/music'
     write_small_logo()
     site['css_v'] = {'style': asset_version('style.css'), 'pages': asset_version('pages.css'),
-                     'logo': asset_version('assets/logo-small.svg')}
+                     'logo': asset_version('assets/logo-small.svg'), 'landing': asset_version('landing.css')}
     i18n = load_yaml('i18n.yml')
     releases = [prepare_release(r, site, i18n) for r in load_yaml('releases.yml') if not r.get('hidden')]
     releases.sort(key=lambda r: r['order'])
@@ -309,7 +311,7 @@ def main():
         posts[lang].append({
             'title': fm.get('title', slug), 'summary': fm.get('summary', ''), 'date': date,
             'slug': slug, 'lang': lang, 'ref': fm.get('ref', slug), 'cover': fm.get('cover'),
-            'body': render_post(body, lang, i18n), 'path': f'/{lang}/blog/{slug}/',
+            'body': render_post(body, lang, i18n), 'path': f'{base}/{lang}/blog/{slug}/',
         })
     for lang in LANGS:
         posts[lang].sort(key=lambda p: p['date'], reverse=True)
@@ -324,8 +326,8 @@ def main():
         out.write_text(text, encoding='utf-8', newline='\n')
 
     # clean generated directories
-    for lang in LANGS:
-        shutil.rmtree(ROOT / lang, ignore_errors=True)
+    for d in (*LANGS, base.strip('/')):
+        shutil.rmtree(ROOT / d, ignore_errors=True)
 
     def page_ctx(lang, **kw):
         other = 'zh' if lang == 'en' else 'en'
@@ -349,7 +351,7 @@ def main():
     for idx, r in enumerate(releases):
         prev_r = releases[idx - 1] if idx > 0 else None
         next_r = releases[idx + 1] if idx + 1 < len(releases) else None
-        paths = {l: f"/{l}/releases/{r['slug']}/" for l in LANGS}
+        paths = {l: f"{base}/{l}/releases/{r['slug']}/" for l in LANGS}
         for lang in LANGS:
             md_file = SRC / 'content' / 'releases' / f"{r['slug']}.{lang}.md"
             fm, body = split_front_matter(md_file.read_text(encoding='utf-8')) if md_file.exists() else ({}, '')
@@ -377,7 +379,7 @@ def main():
             written.append(paths[lang])
 
     # ---- releases index ----
-    paths = {l: f'/{l}/releases/' for l in LANGS}
+    paths = {l: f'{base}/{l}/releases/' for l in LANGS}
     for lang in LANGS:
         ctx = page_ctx(lang, released=released, upcoming=upcoming, section='releases',
                        page_title=f"{i18n[lang]['releases']} | AEGISULF", description=i18n[lang]['site_desc'],
@@ -387,7 +389,7 @@ def main():
 
     # ---- blog (only generated when posts exist) ----
     if has_blog:
-        paths = {l: f'/{l}/blog/' for l in LANGS if posts[l]}
+        paths = {l: f'{base}/{l}/blog/' for l in LANGS if posts[l]}
         for lang in LANGS:
             if not posts[lang]:
                 continue
@@ -411,24 +413,54 @@ def main():
                 f"<entry><title>{_x(p['title'])}</title><link href=\"{site['site_url']}{p['path']}\"/>"
                 f"<id>{site['site_url']}{p['path']}</id><updated>{p['date']}T00:00:00Z</updated>"
                 f"<summary>{_x(p['summary'])}</summary></entry>" for p in posts[lang])
-            write(f'{lang}/feed.xml',
+            write(f'{base.strip("/")}/{lang}/feed.xml',
                   '<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom">'
-                  f"<title>AEGISULF - {i18n[lang]['blog']}</title><id>{site['site_url']}/{lang}/blog/</id>"
-                  f"<link rel=\"self\" href=\"{site['site_url']}/{lang}/feed.xml\"/>"
+                  f"<title>AEGISULF - {i18n[lang]['blog']}</title><id>{site['site_url']}{base}/{lang}/blog/</id>"
+                  f"<link rel=\"self\" href=\"{site['site_url']}{base}/{lang}/feed.xml\"/>"
                   f"<updated>{posts[lang][0]['date']}T00:00:00Z</updated>{entries}</feed>")
 
     # ---- hub ----
     featured = next((r for r in releases if r.get('featured')), None) or (released[0] if released else None)
     jsonld = {
         '@context': 'https://schema.org', '@type': 'MusicGroup', 'name': site['artist'],
-        'url': site['site_url'] + '/', 'image': site['site_url'] + '/assets/og-image.jpg',
+        'url': site['site_url'] + base + '/', 'image': site['site_url'] + '/assets/og-image.jpg',
         'description': 'Aegisulf, crafting electronic music.',
         'sameAs': [site['artist_links'][k] for k in ('spotify', 'apple', 'bandcamp', 'youtube', 'soundcloud', 'x')],
     }
     hub = env.get_template('hub.html').render(site=site, featured=featured, has_blog=has_blog, jsonld=jsonld,
                                                   en=i18n['en'], zh=i18n['zh'])
-    write('index.html', hub)
+    write(base.strip('/') + '/index.html', hub)
+    written.insert(0, base + '/')
+
+    # ---- landing page at the site root (music | LycanZip) ----
+    listen = None
+    for key in ('spotify', 'apple', 'soundcloud', 'bandcamp'):
+        b_ = next((x for x in (featured['buttons'] if featured else [])
+                   if x['key'] == key and x.get('url') and not x.get('fallback') and not x.get('soon')), None)
+        if b_:
+            listen = b_
+            break
+    lz = {}
+    lz_file = ROOT / 'lycanzip' / 'latest.json'
+    if lz_file.exists():
+        lz = json.loads(lz_file.read_text(encoding='utf-8'))
+    write('index.html', env.get_template('landing.html').render(site=site, featured=featured, listen=listen, lz=lz,
+                                                                music_base=base))
     written.insert(0, '/')
+
+    # ---- old music addresses (/en/releases/..., /zh/releases/...) -> redirect stubs to /music/... ----
+    # GitHub Pages cannot send real redirects, so each old page becomes a tiny page that forwards the visitor.
+    for new in [p for p in written if p.startswith(base + '/') and '/releases/' in p]:
+        old = new[len(base):]
+        target = base + old
+        write(old.strip('/') + '/index.html',
+              '<!DOCTYPE html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<title>AEGISULF</title>\n'
+              '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
+              f'<link rel="canonical" href="{site["site_url"]}{target}">\n'
+              f'<meta http-equiv="refresh" content="0; url={target}">\n'
+              f'<script>location.replace({json.dumps(target)} + location.search + location.hash);</script>\n'
+              '</head>\n<body style="background:#050408;color:#a09eae;font-family:system-ui,sans-serif">\n'
+              f'<p><a href="{target}" style="color:#e63946">{target}</a></p>\n</body>\n</html>\n')
 
     # ---- sitemap ----
     today = datetime.date.today().isoformat()

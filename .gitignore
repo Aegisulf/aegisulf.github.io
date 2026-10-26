@@ -6,3 +6,6 @@ Desktop.ini
 
 # private blog drafts kept next to the repo (not published)
 /20[0-9][0-9]-*.md
+
+# local design previews
+/_preview/

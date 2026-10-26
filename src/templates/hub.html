@@ -8,15 +8,15 @@
   <meta name="description" content="Aegisulf, crafting electronic music. Official hub for music releases, social media, and support.">
   <meta name="theme-color" content="#0d0d11">
   <meta name="color-scheme" content="dark">
-  <link rel="canonical" href="{{ site.site_url }}/">
+  <link rel="canonical" href="{{ site.site_url }}{{ site.music_base }}/">
   
   <!-- Wolf SVG Icon -->
-  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
-  <link rel="preload" as="image" href="assets/hero.webp" type="image/webp">
+  <link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+  <link rel="preload" as="image" href="/assets/hero.webp" type="image/webp">
   
   <!-- OG preview -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ site.site_url }}/">
+  <meta property="og:url" content="{{ site.site_url }}{{ site.music_base }}/">
   <meta property="og:title" content="AEGISULF | Official Links">
   <meta property="og:description" content="Aegisulf, crafting electronic music. Official hub for music releases, social media, and support.">
   <meta property="og:image" content="{{ site.site_url }}/assets/og-image.jpg">
@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v={{ site.css_v.style }}">
+  <link rel="stylesheet" href="/style.css?v={{ site.css_v.style }}">
 
   <script type="application/ld+json">{{ jsonld | tojson }}</script>
 
@@ -90,14 +90,14 @@
         <div class="featured-top">
           <span class="featured-label" data-zh="{{ zh.new_release }}">{{ en.new_release }}</span>
           <span class="featured-links">
-            <a href="/en/releases/" data-href-zh="/zh/releases/" class="featured-all" data-umami-event="click-all-releases"><span data-zh="全部作品">All releases</span> →</a>
+            <a href="{{ site.music_base }}/en/releases/" data-href-zh="{{ site.music_base }}/zh/releases/" class="featured-all" data-umami-event="click-all-releases"><span data-zh="全部作品">All releases</span> →</a>
             {%- if has_blog %}
-            <a href="/en/blog/" data-href-zh="/zh/blog/" class="featured-all" data-umami-event="click-blog"><span data-zh="日誌">Blog</span> →</a>
+            <a href="{{ site.music_base }}/en/blog/" data-href-zh="{{ site.music_base }}/zh/blog/" class="featured-all" data-umami-event="click-blog"><span data-zh="日誌">Blog</span> →</a>
             {%- endif %}
           </span>
         </div>
-        <a href="/en/releases/{{ featured.slug }}/" data-href-zh="/zh/releases/{{ featured.slug }}/" class="featured-main" data-umami-event="click-featured" data-umami-event-release="{{ featured.slug }}">
-          <img src="assets/covers/{{ featured.slug }}-128.webp" width="44" height="44" alt="" class="featured-cover">
+        <a href="{{ site.music_base }}/en/releases/{{ featured.slug }}/" data-href-zh="{{ site.music_base }}/zh/releases/{{ featured.slug }}/" class="featured-main" data-umami-event="click-featured" data-umami-event-release="{{ featured.slug }}">
+          <img src="/assets/covers/{{ featured.slug }}-128.webp" width="44" height="44" alt="" class="featured-cover">
           <div class="link-info">
             <span class="link-title">{{ featured.title }}</span>
           </div>

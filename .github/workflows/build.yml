@@ -8,6 +8,10 @@ on:
     paths:
       - 'src/**'
       - 'tools/**'
+      - 'style.css'
+      - 'pages.css'
+      - 'landing.css'
+      - 'lycanzip/latest.json'
       - 'requirements.txt'
       - '.github/workflows/build.yml'
   workflow_dispatch:
