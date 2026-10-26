@@ -1,19 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://aegisulf.com/lycanzip/download/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/faq/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/license/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/privacy/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/changelog/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/zh-tw/download/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/zh-tw/faq/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/zh-tw/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/zh-tw/license/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/zh-tw/privacy/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/zh-cn/download/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/zh-cn/faq/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/zh-cn/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/zh-cn/license/</loc></url>
-  <url><loc>https://aegisulf.com/lycanzip/zh-cn/privacy/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://aegisulf.com/lycanzip/download/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/download/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/faq/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/faq/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/license/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/license/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/license/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/license/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/license/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/privacy/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/privacy/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/changelog/</loc>
+    <lastmod>2026-10-26</lastmod>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/zh-tw/download/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/download/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/zh-tw/faq/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/faq/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/zh-tw/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/zh-tw/license/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/license/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/license/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/license/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/license/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/zh-tw/privacy/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/privacy/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/zh-cn/download/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/download/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/download/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/zh-cn/faq/</loc>
+    <lastmod>2026-10-23</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/faq/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/faq/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/faq/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/zh-cn/</loc>
+    <lastmod>2026-10-22</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/zh-cn/license/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/license/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/license/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/license/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/license/"/>
+  </url>
+  <url>
+    <loc>https://aegisulf.com/lycanzip/zh-cn/privacy/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/privacy/"/>
+  </url>
 </urlset>
