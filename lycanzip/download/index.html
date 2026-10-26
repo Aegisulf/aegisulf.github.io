@@ -25,7 +25,6 @@
 <title>Download · LycanZip</title>
 <meta name="description" content="Download LycanZip: the installer, the portable zip and the standard zip, how to check the download, and what to do about the SmartScreen warning.">
 <meta name="theme-color" content="#0b1230">
-<meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://aegisulf.com/lycanzip/download/">
 <link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/download/">
 <link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/download/">
@@ -49,14 +48,14 @@
 <main id="main">
 <div class="wrap page">
   <h1>Download LycanZip</h1>
-  <p class="sub">Latest version: <strong>0.9.7</strong> (<a href="../changelog/">what is new</a>). <strong>Windows 10 (1809 or newer) and Windows 11, 64-bit.</strong></p>
+  <p class="sub">Latest version: <strong>1.0.0</strong> (<a href="../changelog/">what is new</a>). <strong>Windows 10 (1809 or newer) and Windows 11, 64-bit.</strong></p>
 
   <div class="dl-store" id="store-card">
     <h3>Microsoft Store <span class="badge">Recommended for Windows 11</span></h3>
     <p>The only version with the <strong>new Windows 11 right-click menu</strong>. Signed and updated by Windows.</p>
     <div class="buttons">
-      <span class="btn warm soon">Open in the Store &mdash; soon</span>
-      <span class="btn soon">Store installer &mdash; soon</span>
+      <a class="btn warm" href="https://apps.microsoft.com/detail/9PB97QFZM56W">Open in the Store</a>
+      <a class="btn" href="https://get.microsoft.com/installer/download/9PB97QFZM56W?cid=website_cta_psi">Store installer</a>
     </div>
   </div>
 
@@ -92,7 +91,7 @@ scoop install lycanzip</code></pre>
 
   <h2 id="verify">Check your download</h2>
   <p>Every release lists the <strong>SHA-256</strong> of each file. In PowerShell, in the folder of the download:</p>
-  <pre><code>Get-FileHash .\LycanZip-0.9.7-Setup.exe -Algorithm SHA256</code></pre>
+  <pre><code>Get-FileHash .\LycanZip-1.0.0-Setup.exe -Algorithm SHA256</code></pre>
   <p>The value must match the release page. If not, delete the file and download it again.</p>
   <div class="note">LycanZip can do this too: right-click the file, choose <em>Calculate hash values…</em> and paste the value from the release page.</div>
 

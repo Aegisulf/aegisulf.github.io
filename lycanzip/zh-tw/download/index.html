@@ -6,7 +6,6 @@
 <title>下載 · LycanZip</title>
 <meta name="description" content="下載 LycanZip：安裝程式、可攜版 zip 與標準版 zip，如何驗證下載的檔案，以及 SmartScreen 警告怎麼處理。">
 <meta name="theme-color" content="#0b1230">
-<meta name="robots" content="noindex, nofollow">
 <link rel="canonical" href="https://aegisulf.com/lycanzip/zh-tw/download/">
 <link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/download/">
 <link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/download/">
@@ -30,14 +29,14 @@
 <main id="main">
 <div class="wrap page">
   <h1>下載 LycanZip</h1>
-  <p class="sub">最新版本：<strong>0.9.7</strong>（<a href="../../changelog/">更新內容，英文</a>）。<strong>Windows 10（1809 以上）與 Windows 11，64 位元。</strong></p>
+  <p class="sub">最新版本：<strong>1.0.0</strong>（<a href="../../changelog/">更新內容，英文</a>）。<strong>Windows 10（1809 以上）與 Windows 11，64 位元。</strong></p>
 
   <div class="dl-store" id="store-card">
     <h3>Microsoft Store <span class="badge">Windows 11 建議使用</span></h3>
     <p>唯一有 <strong>Windows 11 新式右鍵選單</strong>的版本。由 Windows 簽章並負責更新。</p>
     <div class="buttons">
-      <span class="btn warm soon">在 Store 開啟 &mdash; 即將提供</span>
-      <span class="btn soon">Store 安裝程式 &mdash; 即將提供</span>
+      <a class="btn warm" href="https://apps.microsoft.com/detail/9PB97QFZM56W?hl=zh-TW&amp;gl=TW">在 Store 開啟</a>
+      <a class="btn" href="https://get.microsoft.com/installer/download/9PB97QFZM56W?cid=website_cta_psi">Store 安裝程式</a>
     </div>
   </div>
 
@@ -73,7 +72,7 @@ scoop install lycanzip</code></pre>
 
   <h2 id="verify">驗證你下載的檔案</h2>
   <p>每個版本都列出各檔案的 <strong>SHA-256</strong>。在下載檔案所在的資料夾開啟 PowerShell，執行：</p>
-  <pre><code>Get-FileHash .\LycanZip-0.9.7-Setup.exe -Algorithm SHA256</code></pre>
+  <pre><code>Get-FileHash .\LycanZip-1.0.0-Setup.exe -Algorithm SHA256</code></pre>
   <p>顯示的值必須和發行頁面上的一致。不一致就刪掉檔案，重新下載。</p>
   <div class="note">LycanZip 本身也能做：在檔案上按右鍵，選「計算雜湊值…」，再貼上發行頁面上的值。</div>
 
