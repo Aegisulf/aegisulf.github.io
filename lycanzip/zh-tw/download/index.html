@@ -40,7 +40,7 @@
 <main id="main">
 <div class="wrap page">
   <h1>下載 LycanZip</h1>
-  <p class="sub">最新版本：<strong>1.0.0</strong>（<a href="../../changelog/">更新內容，英文</a>）。<strong>Windows 10（1809 以上）與 Windows 11，64 位元。</strong></p>
+  <p class="sub">最新版本：<strong>1.1.0</strong>（<a href="../../changelog/">更新內容，英文</a>）。<strong>Windows 10（1809 以上）與 Windows 11，64 位元。</strong></p>
 
   <div class="dl-store" id="store-card">
     <h3>Microsoft Store <span class="badge">Windows 11 建議使用</span></h3>
@@ -55,20 +55,20 @@
     <div class="card">
       <h3>安裝程式 <span class="tag">Windows 10 建議使用</span></h3>
       <p>一鍵安裝，<strong>不需要系統管理員權限</strong>。你同意的話，它會<strong>自己更新</strong>。</p>
-      <a class="btn primary" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.0.0/LycanZip-1.0.0-Setup.exe">下載 (.exe)</a>
-      <p class="sha"><span>SHA-256</span><code>e05cba46fac2f3c5762451a9dea2b1e5c039a2fd37dc597aeba44176b895df7f</code></p>
+      <a class="btn primary" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.1.0/LycanZip-1.1.0-Setup.exe">下載 (.exe)</a>
+      <p class="sha"><span>SHA-256</span><code>6c8ded32acf069aaf5a2fb869ac0bfbfd91eaa7ebf0bec71177be5c83bd49c84</code></p>
     </div>
     <div class="card">
       <h3>標準版 <span class="tag">zip</span></h3>
       <p>同一個程式，設定放在你的使用者資料夾。</p>
-      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.0.0/LycanZip-1.0.0-win-x64.zip">下載 (.zip)</a>
-      <p class="sha"><span>SHA-256</span><code>ea67f9fbe537c9e9c2dbdb6a0dfc26ba496835ec7876af1de987b3d37387039f</code></p>
+      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.1.0/LycanZip-1.1.0-win-x64.zip">下載 (.zip)</a>
+      <p class="sha"><span>SHA-256</span><code>f3791790b4930b15f0faf3f9887c076e3d5da53553fe4cc2603095e82d6c032f</code></p>
     </div>
     <div class="card">
       <h3>可攜版 <span class="tag">zip</span></h3>
       <p>解壓縮到任何地方，執行 <code>LycanZip.exe</code>。設定留在同一個資料夾，適合放在隨身碟。</p>
-      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.0.0/LycanZip-1.0.0-win-x64-portable.zip">下載 (.zip)</a>
-      <p class="sha"><span>SHA-256</span><code>19ef5ff6f4be5b66270a680dd6046a93d3b109120ad52d9042a63deb732fce16</code></p>
+      <a class="btn" href="https://github.com/Aegisulf/LycanZip/releases/download/v1.1.0/LycanZip-1.1.0-win-x64-portable.zip">下載 (.zip)</a>
+      <p class="sha"><span>SHA-256</span><code>6a2fa67b21d6c339bf59ef02423d39f8512cc0265e92d91e78eeea18669b55cd</code></p>
     </div>
   </div>
   <p class="dl-all">所有檔案與舊版本：<a href="https://github.com/Aegisulf/LycanZip/releases" target="_blank" rel="noopener">GitHub 上的發行頁面</a>。</p>
@@ -86,7 +86,7 @@
 
   <h2 id="verify">驗證你下載的檔案</h2>
   <p>各檔案的 <strong>SHA-256</strong> 列在上面的下載按鈕下方（發行頁面上也有）。在下載檔案所在的資料夾開啟 PowerShell，執行：</p>
-  <pre><code>Get-FileHash .\LycanZip-1.0.0-Setup.exe -Algorithm SHA256</code></pre>
+  <pre><code>Get-FileHash .\LycanZip-1.1.0-Setup.exe -Algorithm SHA256</code></pre>
   <p>顯示的值必須和上面列出的一致。不一致就刪掉檔案，重新下載。</p>
   <div class="note">LycanZip 本身也能做：在檔案上按右鍵，選「計算雜湊值…」，再貼上上面列出的值。</div>
 
@@ -95,7 +95,7 @@
   <p>如果 Windows 擋住你解壓縮出來的檔案，請先在 zip 上按右鍵，選「內容」，勾選「解除封鎖」。</p>
 
   <h2 id="store">Microsoft Store 版</h2>
-  <p>同一個程式的 Store 套件，由 Windows 簽章並負責更新。它是唯一有 <strong>Windows 11 新式右鍵選單</strong>的版本：Windows 只允許簽章過的套件這麼做。通過 Store 審核後，連結會放在這裡。</p>
+  <p>同一個程式的 Store 套件，由 Windows 簽章並負責更新。它是唯一有 <strong>Windows 11 新式右鍵選單</strong>的版本：Windows 只允許簽章過的套件這麼做。</p>
 
   <h2>解除安裝</h2>
   <p>安裝程式：到「設定 → 應用程式」。Zip：刪除資料夾（標準版另外刪除 <code>%LOCALAPPDATA%\LycanZip</code>）。如果你開啟過檔案總管選單或檔案關聯，請先在設定裡關掉。Store 版：在「設定 → 應用程式」移除。</p>
