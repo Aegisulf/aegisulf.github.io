@@ -10,6 +10,11 @@
 <link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/privacy/">
 <link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/privacy/">
 <link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/privacy/">
+<link rel="alternate" hreflang="ja" href="https://aegisulf.com/lycanzip/ja/privacy/">
+<link rel="alternate" hreflang="ko" href="https://aegisulf.com/lycanzip/ko/privacy/">
+<link rel="alternate" hreflang="de" href="https://aegisulf.com/lycanzip/de/privacy/">
+<link rel="alternate" hreflang="es" href="https://aegisulf.com/lycanzip/es/privacy/">
+<link rel="alternate" hreflang="fr" href="https://aegisulf.com/lycanzip/fr/privacy/">
 <link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/privacy/">
 <link rel="icon" type="image/png" href="../../assets/favicon.png">
 <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
@@ -35,7 +40,7 @@
 <header class="site-header"><div class="wrap">
 <a class="brand" href="../../zh-cn/"><img src="../../assets/logo.svg" alt="" width="30" height="30">LycanZip</a>
 <nav class="nav" aria-label="Main"><a href="../../zh-cn/">首页</a><a href="../../zh-cn/download/">下载</a><a href="../../zh-cn/faq/">常见问题</a><a href="../../zh-cn/privacy/" aria-current="page">隐私</a><a href="../../changelog/">更新日志 (EN)</a><a href="https://github.com/Aegisulf/LycanZip">GitHub</a></nav>
-<details class="lang"><summary aria-label="语言">简体中文</summary><div><a href="../../privacy/" data-lang="en" hreflang="en">English</a><a href="../../zh-tw/privacy/" data-lang="zh-tw" hreflang="zh-Hant-TW">繁體中文</a><a href="../../zh-cn/privacy/" data-lang="zh-cn" hreflang="zh-Hans-CN" aria-current="true">简体中文</a></div></details>
+<details class="lang"><summary aria-label="语言">简体中文</summary><div><a href="../../privacy/" data-lang="en" hreflang="en">English</a><a href="../../zh-tw/privacy/" data-lang="zh-tw" hreflang="zh-Hant-TW">繁體中文</a><a href="../../zh-cn/privacy/" data-lang="zh-cn" hreflang="zh-Hans-CN" aria-current="true">简体中文</a><a href="../../ja/privacy/" data-lang="ja" hreflang="ja">日本語</a><a href="../../ko/privacy/" data-lang="ko" hreflang="ko">한국어</a><a href="../../de/privacy/" data-lang="de" hreflang="de">Deutsch</a><a href="../../es/privacy/" data-lang="es" hreflang="es">Español</a><a href="../../fr/privacy/" data-lang="fr" hreflang="fr">Français</a></div></details>
 </div></header>
 <main id="main">
 <div class="wrap page">
@@ -48,6 +53,7 @@
   <h2>哪些东西留在你的电脑上</h2>
   <ul>
     <li><strong>设置和模板</strong>：你的选择（主题、语言、压缩模板、最近使用的文件夹）保存在你电脑上的文件里：便携版在程序文件夹，标准版和 Store 版在 <code>%LOCALAPPDATA%\LycanZip</code>。</li>
+    <li><strong>保存的密码</strong>：只有你选择保存的密码，按你的 Windows 账户加密（可加上主密码），存在你电脑上的文件里。它们不会发送到任何地方。</li>
     <li><strong>日志文件</strong>：程序做了什么的简短记录（错误、版本）。只记文件名；只有你自己开启“含完整路径的详细日志”时才会写入完整路径。它不会发送到任何地方。你可以阅读和删除它（<code>lycanzip-cli info</code> 会显示位置）。</li>
     <li><strong>崩溃报告</strong>：程序崩溃时会在你的电脑上写一份报告，方便你需要时附在问题报告里。不会上传任何东西。</li>
     <li><strong>临时文件</strong>：从压缩包打开的文件会解压到临时文件夹，之后删除。</li>

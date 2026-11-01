@@ -7,7 +7,7 @@
 (function () {
   try {
     if (/[?&]lang=en(&|$)/.test(location.search)) return;   // a link that asks for the English text (the note on a translated legal page): stay, remember nothing
-    var T = {"zh-tw":"../zh-tw/privacy/","zh-cn":"../zh-cn/privacy/"}, saved = null;
+    var T = {"zh-tw":"../zh-tw/privacy/","zh-cn":"../zh-cn/privacy/","ja":"../ja/privacy/","ko":"../ko/privacy/","de":"../de/privacy/","es":"../es/privacy/","fr":"../fr/privacy/"}, saved = null;
     try { saved = localStorage.getItem("lycanzip-lang"); } catch (e) {}
     var pick = saved;
     if (!pick) {
@@ -16,6 +16,7 @@
         var l = String(list[i]).toLowerCase();
         if (l.indexOf("en") === 0) pick = "en";
         else if (l.indexOf("zh") === 0) pick = /hant|-tw|-hk|-mo/.test(l) ? "zh-tw" : "zh-cn";
+        else if (T[l.slice(0, 2)]) pick = l.slice(0, 2);
       }
     }
     if (pick && pick !== "en" && T[pick]) location.replace(T[pick]);
@@ -29,6 +30,11 @@
 <link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/privacy/">
 <link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/privacy/">
 <link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/privacy/">
+<link rel="alternate" hreflang="ja" href="https://aegisulf.com/lycanzip/ja/privacy/">
+<link rel="alternate" hreflang="ko" href="https://aegisulf.com/lycanzip/ko/privacy/">
+<link rel="alternate" hreflang="de" href="https://aegisulf.com/lycanzip/de/privacy/">
+<link rel="alternate" hreflang="es" href="https://aegisulf.com/lycanzip/es/privacy/">
+<link rel="alternate" hreflang="fr" href="https://aegisulf.com/lycanzip/fr/privacy/">
 <link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/privacy/">
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
@@ -54,7 +60,7 @@
 <header class="site-header"><div class="wrap">
 <a class="brand" href="../"><img src="../assets/logo.svg" alt="" width="30" height="30">LycanZip</a>
 <nav class="nav" aria-label="Main"><a href="../">Home</a><a href="../download/">Download</a><a href="../faq/">FAQ</a><a href="../privacy/" aria-current="page">Privacy</a><a href="../changelog/">Changelog</a><a href="https://github.com/Aegisulf/LycanZip">GitHub</a></nav>
-<details class="lang"><summary aria-label="Language">English</summary><div><a href="../privacy/" data-lang="en" hreflang="en" aria-current="true">English</a><a href="../zh-tw/privacy/" data-lang="zh-tw" hreflang="zh-Hant-TW">繁體中文</a><a href="../zh-cn/privacy/" data-lang="zh-cn" hreflang="zh-Hans-CN">简体中文</a></div></details>
+<details class="lang"><summary aria-label="Language">English</summary><div><a href="../privacy/" data-lang="en" hreflang="en" aria-current="true">English</a><a href="../zh-tw/privacy/" data-lang="zh-tw" hreflang="zh-Hant-TW">繁體中文</a><a href="../zh-cn/privacy/" data-lang="zh-cn" hreflang="zh-Hans-CN">简体中文</a><a href="../ja/privacy/" data-lang="ja" hreflang="ja">日本語</a><a href="../ko/privacy/" data-lang="ko" hreflang="ko">한국어</a><a href="../de/privacy/" data-lang="de" hreflang="de">Deutsch</a><a href="../es/privacy/" data-lang="es" hreflang="es">Español</a><a href="../fr/privacy/" data-lang="fr" hreflang="fr">Français</a></div></details>
 </div></header>
 <main id="main">
 <div class="wrap page">
@@ -67,6 +73,7 @@
   <h2>What stays on your computer</h2>
   <ul>
     <li><strong>Settings and presets</strong>: your choices (theme, language, compression presets, recent folders) are saved in a file on your computer, in the program folder (portable) or in <code>%LOCALAPPDATA%\LycanZip</code> (standard and Store).</li>
+    <li><strong>Saved passwords</strong>: only the passwords you choose to save, encrypted for your Windows account (with an optional master password) in a file on your computer. They are never sent anywhere.</li>
     <li><strong>Log file</strong>: a short log of what the program did (errors, versions). It uses file names only; full paths are written only if you switch on the detailed log with full paths yourself. It is never sent anywhere. You can read and delete it (<code>lycanzip-cli info</code> shows where it is).</li>
     <li><strong>Crash reports</strong>: if the program crashes it writes a report on your computer so that you can attach it to a bug report if you wish. Nothing is uploaded.</li>
     <li><strong>Temporary files</strong>: files opened from an archive are unpacked into a temporary folder and removed afterwards.</li>

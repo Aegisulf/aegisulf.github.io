@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ · LycanZip</title>
+<meta name="description" content="Questions fréquentes sur LycanZip : SmartScreen, messages de l’antivirus, menu de l’Explorateur, applications par défaut, formats et mots de passe.">
+<meta name="theme-color" content="#0b1230">
+<link rel="canonical" href="https://aegisulf.com/lycanzip/fr/faq/">
+<link rel="alternate" hreflang="en" href="https://aegisulf.com/lycanzip/faq/">
+<link rel="alternate" hreflang="zh-Hant-TW" href="https://aegisulf.com/lycanzip/zh-tw/faq/">
+<link rel="alternate" hreflang="zh-Hans-CN" href="https://aegisulf.com/lycanzip/zh-cn/faq/">
+<link rel="alternate" hreflang="ja" href="https://aegisulf.com/lycanzip/ja/faq/">
+<link rel="alternate" hreflang="ko" href="https://aegisulf.com/lycanzip/ko/faq/">
+<link rel="alternate" hreflang="de" href="https://aegisulf.com/lycanzip/de/faq/">
+<link rel="alternate" hreflang="es" href="https://aegisulf.com/lycanzip/es/faq/">
+<link rel="alternate" hreflang="fr" href="https://aegisulf.com/lycanzip/fr/faq/">
+<link rel="alternate" hreflang="x-default" href="https://aegisulf.com/lycanzip/faq/">
+<link rel="icon" type="image/png" href="../../assets/favicon.png">
+<link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+<link rel="stylesheet" href="../../assets/style.css">
+<meta property="og:site_name" content="LycanZip">
+<meta property="og:title" content="FAQ · LycanZip">
+<meta property="og:description" content="Questions fréquentes sur LycanZip : SmartScreen, messages de l’antivirus, menu de l’Explorateur, applications par défaut, formats et mots de passe.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aegisulf.com/lycanzip/fr/faq/">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://aegisulf.com/lycanzip/assets/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The LycanZip icon: a wolf in the moon, with a zipper">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FAQ · LycanZip">
+<meta name="twitter:description" content="Questions fréquentes sur LycanZip : SmartScreen, messages de l’antivirus, menu de l’Explorateur, applications par défaut, formats et mots de passe.">
+<meta name="twitter:image" content="https://aegisulf.com/lycanzip/assets/og-image.png">
+</head>
+<body>
+<a class="skip" href="#main" style="position:absolute;left:-999px">Aller au contenu</a>
+<header class="site-header"><div class="wrap">
+<a class="brand" href="../../fr/"><img src="../../assets/logo.svg" alt="" width="30" height="30">LycanZip</a>
+<nav class="nav" aria-label="Main"><a href="../../fr/">Accueil</a><a href="../../fr/download/">Télécharger</a><a href="../../fr/faq/" aria-current="page">FAQ</a><a href="../../fr/privacy/">Confidentialité</a><a href="../../changelog/">Changements (EN)</a><a href="https://github.com/Aegisulf/LycanZip">GitHub</a></nav>
+<details class="lang"><summary aria-label="Langue">Français</summary><div><a href="../../faq/" data-lang="en" hreflang="en">English</a><a href="../../zh-tw/faq/" data-lang="zh-tw" hreflang="zh-Hant-TW">繁體中文</a><a href="../../zh-cn/faq/" data-lang="zh-cn" hreflang="zh-Hans-CN">简体中文</a><a href="../../ja/faq/" data-lang="ja" hreflang="ja">日本語</a><a href="../../ko/faq/" data-lang="ko" hreflang="ko">한국어</a><a href="../../de/faq/" data-lang="de" hreflang="de">Deutsch</a><a href="../../es/faq/" data-lang="es" hreflang="es">Español</a><a href="../../fr/faq/" data-lang="fr" hreflang="fr" aria-current="true">Français</a></div></details>
+</div></header>
+<main id="main">
+<div class="wrap page faq">
+  <h1>Questions fréquentes</h1>
+
+  <details>
+    <summary>Windows affiche « Windows a protégé votre ordinateur ». Le téléchargement est-il sûr ?</summary>
+    <p>Seule la version Store a une signature de code, et SmartScreen avertit pour les programmes qu’il voit rarement. <strong>Vérifiez le SHA-256</strong> de votre téléchargement sur la page de la version (<a href="../../fr/download/#verify">comment faire</a>), puis choisissez <em>Informations complémentaires → Exécuter quand même</em>. Tout le code source est public.</p>
+  </details>
+
+  <details>
+    <summary>Mon antivirus signale « lycanzip-cli.exe » comme élément concerné après une analyse. LycanZip est-il infecté ?</summary>
+    <p><strong>Non.</strong> Quand vous analysez une archive, LycanZip transmet le contenu de chaque fichier à votre antivirus via l’interface Antimalware Scan Interface (AMSI) de Windows. Certains antivirus indiquent alors comme élément concerné le programme qui l’a transmis. Le message de LycanZip lui-même indique le fichier réellement signalé.</p>
+  </details>
+
+  <details>
+    <summary>Programme d’installation, portable ou Store ?</summary>
+    <p>Le <strong>programme d’installation</strong> est le choix facile et peut se mettre à jour seul. La version <strong>portable</strong> garde ses paramètres à côté du programme (pour une clé USB). La version <strong>Store</strong> est mise à jour par Windows.</p>
+  </details>
+
+  <details>
+    <summary>Puis-je avoir la version Store et une autre en même temps ?</summary>
+    <p>Oui, mais <strong>une seule suffit</strong>. Quand la version Store est installée, elle fournit le menu contextuel et les types de fichiers : les versions installée, zip et portable désactivent les leurs au démarrage, si bien que l’Explorateur de fichiers n’affiche LycanZip qu’une fois, et elles le signalent une fois. Chaque copie garde ses propres paramètres. Pour n’en garder qu’une, supprimez l’autre dans <em>Paramètres → Applications → Applications installées</em> (un dossier portable se supprime simplement).</p>
+  </details>
+
+  <details>
+    <summary>Où sont les entrées dans le menu de l’Explorateur ?</summary>
+    <p>Activez-les dans LycanZip, sous <em>Paramètres → Explorateur de fichiers</em>. Sous Windows 10, elles sont dans le menu contextuel. Sous Windows 11, les versions installée et zip les affichent sous <em>Afficher d’autres options</em> (ou <kbd>Shift</kbd>+<kbd>F10</kbd>) ; seule la <strong>version Store</strong> les affiche dans le nouveau menu principal. Chaque entrée peut être désactivée. Il existe aussi un menu au glisser avec le bouton droit.</p>
+  </details>
+
+  <details>
+    <summary>Pourquoi le nouveau menu de Windows 11 n’est-il que dans la version Store ?</summary>
+    <p>Windows 11 ne permet qu’à un <strong>package signé</strong> d’ajouter des entrées à son nouveau menu principal. Seule la version Store est signée (par le Store lui-même) ; les versions installée et zip ne le sont pas, car un certificat de signature de code est payant et LycanZip est gratuit. Elles utilisent le menu classique, avec les mêmes entrées.</p>
+  </details>
+
+  <details>
+    <summary>Comment faire ouvrir les archives par LycanZip ?</summary>
+    <p>Enregistrez les types de fichiers dans LycanZip, sous <em>Paramètres → Explorateur de fichiers</em>, puis choisissez LycanZip une fois dans <em>Paramètres Windows → Applications → Applications par défaut</em>. Windows ne laisse pas un programme se définir lui-même par défaut.</p>
+  </details>
+
+  <details>
+    <summary>Quels formats LycanZip peut-il ouvrir et créer ?</summary>
+    <p><strong>Ouvrir :</strong> tout ce que 7-Zip lit : zip, 7z, rar (y compris fractionné), tar, gz, xz, bz2, iso, cab, wim et d’autres. <strong>Créer :</strong> zip, 7z, tar, tar.gz, tar.xz, tar.bz2, iso. RAR ne peut être qu’extrait : les programmes qui utilisent le code de 7-Zip ne peuvent pas écrire le format RAR.</p>
+  </details>
+
+  <details>
+    <summary>Les noms de fichiers d’un ancien zip sont illisibles.</summary>
+    <p>LycanZip détecte seul Big5, GBK, Shift-JIS, EUC-KR et UTF-8. S’il s’est trompé, choisissez l’encodage avec le bouton en haut à droite de la vue de l’archive.</p>
+  </details>
+
+  <details>
+    <summary>Mon mot de passe est-il en sécurité ? Un mot de passe perdu peut-il être récupéré ?</summary>
+    <p>zip utilise <strong>AES-256</strong> par défaut, et 7z peut aussi chiffrer les noms de fichiers. LycanZip n’envoie jamais de mots de passe et n’en enregistre un que si vous le demandez : ceux enregistrés sont chiffrés pour votre compte Windows, avec un mot de passe principal facultatif. <strong>Un mot de passe perdu ne peut pas être récupéré.</strong></p>
+  </details>
+
+  <details>
+    <summary>LycanZip envoie-t-il quelque chose sur Internet ?</summary>
+    <p>Rien sur vous ni sur vos fichiers. Voir la <a href="../../fr/privacy/">politique de confidentialité</a>.</p>
+  </details>
+
+  <details>
+    <summary>Que fait « Rechercher sur VirusTotal » ? Le fichier est-il envoyé ?</summary>
+    <p><strong>Seul le SHA-256 est envoyé</strong>, dans l’adresse web, et la page VirusTotal de ce hachage s’ouvre dans votre navigateur. Le fichier n’est jamais envoyé. Si VirusTotal ne connaît pas le hachage, cela signifie seulement que personne n’a envoyé ce fichier précis : cela ne signifie pas qu’il est sûr.</p>
+  </details>
+
+  <details>
+    <summary>Quelque chose ne fonctionne pas. Où le signaler ?</summary>
+    <p>Ouvrez un issue sur <a href="https://github.com/Aegisulf/LycanZip/issues">GitHub</a> et ajoutez la sortie de <code>lycanzip-cli info</code> (version, emplacement des paramètres, dossier des journaux).</p>
+  </details>
+</div>
+
+</main>
+<footer class="site-footer"><div class="wrap">
+<p>LycanZip est un logiciel libre sous licence MIT. Il utilise le moteur 7-Zip (GNU LGPL avec la restriction unRAR) ; il n’est ni conçu ni approuvé par les auteurs de 7-Zip. <a href="../../fr/license/">Licences</a></p>
+<p>© Aegisulf · <a href="../../fr/privacy/">Confidentialité</a> · <a href="https://github.com/Aegisulf/LycanZip/issues">Signaler un problème</a> · <a href="https://ko-fi.com/aegisulf_lycan">Soutenir sur Ko-fi</a></p>
+</div></footer>
+<script>
+document.addEventListener("click", function (e) {
+  var a = e.target.closest && e.target.closest("[data-lang]");
+  if (a) { try { localStorage.setItem("lycanzip-lang", a.getAttribute("data-lang")); } catch (x) {} }
+});
+</script>
+</body>
+</html>
