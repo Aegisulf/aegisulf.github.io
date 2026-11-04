@@ -20,7 +20,7 @@
   <p class="sub">最後更新：2026-11-04。適用於 Android 與 Windows 版的 LycanBuff App 以及本網站。若本中文版與英文版有出入，以英文版為準。</p>
 
   <h2>摘要</h2>
-  <p>LycanBuff 不收集、不出售、不分享任何個人資料。開發者沒有伺服器，不會收到你的資料。App 沒有廣告、分析、追蹤，也沒有當機回報服務，完全可以離線使用。登入是選用的，只用來把備份存到你自己的 Google 雲端硬碟。</p>
+  <p>LycanBuff 不收集、不出售、不分享任何個人資料。開發者沒有伺服器，不會收到你的資料。App 沒有廣告、分析、追蹤，也沒有當機回報服務，完全可以離線使用。登入是選用的，只用來把備份存到你自己的 Google 雲端硬碟或 Microsoft OneDrive。</p>
 
   <h2>留在你裝置上的資料</h2>
   <ul>
@@ -40,13 +40,21 @@
   </ul>
   <p>LycanBuff 對於從 Google API 取得之資訊的使用與轉移，遵守 <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API 服務使用者資料政策</a>，包括其中的「有限使用」規定。</p>
   <p><strong>停止使用</strong>：在 App 設定中選擇「登出」，會刪除裝置上的權杖並撤銷 App 的存取權。你也可以在 <a href="https://myaccount.google.com/connections">myaccount.google.com/connections</a> 移除 LycanBuff。要刪除備份，請刪除你 Google 雲端硬碟中的 <em>LycanBuff</em> 資料夾。</p>
-  <p>Microsoft OneDrive 備份正在規劃中；推出之前會先在本政策中說明。</p>
+  <h2>Microsoft OneDrive 備份（選用）</h2>
+  <p>只有在你選擇「備份到 OneDrive」並以 Microsoft 帳號登入後，LycanBuff 才會使用你的 Microsoft 帳號，方式如下。同一時間只會登入一個雲端硬碟。</p>
+  <ul>
+    <li><strong>存取的資料</strong>：你的帳號名稱與電子郵件地址（用來顯示連結的是哪個帳號），以及你 OneDrive 中 App 專屬的資料夾（<em>Apps/LycanBuff</em>，<code>Files.ReadWrite.AppFolder</code> 權限）。App 看不到、也無法開啟你 OneDrive 中的其他任何檔案。</li>
+    <li><strong>使用方式</strong>：與上述 Google 雲端硬碟相同：把備份檔上傳到這個資料夾，還原時列出並下載備份，並刪除最舊的備份，只保留最新的 10 份。</li>
+    <li><strong>儲存方式</strong>：備份存在你自己的 OneDrive；登入用的權杖只存在你的裝置上，放在系統的安全儲存區，不會傳給開發者。</li>
+    <li><strong>分享</strong>：資料不會分享給任何人。App 只連線到 Microsoft 自己的服務（<code>login.microsoftonline.com</code>、<code>graph.microsoft.com</code>，以及下載用的 <code>my.microsoftpersonalcontent.com</code>）。</li>
+  </ul>
+  <p><strong>停止使用</strong>：在 App 設定中選擇「登出」會刪除裝置上的權杖；並請到 <a href="https://account.live.com/consent/Manage">account.live.com/consent/Manage</a> 移除 LycanBuff。要刪除備份，請刪除你 OneDrive 中的 <em>Apps/LycanBuff</em> 資料夾。</p>
 
   <h2>權限</h2>
   <ul>
     <li><strong>通知與鬧鐘</strong>（Android）：用於休息計時的提醒。</li>
     <li><strong>保持螢幕開啟</strong>：訓練進行中，且你沒有關閉這個設定時。</li>
-    <li><strong>網際網路</strong>：只用於上述的 Google 雲端硬碟備份。</li>
+    <li><strong>網際網路</strong>：只用於上述的 Google 雲端硬碟或 OneDrive 備份。</li>
   </ul>
 
   <h2>本網站</h2>
