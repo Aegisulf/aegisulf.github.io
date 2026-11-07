@@ -16,15 +16,14 @@
   order: 6
   title: Graveforged
   accent: "#3fa9ff"
-  upcoming: true
   genre: Electronic, UK Hardcore, Chiptune, Full 3/4
   bpm: 180
   key: Em
-  duration: "2:21"
+  duration: "2:20"
   instrumental: true
   links:
-    spotify: {soon: 2026-11-06}    # Symphonic: all stores on release day
-    apple: {soon: 2026-11-06}
+    spotify: https://open.spotify.com/track/0PO5dn1VuLvPBtNaYvu9Ju
+    apple: https://music.apple.com/album/graveforged/6824670409?i=6824670410
     bandcamp: {soon: true}
 
 - slug: clan-guardian
