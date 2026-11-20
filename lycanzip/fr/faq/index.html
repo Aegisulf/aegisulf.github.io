@@ -68,12 +68,12 @@
 
   <details>
     <summary>Où sont les entrées dans le menu de l’Explorateur ?</summary>
-    <p>Activez-les dans LycanZip, sous <em>Paramètres → Explorateur de fichiers</em>. Sous Windows 10, elles sont dans le menu contextuel. Sous Windows 11, les versions installée et zip les affichent sous <em>Afficher d’autres options</em> (ou <kbd>Shift</kbd>+<kbd>F10</kbd>) ; seule la <strong>version Store</strong> les affiche dans le nouveau menu principal. Chaque entrée peut être désactivée. Il existe aussi un menu au glisser avec le bouton droit.</p>
+    <p>Activez-les dans LycanZip, sous <em>Paramètres → Explorateur de fichiers</em>. Sous Windows 10, elles sont dans le menu contextuel. Sous Windows 11, la <strong>version Store</strong> les affiche dans le nouveau menu principal ; les versions installée et zip les affichent sous <em>Afficher d’autres options</em> (ou <kbd>Shift</kbd>+<kbd>F10</kbd>) et peuvent aussi les afficher dans le nouveau menu (voir la question suivante). Chaque entrée peut être désactivée. Il existe aussi un menu au glisser avec le bouton droit.</p>
   </details>
 
   <details>
-    <summary>Pourquoi le nouveau menu de Windows 11 n’est-il que dans la version Store ?</summary>
-    <p>Windows 11 ne permet qu’à un <strong>package signé</strong> d’ajouter des entrées à son nouveau menu principal. Seule la version Store est signée (par le Store lui-même) ; les versions installée et zip ne le sont pas, car un certificat de signature de code est payant et LycanZip est gratuit. Elles utilisent le menu classique, avec les mêmes entrées.</p>
+    <summary>Les versions installée et zip peuvent-elles utiliser le nouveau menu de Windows 11 ?</summary>
+    <p>Oui, depuis la version 1.2. Windows 11 ne permet qu’à un <strong>package signé</strong> d’ajouter des entrées à son nouveau menu principal. La version Store est signée par le Store. Un certificat de signature de code d’une autorité est payant et LycanZip est gratuit : les versions installée et zip apportent donc un petit package de menu signé avec le <strong>certificat propre de LycanZip</strong>. Quand vous activez le menu de Windows 11 dans <em>Paramètres → Explorateur de fichiers</em>, LycanZip l’explique d’abord ; Windows demande ensuite une fois les droits d’administrateur pour que ce PC fasse confiance au certificat, ce qui veut dire que Windows accepte les packages signés avec lui. Si vous préférez ne pas le faire, gardez le menu classique, avec les mêmes entrées. Désactiver le menu ne supprime pas le certificat ; vous pouvez le supprimer dans <em>certlm.msc</em>, sous « Personnes autorisées ».</p>
   </details>
 
   <details>

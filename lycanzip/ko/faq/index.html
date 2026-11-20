@@ -68,12 +68,12 @@
 
   <details>
     <summary>탐색기 메뉴 항목은 어디에 있나요?</summary>
-    <p>LycanZip의 <em>설정 → 파일 탐색기</em>에서 켭니다. Windows 10에서는 오른쪽 클릭 메뉴에 표시됩니다. Windows 11에서는 설치 프로그램과 zip 버전이 <em>더 많은 옵션 표시</em>(또는 <kbd>Shift</kbd>+<kbd>F10</kbd>) 안에 표시되며, 새 최상위 메뉴에는 <strong>Store 버전</strong>만 표시됩니다. 항목은 각각 끌 수 있습니다. 오른쪽 끌기 메뉴도 있습니다.</p>
+    <p>LycanZip의 <em>설정 → 파일 탐색기</em>에서 켭니다. Windows 10에서는 오른쪽 클릭 메뉴에 표시됩니다. Windows 11에서는 <strong>Store 버전</strong>이 새 최상위 메뉴에 표시하고, 설치 프로그램과 zip 버전은 <em>더 많은 옵션 표시</em>(또는 <kbd>Shift</kbd>+<kbd>F10</kbd>) 안에 표시하며 새 메뉴에 표시할 수도 있습니다(다음 질문 참조). 항목은 각각 끌 수 있습니다. 오른쪽 끌기 메뉴도 있습니다.</p>
   </details>
 
   <details>
-    <summary>새 Windows 11 메뉴가 왜 Store 버전에만 있나요?</summary>
-    <p>Windows 11은 새 최상위 메뉴에 항목을 추가하는 것을 <strong>서명된 패키지</strong>에만 허용합니다. 서명된 것은 Store 버전뿐(Store가 직접 서명)입니다. 코드 서명 인증서는 유료이고 LycanZip은 무료이므로 설치 프로그램과 zip 버전에는 서명이 없습니다. 이들은 같은 항목을 기존 메뉴에서 제공합니다.</p>
+    <summary>설치 프로그램과 zip 버전에서도 새 Windows 11 메뉴를 쓸 수 있나요?</summary>
+    <p>네, 버전 1.2부터 가능합니다. Windows 11은 새 최상위 메뉴에 항목을 추가하는 것을 <strong>서명된 패키지</strong>에만 허용합니다. Store 버전은 Store가 서명합니다. 인증 기관의 코드 서명 인증서는 유료이고 LycanZip은 무료이므로, 설치 프로그램과 zip 버전에는 <strong>LycanZip 자체 인증서</strong>로 서명한 작은 메뉴 패키지가 들어 있습니다. <em>설정 → 파일 탐색기</em>에서 Windows 11 메뉴를 켜면 LycanZip이 먼저 설명하고, 이어서 Windows가 이 PC가 그 인증서를 신뢰하도록 관리자 권한을 한 번 요청합니다. 이는 그 인증서로 서명된 패키지를 Windows가 받아들인다는 뜻입니다. 원하지 않으면 기존 메뉴를 계속 사용하면 되며, 항목은 같습니다. 메뉴를 꺼도 인증서는 제거되지 않으며, <em>certlm.msc</em>의 “신뢰할 수 있는 사용자”에서 제거할 수 있습니다.</p>
   </details>
 
   <details>

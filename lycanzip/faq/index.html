@@ -88,12 +88,12 @@
 
   <details>
     <summary>Where are the entries in the Explorer menu?</summary>
-    <p>Switch them on in <em>Settings → File Explorer</em>. On Windows 10 they are in the right-click menu. On Windows 11 the installer and zip versions show them under <em>Show more options</em> (or <kbd>Shift</kbd>+<kbd>F10</kbd>); only the <strong>Store version</strong> shows them in the new top-level menu. Each entry can be switched off. There is a right-drag menu too.</p>
+    <p>Switch them on in <em>Settings → File Explorer</em>. On Windows 10 they are in the right-click menu. On Windows 11 the <strong>Store version</strong> shows them in the new top-level menu; the installer and zip versions show them under <em>Show more options</em> (or <kbd>Shift</kbd>+<kbd>F10</kbd>) and can show them in the new menu too (see the next question). Each entry can be switched off. There is a right-drag menu too.</p>
   </details>
 
   <details>
-    <summary>Why is the new Windows 11 menu only in the Store version?</summary>
-    <p>Windows 11 only lets a <strong>signed package</strong> add entries to its new top-level menu. Only the Store version is signed (by the Store itself); the installer and the zip versions are not, because a code-signing certificate costs money and LycanZip is free. They use the classic menu instead, with the same entries.</p>
+    <summary>Can the installer and zip versions use the new Windows 11 menu?</summary>
+    <p>Yes, from version 1.2. Windows 11 only lets a <strong>signed package</strong> add entries to its new top-level menu. The Store version is signed by the Store. A code-signing certificate from an authority costs money and LycanZip is free, so the installer and zip versions bring a small menu package signed with <strong>LycanZip’s own certificate</strong>. When you switch on the Windows 11 menu in <em>Settings → File Explorer</em>, LycanZip explains this first; then Windows asks once for administrator rights so that this PC trusts the certificate, which means Windows accepts packages signed with it. If you would rather not, keep the classic menu: it has the same entries. Switching the menu off does not remove the certificate; you can remove it under <em>Trusted People</em> in <em>certlm.msc</em>.</p>
   </details>
 
   <details>

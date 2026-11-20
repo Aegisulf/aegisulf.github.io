@@ -68,12 +68,12 @@
 
   <details>
     <summary>¿Dónde están las opciones en el menú del Explorador?</summary>
-    <p>Actívalas en la <em>Configuración</em> de LycanZip, en <em>Explorador de archivos</em>. En Windows 10 están en el menú contextual. En Windows 11, las versiones de instalador y zip las muestran en <em>Mostrar más opciones</em> (o <kbd>Shift</kbd>+<kbd>F10</kbd>); solo la <strong>versión de Store</strong> las muestra en el nuevo menú principal. Cada opción se puede desactivar. También hay un menú al arrastrar con el botón derecho.</p>
+    <p>Actívalas en la <em>Configuración</em> de LycanZip, en <em>Explorador de archivos</em>. En Windows 10 están en el menú contextual. En Windows 11, la <strong>versión de Store</strong> las muestra en el nuevo menú principal; las versiones de instalador y zip las muestran en <em>Mostrar más opciones</em> (o <kbd>Shift</kbd>+<kbd>F10</kbd>) y también pueden mostrarlas en el nuevo menú (ver la siguiente pregunta). Cada opción se puede desactivar. También hay un menú al arrastrar con el botón derecho.</p>
   </details>
 
   <details>
-    <summary>¿Por qué el nuevo menú de Windows 11 solo está en la versión de Store?</summary>
-    <p>Windows 11 solo permite a un <strong>paquete firmado</strong> agregar opciones a su nuevo menú principal. Solo la versión de Store está firmada (por la propia Store); las de instalador y zip no, porque un certificado de firma de código cuesta dinero y LycanZip es gratuito. Usan el menú clásico, con las mismas opciones.</p>
+    <summary>¿Pueden las versiones de instalador y zip usar el nuevo menú de Windows 11?</summary>
+    <p>Sí, desde la versión 1.2. Windows 11 solo permite a un <strong>paquete firmado</strong> agregar opciones a su nuevo menú principal. La versión de Store la firma la propia Store. Un certificado de firma de código de una entidad emisora cuesta dinero y LycanZip es gratuito, así que las versiones de instalador y zip incluyen un pequeño paquete de menú firmado con el <strong>certificado propio de LycanZip</strong>. Al activar el menú de Windows 11 en <em>Configuración → Explorador de archivos</em>, LycanZip lo explica primero; después Windows pide una vez permisos de administrador para que este equipo confíe en el certificado, lo que significa que Windows acepta los paquetes firmados con él. Si prefieres no hacerlo, sigue con el menú clásico, que tiene las mismas opciones. Desactivar el menú no quita el certificado; puedes quitarlo en <em>certlm.msc</em>, en «Personas de confianza».</p>
   </details>
 
   <details>

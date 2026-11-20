@@ -68,12 +68,12 @@
 
   <details>
     <summary>Wo sind die Einträge im Explorer-Menü?</summary>
-    <p>Schalten Sie sie in LycanZip unter <em>Einstellungen → Datei-Explorer</em> ein. Unter Windows 10 stehen sie im Kontextmenü. Unter Windows 11 zeigen die Installations- und Zip-Versionen sie unter <em>Weitere Optionen anzeigen</em> (oder <kbd>Shift</kbd>+<kbd>F10</kbd>); nur die <strong>Store-Version</strong> zeigt sie im neuen Hauptmenü. Jeder Eintrag lässt sich abschalten. Auch ein Menü beim Ziehen mit der rechten Maustaste gibt es.</p>
+    <p>Schalten Sie sie in LycanZip unter <em>Einstellungen → Datei-Explorer</em> ein. Unter Windows 10 stehen sie im Kontextmenü. Unter Windows 11 zeigt die <strong>Store-Version</strong> sie im neuen Hauptmenü; die Installations- und Zip-Versionen zeigen sie unter <em>Weitere Optionen anzeigen</em> (oder <kbd>Shift</kbd>+<kbd>F10</kbd>) und können sie ebenfalls ins neue Menü bringen (siehe nächste Frage). Jeder Eintrag lässt sich abschalten. Auch ein Menü beim Ziehen mit der rechten Maustaste gibt es.</p>
   </details>
 
   <details>
-    <summary>Warum gibt es das neue Windows-11-Menü nur in der Store-Version?</summary>
-    <p>Windows 11 erlaubt nur einem <strong>signierten Paket</strong>, Einträge im neuen Hauptmenü hinzuzufügen. Nur die Store-Version ist signiert (vom Store selbst); die Installations- und Zip-Versionen nicht, denn ein Codesignaturzertifikat kostet Geld und LycanZip ist kostenlos. Sie nutzen stattdessen das klassische Menü mit denselben Einträgen.</p>
+    <summary>Können die Installations- und Zip-Versionen das neue Windows-11-Menü nutzen?</summary>
+    <p>Ja, ab Version 1.2. Windows 11 erlaubt nur einem <strong>signierten Paket</strong>, Einträge im neuen Hauptmenü hinzuzufügen. Die Store-Version signiert der Store. Ein Codesignaturzertifikat einer Zertifizierungsstelle kostet Geld und LycanZip ist kostenlos, darum bringen die Installations- und Zip-Versionen ein kleines Menüpaket mit, das mit dem <strong>eigenen Zertifikat von LycanZip</strong> signiert ist. Wenn Sie das Windows-11-Menü unter <em>Einstellungen → Datei-Explorer</em> einschalten, erklärt LycanZip das zuerst; danach fragt Windows einmal nach Administratorrechten, damit dieser PC dem Zertifikat vertraut. Das heißt, Windows akzeptiert Pakete, die damit signiert sind. Wenn Sie das nicht möchten, bleiben Sie beim klassischen Menü mit denselben Einträgen. Das Ausschalten des Menüs entfernt das Zertifikat nicht; Sie können es in <em>certlm.msc</em> unter „Vertrauenswürdige Personen“ entfernen.</p>
   </details>
 
   <details>

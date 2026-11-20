@@ -68,12 +68,12 @@
 
   <details>
     <summary>资源管理器的菜单在哪里？</summary>
-    <p>在“设置 → 文件资源管理器”中开启。在 Windows 10 上，它们在右键菜单里。在 Windows 11 上，安装程序和 zip 版把它们放在“显示更多选项”里（或按 <kbd>Shift</kbd>+<kbd>F10</kbd>）；只有 <strong>Store 版</strong>会显示在新式的第一层菜单。每一项都可以关掉。另外还有按住右键拖拽的菜单。</p>
+    <p>在“设置 → 文件资源管理器”中开启。在 Windows 10 上，它们在右键菜单里。在 Windows 11 上，<strong>Store 版</strong>会显示在新式的第一层菜单；安装程序和 zip 版放在“显示更多选项”里（或按 <kbd>Shift</kbd>+<kbd>F10</kbd>），也可以改放到新式菜单（见下一题）。每一项都可以关掉。另外还有按住右键拖拽的菜单。</p>
   </details>
 
   <details>
-    <summary>为什么 Windows 11 新式菜单只有 Store 版有？</summary>
-    <p>Windows 11 只让<strong>签名过的安装包</strong>把项目加进新式的第一层菜单。只有 Store 版有签名（由 Store 签），安装程序和 zip 版没有，因为代码签名证书要花钱，而 LycanZip 是免费的。它们改用传统菜单，项目相同。</p>
+    <summary>安装程序和 zip 版能用 Windows 11 新式菜单吗？</summary>
+    <p>可以，从 1.2 版开始。Windows 11 只让<strong>签名过的安装包</strong>把项目加进新式的第一层菜单。Store 版由 Store 签名。向证书机构购买代码签名证书要花钱，而 LycanZip 是免费的，所以安装程序和 zip 版附带一个用 <strong>LycanZip 自己的证书</strong>签名的小型菜单包。在“设置 → 文件资源管理器”中开启 Windows 11 菜单时，LycanZip 会先说明；然后 Windows 会要求一次管理员权限，让这台电脑信任这张证书，也就是 Windows 会接受用它签名的安装包。如果不想这样做，继续使用传统菜单即可，项目相同。关闭菜单不会移除证书；可以在 <em>certlm.msc</em> 的“受信任人”中移除。</p>
   </details>
 
   <details>

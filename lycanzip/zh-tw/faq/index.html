@@ -68,12 +68,12 @@
 
   <details>
     <summary>檔案總管的選單在哪裡？</summary>
-    <p>在「設定 → 檔案總管」開啟。在 Windows 10 上，它們在右鍵選單裡。在 Windows 11 上，安裝程式與 zip 版把它們放在「顯示更多選項」裡（或按 <kbd>Shift</kbd>+<kbd>F10</kbd>）；只有 <strong>Store 版</strong>會顯示在新式的第一層選單。每個項目都可以關掉。另外還有按住右鍵拖曳的選單。</p>
+    <p>在「設定 → 檔案總管」開啟。在 Windows 10 上，它們在右鍵選單裡。在 Windows 11 上，<strong>Store 版</strong>會顯示在新式的第一層選單；安裝程式與 zip 版放在「顯示更多選項」裡（或按 <kbd>Shift</kbd>+<kbd>F10</kbd>），也可以改放到新式選單（見下一題）。每個項目都可以關掉。另外還有按住右鍵拖曳的選單。</p>
   </details>
 
   <details>
-    <summary>為什麼 Windows 11 新式選單只有 Store 版有？</summary>
-    <p>Windows 11 只讓<strong>簽章過的套件</strong>把項目加進新式的第一層選單。只有 Store 版有簽章（由 Store 簽），安裝程式與 zip 版沒有，因為程式碼簽章憑證要花錢，而 LycanZip 是免費的。它們改用傳統選單，項目相同。</p>
+    <summary>安裝程式與 zip 版能用 Windows 11 新式選單嗎？</summary>
+    <p>可以，從 1.2 版開始。Windows 11 只讓<strong>簽章過的套件</strong>把項目加進新式的第一層選單。Store 版由 Store 簽章。向憑證機構購買程式碼簽章憑證要花錢，而 LycanZip 是免費的，所以安裝程式與 zip 版附了一個用 <strong>LycanZip 自己的憑證</strong>簽章的小型選單套件。在「設定 → 檔案總管」開啟 Windows 11 選單時，LycanZip 會先說明；接著 Windows 會要求一次系統管理員權限，讓這台電腦信任這張憑證，意思是 Windows 會接受用它簽章的套件。如果不想這麼做，繼續用傳統選單即可，項目相同。關掉選單不會移除憑證；可以在 <em>certlm.msc</em> 的「受信任的人」裡移除。</p>
   </details>
 
   <details>
